@@ -43,7 +43,7 @@
 
     <section id="upcoming-meeting">
         <h2>Upcoming Meeting</h2>
-        <p><strong>Date:</strong> [Next Meeting Date]</p>
+        <p><strong>Date:</strong> <span id="next-meeting-date">[Next Meeting Date]</span></p>
         <p><strong>Time:</strong> 10:30 AM</p>
         <p><strong>Presenter:</strong> [Name]</p>
         <p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p>
@@ -80,9 +80,21 @@
     </table>
     </section>
     
-
     <footer>
         <p>Contact us at dh5243@khu.ac.kr for more information or to join our journal club.</p>
     </footer>
+
+    <script>
+        function getNextFridayDate() {
+            const today = new Date();
+            const nextFriday = new Date(today);
+            nextFriday.setDate(today.getDate() + (5 - today.getDay() + 7) % 7 || 7); // Calculate next Friday
+            nextFriday.setHours(10, 30, 0); // Set time to 10:30 AM
+            return nextFriday.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + ' at 10:30 AM';
+        }
+
+        document.getElementById('next-meeting-date').textContent = getNextFridayDate();
+    </script>
+    
 </body>
 </html>
