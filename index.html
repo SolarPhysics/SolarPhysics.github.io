@@ -101,26 +101,23 @@
 
         let foundUpcoming = false;
 
-        // Iterate through the meetings array in reverse to handle past meetings in descending order
-        for (let i = meetings.length - 1; i >= 0; i--) {
-            const meeting = meetings[i];
+        meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date + 'T10:30:00'); // Assuming meetings are at 10:30 AM
+            const row = document.createElement('tr');
             const formattedDate = meetingDate.toLocaleDateString('ko-KR', {
                 year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
             });
 
             if (meetingDate < today) {
-                // Populate past meetings in descending order
-                const row = document.createElement('tr');
+                // Populate past meetings
                 row.innerHTML = `<td>${formattedDate}</td><td>10:30 AM</td><td>${meeting.presenter}</td><td><a href="[Link to Paper]">Article</a></td><td><a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>`;
                 pastMeetingsTableBody.appendChild(row);
             } else if (!foundUpcoming) {
                 // Update upcoming meeting section
                 upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p><strong>Date:</strong> ${formattedDate}</p><p><strong>Time:</strong> 10:30 AM</p><p><strong>Presenter:</strong> ${meeting.presenter}</p><p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p><p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>`;
                 foundUpcoming = true; // Mark that we've found and displayed the upcoming meeting
-                break; // Stop the loop after finding the next upcoming meeting
             }
-        }
+        });
 
         if (!foundUpcoming) { // In case there are no more upcoming meetings
             upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>`;
@@ -129,6 +126,7 @@
 
     updateMeetings();
 </script>
+
 
 
 
