@@ -93,6 +93,23 @@
         { date: '2024-04-05', presenter: '박경선' }
     ];
 
+<script>
+    const meetings = [
+        { date: '2024-01-12', presenter: '이시백' },
+        { date: '2024-01-19', presenter: '안준모' },
+        { date: '2024-01-26', presenter: '강지혜' },
+        { date: '2024-02-02', presenter: '손동희' },
+        // Skipping '2024-02-09' for 설날 - No meeting
+        { date: '2024-02-16', presenter: '장연우' },
+        { date: '2024-02-23', presenter: '이환희' },
+        // Skipping '2024-03-01' for 삼일절 - No meeting
+        { date: '2024-03-08', presenter: '강영민' },
+        { date: '2024-03-15', presenter: '전민규' },
+        { date: '2024-03-22', presenter: '정현진' },
+        { date: '2024-03-29', presenter: '박성홍' },
+        { date: '2024-04-05', presenter: '박경선' }
+    ];
+
     function updateMeetings() {
         const today = new Date();
         const upcomingSection = document.getElementById('upcoming-meeting');
@@ -101,23 +118,26 @@
 
         let foundUpcoming = false;
 
-        meetings.forEach(meeting => {
+        // Iterate through the meetings array in reverse to handle past meetings in descending order
+        for (let i = meetings.length - 1; i >= 0; i--) {
+            const meeting = meetings[i];
             const meetingDate = new Date(meeting.date + 'T10:30:00'); // Assuming meetings are at 10:30 AM
-            const row = document.createElement('tr');
             const formattedDate = meetingDate.toLocaleDateString('ko-KR', {
                 year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
             });
 
             if (meetingDate < today) {
-                // Populate past meetings
+                // Populate past meetings in descending order
+                const row = document.createElement('tr');
                 row.innerHTML = `<td>${formattedDate}</td><td>10:30 AM</td><td>${meeting.presenter}</td><td><a href="[Link to Paper]">Article</a></td><td><a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>`;
                 pastMeetingsTableBody.appendChild(row);
             } else if (!foundUpcoming) {
                 // Update upcoming meeting section
                 upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p><strong>Date:</strong> ${formattedDate}</p><p><strong>Time:</strong> 10:30 AM</p><p><strong>Presenter:</strong> ${meeting.presenter}</p><p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p><p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>`;
                 foundUpcoming = true; // Mark that we've found and displayed the upcoming meeting
+                break; // Stop the loop after finding the next upcoming meeting
             }
-        });
+        }
 
         if (!foundUpcoming) { // In case there are no more upcoming meetings
             upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>`;
@@ -126,6 +146,7 @@
 
     updateMeetings();
 </script>
+
 
 
 
