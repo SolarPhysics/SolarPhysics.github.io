@@ -4,50 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Club for Solar Physics</title>
-<style>
-    body {
-        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-        color: #333; /* Switching to a darker color for better readability */
-        line-height: 1.5;
-        margin: 0;
-        padding: 20px;
-    }
-    h1, h2, p, a {
-        margin-bottom: 1em;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+    <style>
+        body {
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #333; /* Switching to a darker color for better readability */
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, p, a {
+            margin-bottom: 1em;
+        }
+    
+        h1 {
+            font-size: 48px;
+            margin-bottom: 0.4em;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2em; /* Increase spacing above the table */
+        }
+    
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+    
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+        }
+    
+        /* Increased spacing for headers */
+        #headers {
+            margin-bottom: 3em; /* Increased space below the header */
+        }
 
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    /* New styles for Upcoming Meeting section */
-    #upcoming-meeting h2 {
-        font-size: 32px; /* Increase the font size of the title */
-    }
-
-    #upcoming-meeting p {
-        font-size: 24px; /* Increase the font size of the content */
-    }
-</style>
+        #headers p {
+            font-size: 20px; /* Adjusted font size */
+        }
+    
+        /* Adjusted styles for Upcoming Meeting section */
+        #upcoming-meeting {
+            margin-bottom: 3em; /* Increased space below the Upcoming Meeting section */
+        }
+    
+        #upcoming-meeting h2 {
+            font-size: 32px; /* Adjusted font size */
+        }
+    
+        #upcoming-meeting p {
+            font-size: 24px; /* Adjusted font size */
+        }
+    
+        /* Adjustments for Past Meetings section to distinguish from Upcoming Meeting */
+        #past-meetings h2 {
+            font-size: 28px; /* Slightly smaller than Upcoming Meeting for emphasis */
+        }
+    
+        #past-meetings p, #past-meetings td {
+            font-size: 20px; /* Consistent font size for Past Meetings content */
+        }
+    </style>
 
 </head>
 <body>
-    <header>
-        <h1>Journal Club for Solar Physics</h1>
-        <p>Welcome to our Journal Club! We discuss the latest in solar physics every Friday at 10:30 AM via Zoom.</p>
+    <header id="headers">
+        <h1>Solar Physics Journal Club <span style="font-size: 0.5em; color: rgb(0, 68, 255); font-family: Arial;  font-style: italic;">at KyungHee University</span> </h1>
+            
+        <p>Welcome to our Journal Club! <br/>
+            We discuss the latest in solar physics.</p>
     </header>
 
     <section id="upcoming-meeting">
@@ -57,7 +88,10 @@
         <p><strong>Presenter:</strong> [Name]</p>
         <p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p>
         <p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>
+        
+        
     </section>
+    <br/>
 
     <section id="past-meetings">
     <h2>Past Meetings</h2>
