@@ -96,43 +96,50 @@
         document.getElementById('next-meeting-date').textContent = getNextFridayDate();
     </script>
 
-    <script>
-    // Function to generate past meetings starting from a specific date
+<script>
     function generatePastMeetings(startDate) {
         const start = new Date(startDate);
         const today = new Date();
-        let currentDate = new Date(start.getTime());
-        const tbody = document.querySelector('#past-meetings table tbody');
+        let currentDate = start;
+        const rows = []; // Array to hold the generated rows
 
         while (currentDate <= today) {
-            
             // Formatting the date
             const options = { 
                 month: 'short', day: 'numeric', year: 'numeric'
             };
             const formattedDate = currentDate.toLocaleDateString('en-US', options);
             
-            // Creating a new row for each meeting
-            const row = document.createElement('tr');
-                row.innerHTML = `
-                <td>${formattedDate}</td>
-                <td>10:30 AM</td>
-                <td>[Name]</td>
-                <td><a href="[Link to Paper]">[Article]</a></td>
-                <td><a href="https://khu-ac.zoom.us/rec/share/2xTRMsXAdik--HZRvTdHGkKj_oUER8Xx8O8y7EmIrDlDpOqgnnSBB7-6TUsGDqU-.8fwzx1fUAr1HJsuH">Video</a> | <a href="[Link to Slides]">PPT</a></td>
+            // Creating a row for each meeting
+            const row = `
+                <tr>
+                    <td>${formattedDate}</td>
+                    <td>10:30 AM</td>
+                    <td>[Name]</td>
+                    <td><a href="[Link to Paper]">[Article]</a></td>
+                    <td><a href="https://khu-ac.zoom.us/rec/share/2xTRMsXAdik--HZRvTdHGkKj_oUER8Xx8O8y7EmIrDlDpOqgnnSBB7-6TUsGDqU-.8fwzx1fUAr1HJsuH">Video</a> | <a href="[Link to Slides]">PPT</a></td>
+                </tr>
             `;
 
-            // Adding the row to the table body
-            tbody.appendChild(row);
+            // Adding the row to the rows array
+            rows.push(row);
 
             // Move to the next Friday
             currentDate.setDate(currentDate.getDate() + 7);
         }
+
+        // Get the table body element
+        const tbody = document.querySelector('#past-meetings table tbody');
+
+        // Append rows in reverse order to display the most recent meeting first
+        rows.reverse().forEach(row => {
+            tbody.innerHTML += row;
+        });
     }
 
-        // Initializing with your start date
-        generatePastMeetings('2024-01-12');
-    </script>
+    // Initializing with your start date
+    generatePastMeetings('2024-01-12');
+</script>
 
     
 </body>
