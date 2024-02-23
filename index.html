@@ -78,18 +78,18 @@
 <script>
     const meetings = [
         // Add 'article' property to each meeting. For past meetings, include the article title and link.
-        { date: '2024-01-12', presenter: '이시백', article: { title: 'Solar Dynamics and Magnetism', url: 'https://example.com/article1' }},
-        { date: '2024-01-19', presenter: '안준모', article: { title: 'The Heliosphere: Models and Observations', url: 'https://example.com/article2' }},
-        { date: '2024-01-26', presenter: '강지혜', article: { title: 'Coronal Mass Ejections: Causes and Effects', url: 'https://example.com/article3' }},
-        { date: '2024-02-02', presenter: '손동희', article: { title: 'Solar Flares: Predicting Solar Storms', url: 'https://example.com/article4' }},
+        { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'Solar Dynamics and Magnetism', url: 'https://example.com/article1' }},
+        { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Heliosphere: Models and Observations', url: 'https://example.com/article2' }},
+        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: Causes and Effects', url: 'https://example.com/article3' }},
+        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'Solar Flares: Predicting Solar Storms', url: 'https://example.com/article4' }},
         // Future meetings without article details yet are marked as TBD
-        { date: '2024-02-16', presenter: '장연우', article: 'TBD' },
-        { date: '2024-02-23', presenter: '이환희', article: 'TBD' },
-        { date: '2024-03-08', presenter: '강영민', article: 'TBD' },
-        { date: '2024-03-15', presenter: '전민규', article: 'TBD' },
-        { date: '2024-03-22', presenter: '정현진', article: 'TBD' },
-        { date: '2024-03-29', presenter: '박성홍', article: 'TBD' },
-        { date: '2024-04-05', presenter: '박경선', article: 'TBD' }
+        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: 'TBD' },
+        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: 'TBD' },
+        { date: '2024-03-08', presenter: 'Yeongmin Kang', article: 'TBD' },
+        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: 'TBD' },
+        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: 'TBD' },
+        { date: '2024-03-29', presenter: 'Sunghong Park', article: 'TBD' },
+        { date: '2024-04-05', presenter: 'Kyungsun Park', article: 'TBD' }
     ];
 
     function updateMeetings() {
@@ -104,7 +104,7 @@
         meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date + 'T10:30:00');
             const formattedDate = meetingDate.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
+                year: 'numeric', month: 'long', day: 'numeric'
             });
 
             let articleContent;
