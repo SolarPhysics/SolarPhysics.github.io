@@ -78,22 +78,28 @@
     <script>
         function getNextFridayDate() {
             const today = new Date();
-            const nextFriday = new Date(today);
-            nextFriday.setDate(today.getDate() + (5 - today.getDay() + 7) % 7 || 7); // Calculate next Friday
+            const nextFriday = new Date();
+            // Calculate the days until the next Friday
+            const daysUntilNextFriday = (7 - today.getDay() + 5) % 7;
+            // If today is Friday, set nextFriday to the next week's Friday
+            const daysToAdd = daysUntilNextFriday === 0 ? 7 : daysUntilNextFriday;
+            nextFriday.setDate(today.getDate() + daysToAdd);
             nextFriday.setHours(10, 30, 0); // Set time to 10:30 AM
-                   // Options to format the date as "Feb 19 (Fri), 2024"
-            const options = { 
+        
+            // Options to format the date as "Feb 19 (Fri), 2024"
+            const options = {
                 month: 'short', day: 'numeric', weekday: 'short', year: 'numeric'
             };
-            
+        
             // Formatting the date
             const formattedDate = nextFriday.toLocaleDateString('en-US', options);
-    
+        
             // Return formatted date string with time
             return `${formattedDate} at 10:30 AM`;
         }
-
+        
         document.getElementById('next-meeting-date').textContent = getNextFridayDate();
+
     </script>
 
 <script>
