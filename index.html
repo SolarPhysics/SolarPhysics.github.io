@@ -114,13 +114,16 @@
         const tbody = document.querySelector('#past-meetings table tbody');
 
         while (currentDate <= today) {
-            // Korean date formatting
-            const options = { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long' };
-            const formattedDate = currentDate.toLocaleDateString('ko-KR', options).replace('.', '년').replace('.', '월') + '일';
-
+            
+            // Formatting the date
+            const options = { 
+                month: 'short', day: 'numeric', weekday: 'short', year: 'numeric'
+            };
+            const formattedDate = currentDate.toLocaleDateString('en-US', options);
+            
             // Creating a new row for each meeting
             const row = document.createElement('tr');
-            row.innerHTML = `
+                row.innerHTML = `
                 <td>${formattedDate}</td>
                 <td>10:30 AM</td>
                 <td>[Name]</td>
