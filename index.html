@@ -76,7 +76,6 @@
     </footer>
 
 <script>
-    // Define the full schedule of meetings, including presenter names
     const meetings = [
         { date: '2024-01-12', presenter: '이시백' },
         { date: '2024-01-19', presenter: '안준모' },
@@ -100,24 +99,37 @@
         pastMeetingsTableBody.innerHTML = ''; // Clear existing rows
 
         let foundUpcoming = false;
+        let pastMeetingsContent = "";
 
         meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date + 'T10:30:00'); // Assuming meetings are at 10:30 AM
-            const row = document.createElement('tr');
             const formattedDate = meetingDate.toLocaleDateString('ko-KR', {
-                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
+                year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
             });
 
-            if (meetingDate < today) {
-                // Populate past meetings
-                row.innerHTML = `<td>${formattedDate}</td><td>10:30 AM</td><td>${meeting.presenter}</td><td><a href="[Link to Paper]">Article</a></td><td><a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>`;
-                pastMeetingsTableBody.appendChild(row);
-            } else if (!foundUpcoming) {
-                // Update upcoming meeting section
-                upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p><strong>Date:</strong> ${formattedDate}</p><p><strong>Time:</strong> 10:30 AM</p><p><strong>Presenter:</strong> ${meeting.presenter}</p><p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p><p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>`;
-                foundUpcoming = true; // Mark that we've found and displayed the upcoming meeting
+            if (meetingDate >= today && !foundUpcoming) {
+                // Update upcoming meeting section for the next scheduled meeting
+                upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2>
+                                             <p><strong>Date:</strong> ${formattedDate}</p>
+                                             <p><strong>Time:</strong> 10:30 AM</p>
+                                             <p><strong>Presenter:</strong> ${meeting.presenter}</p>
+                                             <p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p>
+                                             <p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>`;
+                foundUpcoming = true;
+            } else if (meetingDate < today) {
+                // Collect past meetings in descending order
+                pastMeetingsContent = `<tr>
+                    <td>${formattedDate}</td>
+                    <td>10:30 AM</td>
+                    <td>${meeting.presenter}</td>
+                    <td><a href="[Link to Paper]">[Article]</a></td>
+                    <td><a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>
+                </tr>` + pastMeetingsContent; // Prepend to keep the most recent at the top
             }
         });
+
+        // Add past meetings content in descending order
+        pastMeetingsTableBody.innerHTML = pastMeetingsContent;
 
         if (!foundUpcoming) { // In case there are no more upcoming meetings
             upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>`;
@@ -126,6 +138,7 @@
 
     updateMeetings();
 </script>
+
 
 
 
