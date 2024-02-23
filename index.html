@@ -103,7 +103,7 @@
 
         meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date + 'T10:30:00');
-            const formattedDate = meetingDate.toLocaleDateString('ko-KR', {
+            const formattedDate = meetingDate.toLocaleDateString('en-US', {
                 year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
             });
 
