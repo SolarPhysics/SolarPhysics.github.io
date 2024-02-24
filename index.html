@@ -4,197 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Club for Solar Physics</title>
-    <style>
-        body {
-            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-            color: #333; /* Switching to a darker color for better readability */
-            line-height: 1.5;
-            margin: 0;
-            padding: 20px;
-        }
-        h1, h2, p, a {
-            margin-bottom: 1em;
-        }
-    
-        h1 {
-            font-size: 48px;
-            margin-bottom: 0.4em;
-        }
-    
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2em; /* Increase spacing above the table */
-        }
-    
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-    
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-    
-        th {
-            background-color: #f2f2f2;
-        }
-    
-        /* Increased spacing for headers */
-        #headers {
-            margin-bottom: 3em; /* Increased space below the header */
-        }
+    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-        #headers p {
-            font-size: 20px; /* Adjusted font size */
-        }
-    
-        /* Adjusted styles for Upcoming Meeting section */
-        #upcoming-meeting {
-            margin-bottom: 3em; /* Increased space below the Upcoming Meeting section */
-        }
-    
-        #upcoming-meeting h2 {
-            font-size: 32px; /* Adjusted font size */
-        }
-    
-        #upcoming-meeting p {
-            font-size: 24px; /* Adjusted font size */
-        }
-    
-        /* Adjustments for Past Meetings section to distinguish from Upcoming Meeting */
-        #past-meetings h2 {
-            font-size: 28px; /* Slightly smaller than Upcoming Meeting for emphasis */
-        }
-    
-        #past-meetings p, #past-meetings td {
-            font-size: 20px; /* Consistent font size for Past Meetings content */
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
+    <script src="meetings.js"></script>
 </head>
 <body>
-    <header id="headers">
-        <h1>Solar Physics Journal Club <span style="font-size: 0.5em; color: rgb(0, 68, 255); font-family: Arial;  font-style: italic;">at KyungHee University</span> </h1>
-            
-        <p>Welcome to our Journal Club! <br/>
-            We discuss the latest in solar physics.</p>
+    <!-- <section class="header-first">
+
+    </section> -->
+   
+    <header class="header-container">
+        <!-- <img src="movingSun.gif" alt="Rotation of the SunF"> -->
+        <div class="header-p1">
+        <p>Welcome!</p>
+        </div>
+
+        <div class="header-h1">
+        <h1>Solar Physics Journal Club</h1>
+        </div>
+
+        <div class="header-h2">
+        <h2>School of Space Research</br>
+            KyungHee University, Republic of Korea</h2>
+        </div>
+        
     </header>
 
-    <section id="upcoming-meeting">
-        <h2>Upcoming Meeting</h2>
-        <p><strong>Date:</strong> <span id="next-meeting-date">[Next Meeting Date]</span></p>
-        <p><strong>Time:</strong> 10:30 AM</p>
-        <p><strong>Presenter:</strong> [Name]</p>
-        <p><strong>Article:</strong> <a href="[Paper URL]">Article</a></p>
-        <p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>
-        
-        
-    </section>
-    <br/>
+    </br>
+    </br>
 
-    <section id="past-meetings">
-    <h2>Past Meetings</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Presenter</th>
-                <th>Article</th>
-                <th>Materials</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
 
-            </tr>
-            <!-- Repeat <tr>...</tr> for each meeting -->
-        </tbody>
-    </table>
+    <div class="upcoming-meeting-container">
+        <section id="upcoming-meeting" class="container">
+            <!-- Upcoming meeting details will be injected here -->
+        </section>
+        <div class="meeting-image-placeholder">
+            <!-- Future image will go here -->
+        </div>
+    </div>
+    </br>
+
+    <section id="past-meetings" class="container">
+        <h2>Past Meetings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Presenter</th>
+                    <th>Article</th>
+                    <th>Materials</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Past meetings content will be dynamically generated here -->
+            </tbody>
+        </table>
     </section>
+
+    
+    <!-- Adding the full-width image here -->
+    <img src="KHAO.jpeg" alt="KHAO" style="width: 102%;">
     
     <footer>
         <p>Contact us at dh5243@khu.ac.kr for more information or to join our journal club.</p>
     </footer>
 
-<script>
-    const meetings = [
-        // Add 'article' property to each meeting. For past meetings, include the article title and link.
-        { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'Solar Dynamics and Magnetism', url: 'https://example.com/article1' }},
-        { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Heliosphere: Models and Observations', url: 'https://example.com/article2' }},
-        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: Causes and Effects', url: 'https://example.com/article3' }},
-        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'Solar Flares: Predicting Solar Storms', url: 'https://example.com/article4' }},
-        // Future meetings without article details yet are marked as TBD
-        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: 'TBD' },
-        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: 'TBD' },
-        { date: '2024-03-08', presenter: 'Yeongmin Kang', article: 'TBD' },
-        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: 'TBD' },
-        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: 'TBD' },
-        { date: '2024-03-29', presenter: 'Sunghong Park', article: 'TBD' },
-        { date: '2024-04-05', presenter: 'Kyungsun Park', article: 'TBD' }
-    ];
-
-    function updateMeetings() {
-        const today = new Date();
-        const upcomingSection = document.getElementById('upcoming-meeting');
-        const pastMeetingsTableBody = document.querySelector('#past-meetings tbody');
-        pastMeetingsTableBody.innerHTML = ''; // Clear existing rows
-
-        let foundUpcoming = false;
-        let pastMeetingsContent = "";
-
-        meetings.forEach(meeting => {
-            const meetingDate = new Date(meeting.date + 'T10:30:00');
-            const formattedDate = meetingDate.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-            });
-
-            let articleContent;
-            if (typeof meeting.article === 'string') {
-                articleContent = meeting.article; // Directly use the string (e.g., "TBD")
-            } else {
-                articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`; // Use link and title for past meetings
-            }
-
-            if (meetingDate >= today && !foundUpcoming) {
-                // Update upcoming meeting section for the next scheduled meeting
-                upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2>
-                                             <p><strong>Date:</strong> ${formattedDate}</p>
-                                             <p><strong>Time:</strong> 10:30 AM</p>
-                                             <p><strong>Presenter:</strong> ${meeting.presenter}</p>
-                                             <p><strong>Article:</strong> ${articleContent}</p>
-                                             <p><strong>Zoom Link:</strong> <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>`;
-                foundUpcoming = true;
-            } else if (meetingDate < today) {
-                // Collect past meetings in descending order
-                pastMeetingsContent = `<tr>
-                    <td>${formattedDate}</td>
-                    <td>10:30 AM</td>
-                    <td>${meeting.presenter}</td>
-                    <td>${articleContent}</td>
-                    <td><a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>
-                </tr>` + pastMeetingsContent; // Prepend to keep the most recent at the top
-            }
-        });
-
-        // Add past meetings content in descending order
-        pastMeetingsTableBody.innerHTML = pastMeetingsContent;
-
-        if (!foundUpcoming) {
-            upcomingSection.innerHTML = `<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>`;
-        }
-    }
-
-    updateMeetings();
-</script>
 
 
-
-
-
-
-
-    
+    <script src="js/meetings.js"></script>
 </body>
 </html>
