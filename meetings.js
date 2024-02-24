@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const meetings = [
-        { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'Solar Dynamics and Magnetism', url: 'https://example.com/article1' }},
-        { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Heliosphere: Models and Observations', url: 'https://example.com/article2' }},
-        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: Causes and Effects', url: 'https://example.com/article3' }},
-        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'Solar Flares: Predicting Solar Storms', url: 'https://example.com/article4' }},
-        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: 'TBD' },
-        // Future meetings without article details yet are marked as TBD
-        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: 'TBD' },
-        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: 'TBD' },
+        { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'The Thickness of Electric Current Sheets and Implications for Coronal Heating', url: 'https://arxiv.org/abs/2307.13825' }},
+        { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Variations in Finite-difference Potential Fields: Models and Observations', url: 'https://arxiv.org/abs/2102.05618' }},
+        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }},
+        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }},
+        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }},
+        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }},
         { date: '2024-03-08', presenter: 'Yeongmin Kang', article: 'TBD' },
+        // Future meetings without article details yet are marked as TBD
         { date: '2024-03-15', presenter: 'Mingyu Jeon', article: 'TBD' },
         { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: 'TBD' },
         { date: '2024-03-29', presenter: 'Sunghong Park', article: 'TBD' },
