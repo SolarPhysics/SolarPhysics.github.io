@@ -1,0 +1,295 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #fff; */
+    background-color: #ffffff;
+    color: #333;
+    line-height: 2;
+}
+
+
+header {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    /* background: #000; Changed background to black */
+    /* background: #0303038a; */
+    color: #fff; /* Adjusted text color to white for better contrast */
+    padding: 20px 0;
+    border-bottom: 5px solid #000000;
+}
+
+/* .header-first {
+    background-image: url('KHU.jpg'), url('KASI.png'); 
+    background-size: contain, contain;
+    background-position: center, right;
+    background-repeat: no-repeat, no-repeat;
+    /* max-width: 20%;
+    height: 30px;
+    width: 20%; 
+    margin: auto;
+} */
+
+.container {
+    max-width: 1100px;
+    /* max-width: max-content; */
+    /* background-color: #000; Outer color */
+    /* background-color: #000; Outer color */
+    /* background-color: #0303038a; Outer color */
+    width: 100%; /* Ensure it spans the full width */
+    margin: auto;
+    padding: 20px;
+    text-align: center; /* Center the text for smaller containers */
+}
+
+.header-container {
+    /* max-width: 1100px; */
+    background-image: url('movingSun.gif'); 
+    background-size: contain;
+    background-position: center;
+    max-width: 100%;
+    height: 300px; /* Example fixed height */
+    /* overflow: auto; Adds scrollbars if content overflows */
+    background-color: #000; /* Outer color */
+    color: #fff; /* Ensures text color contrasts well against the background */
+    width: 93.7%; /* Ensure it spans the full width */
+    margin: auto;
+    padding: 200px 60px; /* Increased top and bottom padding */
+    text-align: center; /* Center the text for smaller containers */
+}
+
+.header-h1 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800; 
+    /* font-size: 85px; */
+    /* margin-top: -120px;  */
+    font-size: 5.5vw; 
+    margin-top: 3vh;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* .header-container h1 {
+    /* font-family: 'Roboto', sans-serif; 
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800; 
+    font-size: 85px;
+    margin-top: -120px; 
+    font-size: 5.5vw; 
+    margin-top: -3vh;
+    text-transform: uppercase;
+} */
+
+.header-p1 p {
+    font-family: "Bad Script", cursive;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 4vw;
+    /* font-size: 70px; */
+    margin-top: 0vh;
+    margin-bottom: -6vh; 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* .header-container p {
+    font-family: "Bad Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+    margin-top: 0px;
+    margin-bottom: 90px;
+} */
+
+/* .header-container h1, .header-container p {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+} */
+
+.header-h2 h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200; /* Assuming you want it bold */
+    font-size: 2.5vw;
+    font-style: italic;
+    /* margin-top: 20px; */
+    /* margin-top: -1vh; */
+    color: #ffffffd7;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+ 
+/* .header-container h2 {
+    /* font-family: 'Roboto', sans-serif; 
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200; /* Assuming you want it bold 
+    font-size: 32px;
+    font-style: italic;
+    /* margin-top: 20px; 
+    margin-top: -1vh;
+    color: #ffffffd7;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+} */
+
+/* .header-container img {
+    width: 100%;
+    height: auto;
+} */
+
+/* header h1 {
+    text-transform: uppercase;
+    margin: auto;
+    font-size: 52px;
+}
+
+
+header p {
+    font-size: 36px;
+    color: #fff;
+    
+} */
+
+
+section {
+    padding: 20px 0;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+p, a {
+    font-size: 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    color: #333;
+}
+
+th {
+    /* background-color: #007bff; */
+    background-color: #333;
+    color: #ffffff
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: #eaeaea;
+    color: #333;
+    text-align: center;
+    width: 100%;
+    /* padding: 15px; */
+    padding: 2vh;
+    margin-top: 0px;
+
+}
+
+/* .upcoming-meeting-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+} */
+
+.upcoming-meeting-container, .past-meeting-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    /* background-color: #0303038a; */
+}
+
+#upcoming-meeting.container {
+    text-align: left; /* Explicitly aligns text to the left */
+    /* background-color: #ffffff96; */
+}
+
+#upcoming-meeting {
+    /* background-color: #ffffff; Light blue background for emphasis */
+    /* background-color: #ffffff96; */
+    padding: 20px;
+    margin-bottom: 20px; /* Keeps space between sections */
+    border-left: none; /* Removes the left border */
+    font-weight: bold; /* Make the font bold */
+}
+
+#upcoming-meeting h2 {
+    color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
+    font-size: 3.8vw; /* Adjusts the font size back to match other headings if desired */
+}
+
+#upcoming-meeting p {
+    color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
+    font-size: 25px; /* Adjusts the font size back to match other headings if desired */
+}
+
+.presenter-name {
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 25px; 
+    color: #007bff;
+   
+}
+
+#upcoming-meeting a {
+    font-size: 25px; /* Adjusts the font size back to match other headings if desired */
+}
+
+
+.meeting-image-placeholder {
+    display: none; /* Hide the placeholder if not in use */
+}
+
+img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any default inline spacing */
+    margin-bottom: 0; /* Eliminates any bottom margin */
+}
+/* .past-meeting-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+} */
+
+
+/* Adjustments for "Past Meetings" to make it less emphasized compared to "Upcoming Meeting" */
+#past-meetings {
+    /* background-color: #ffffff; Keep the background standard for less emphasis */
+    padding: 20px;
+    
+}
+
+
+#past-meetings h2 {
+    color: #333; /* Standard text color */
+    font-size: 2.5vw; /* Standard size, slightly smaller than "Upcoming Meeting" */
+    text-align: center; /* Explicitly aligns text to the left */
+    padding: 0;
+    margin: auto;
+
+}
+
+/* Ensures all specified containers have the same semi-transparent background */
+/* #upcoming-meeting, #past-meetings {
+    background-color: #0303038a;
+} */
+
