@@ -27,7 +27,7 @@ header {
 }
 
 .header-container {
-    background-image: url('movingSun.gif'); 
+    background-image: url('https://github.com/SolarPhysics/SolarPhysics.github.io/blob/main/movingSun.gif'); 
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
