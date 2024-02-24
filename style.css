@@ -20,14 +20,25 @@ header {
 
 .container {
     max-width: 93rem;
-    width: 100%; /* Ensure it spans the full width */
+    width: 100%; 
+    /* width: auto;  */
     margin: auto;
     padding: 1.25rem;
     text-align: center; /* Center the text for smaller containers */
 }
 
+.pcontainer {
+    max-width: 93rem;
+    /* width: 100%;  */
+    width: auto; 
+    margin: auto;
+    padding: 1.25rem;
+    text-align: center; /* Center the text for smaller containers */
+}
+
+
 .header-container {
-    background-image: url('https://github.com/SolarPhysics/SolarPhysics.github.io/blob/main/movingSun.gif'); 
+    background-image: url('movingSun.gif'); 
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -101,9 +112,11 @@ th, td {
     border: 1.5px solid #ccc;
     text-align: center;
     color: #333;
-    min-width: 1rem; /* Minimum width */
-    max-width: 45rem; /* Maximum width */
+    min-width: 1rem;
+    max-width: 43rem; 
     /* width: auto; */
+    height: auto;
+    margin: auto;
 }
 
 th {
@@ -181,7 +194,7 @@ footer {
 img {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any default inline spacing */
+    display: block;
     margin: auto;
 }
 /* Adjustments for "Past Meetings" to make it less emphasized compared to "Upcoming Meeting" */
