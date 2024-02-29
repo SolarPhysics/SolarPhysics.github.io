@@ -147,13 +147,42 @@ footer {
     background: #eaeaea;
 }
 
-.upcoming-meeting-container, .past-meeting-container {
+/* .upcoming-meeting-container, .past-meeting-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 68.75rem; 
+    margin: auto;
+    padding: 1.25rem; 
+    
+} */
+
+.upcoming-meeting-container {
+    display: flex;
+    flex-direction: row; /* Align children side by side */
+    justify-content: space-between; /* Space between the text and image */
+    align-items: center; /* Align items vertically in the center */
+    max-width: 93rem;
+    margin: auto;
+    padding: 1.25rem;
+    
+}
+
+.meeting-image-placeholder {
+    flex-basis: 50%; /* Allocate width to the image container */
+    text-align: center; /* Center the image if it's smaller than the container */
+}
+
+.upcoming-meeting-image {
+    max-width: 100%; /* Ensure the image is responsive and doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.past-meeting-container {
     display: flex;
     flex-direction: column;
     max-width: 68.75rem; /* 1100px / 16px = 68.75rem */
     margin: auto;
     padding: 1.25rem; /* 20px / 16px = 1.25rem */
-    
 }
 
 #upcoming-meeting.container {
