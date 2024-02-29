@@ -38,7 +38,7 @@ header {
 
 
 .header-container {
-    background-image: url('movingSun.gif'); 
+    background-image: url('movingSun.gif');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -240,22 +240,62 @@ img {
     margin: auto;
 
 }
+
+
+
 @media only screen and (max-width: 600px) {
 
-    .container {
-
+    body, header, .header-container, footer {
+ 
+        width: 100%;
+        
+    }
+    
+    .container, .pcontainer {
         width: 100%; 
-        margin: auto;
-        text-align: center; /* Center the text for smaller containers */
     }
 
-    
+    img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        margin: 0;
+    }
 
-    .header-container {
-        padding: 2rem 1rem;
-        /* padding: auto; */
+    /* body {
+        margin: 0;
+        padding: 0;
         width: auto;
     }
+    
+    
+    header {
+        width: auto;
+    }
+
+    .container {
+ 
+        width: 100%; 
+
+        margin: auto;
+
+    }
+    
+    .pcontainer {
+        width: auto; 
+        margin: auto;
+        text-align: center; /* Center the text for smaller containers 
+    } */
+
+
+    .header-container {
+        /* padding: 5rem 2rem; */
+        padding: auto;
+        margin: auto;
+        width: auto;
+        height: auto;
+        text-align: center; 
+    } 
 
     .header-container h1 {
         font-size: 0.5rem;
@@ -270,14 +310,14 @@ img {
     } */
 
     .upcoming-meeting-container {
-        flex-direction: rows;
+        flex-direction: column;
     }
     .past-meeting-container {
         flex-direction: column;
     }
 
     .meeting-image-placeholder, .upcoming-meeting-image {
-        width: 50%;
+        width: 80%;
     }
     body, p, a {
         font-size: 0.5rem; /* Adjust base font size for smaller screens */
@@ -303,9 +343,29 @@ img {
         font-size: 1.5rem; /* Further adjustments for specific elements */
     }
 
+    #upcoming-meeting a {
 
-    .presenter-name, #upcoming-meeting a {
+        font-size: 2rem; /* Adjust font size for links */
+    }
+
+    #upcoming-meeting h2 {
+        color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
+        font-size: 2.5rem; /* Adjusts the font size back to match other headings if desired */
+    }
+
+    #past-meetings h2 {
+        color: #333; /* Standard text color */
+        font-size: 2.2rem; /* Standard size, slightly smaller than "Upcoming Meeting" */
+        text-align: center;
+        padding: auto;
+        margin: auto;
+    
+    }
+
+    
+    .presenter-name {
         font-size: 2rem; /* Adjust font size for descriptions and links */
     }
 
 }
+
