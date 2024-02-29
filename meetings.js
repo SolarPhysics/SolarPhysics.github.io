@@ -30,7 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (typeof meeting.article === 'string') {
                 articleContent = meeting.article; // Directly use the string (e.g., "TBD")
             } else {
-                articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`; // Use link and title for past meetings
+                // articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`; // Use link and title for past meetings
+
+                let titleWords = meeting.article.title.split(' ');
+                titleWords = titleWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+                meeting.article.title = titleWords.join(' ');
+                articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`;
+                
             }
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
