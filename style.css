@@ -168,7 +168,7 @@ footer {
 }
 
 .meeting-image-placeholder {
-    flex-basis: 50%; /* Allocate width to the image container */
+    flex-basis: 30%; /* Allocate width to the image container */
     text-align: center; /* Center the image if it's smaller than the container */
 }
 
