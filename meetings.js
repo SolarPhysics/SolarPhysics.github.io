@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 articleContent = meeting.article; // Directly use the string (e.g., "TBD")
             } else {
                 // articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`; // Use link and title for past meetings
-
                 let titleWords = meeting.article.title.split(' ');
                 titleWords = titleWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
                 meeting.article.title = titleWords.join(' ');
-                articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`;
-                
+                // articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`;
+                articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+               
             }
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>⏰ Time:</strong> &ensp; <span class="presenter-name">10:30 AM</span></p>
                     <p><strong>🎙️ Presenter:</strong> &ensp; <span class="presenter-name">${meeting.presenter}</span></p>
                     <p><strong>🔖 Article:</strong> &ensp; <span class="presenter-name">${articleContent}</span></p>
-                    <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84681128298">Join Meeting</a></p>
+                    <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84681128298" target="_blank">Join Meeting</a></p>
                 `;
                 foundUpcoming = true;
             } else if (meetingDate < today) {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>⏰ 10:30 AM</td>
                         <td>🎙️ ${meeting.presenter}</td>
                         <td>🔖 ${articleContent}</td>
-                        <td>🔗 <a href="https://khu-ac.zoom.us/rec/share/...">Video</a> | <a href="[Link to Slides]">PPT</a></td>
+                        <td>🔗 <a href="https://khu-ac.zoom.us/rec/share/..."target="_blank">Video</a> | <a href="[Link to Slides]" target="_blank">PPT</a></td>
                     </tr>
                 ` + pastMeetingsHtml;
             }
