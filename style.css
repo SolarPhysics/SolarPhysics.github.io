@@ -240,3 +240,72 @@ img {
     margin: auto;
 
 }
+@media only screen and (max-width: 600px) {
+
+    .container {
+
+        width: 100%; 
+        margin: auto;
+        text-align: center; /* Center the text for smaller containers */
+    }
+
+    
+
+    .header-container {
+        padding: 2rem 1rem;
+        /* padding: auto; */
+        width: auto;
+    }
+
+    .header-container h1 {
+        font-size: 0.5rem;
+    }
+
+    .header-container p {
+        font-size: 0.5rem;
+    }
+
+    /* .upcoming-meeting-container, .past-meeting-container {
+        flex-direction: column;
+    } */
+
+    .upcoming-meeting-container {
+        flex-direction: rows;
+    }
+    .past-meeting-container {
+        flex-direction: column;
+    }
+
+    .meeting-image-placeholder, .upcoming-meeting-image {
+        width: 50%;
+    }
+    body, p, a {
+        font-size: 0.5rem; /* Adjust base font size for smaller screens */
+    }
+
+    h1 {
+        font-size: 0.5rem; /* Adjust h1 font size for smaller screens */
+    }
+
+    h2 {
+        font-size: 0.5rem; /* Adjust h2 font size for smaller screens */
+    }
+
+    .header-container h1 {
+        font-size: 2rem; /* Further adjustments for specific elements */
+    }
+
+    .header-container h2 {
+        font-size: 1.2rem; /* Further adjustments for specific elements */
+    }
+
+    .header-container p {
+        font-size: 1.5rem; /* Further adjustments for specific elements */
+    }
+
+
+    .presenter-name, #upcoming-meeting a {
+        font-size: 2rem; /* Adjust font size for descriptions and links */
+    }
+
+}
