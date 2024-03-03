@@ -168,7 +168,7 @@ footer {
 }
 
 .meeting-image-placeholder {
-    flex-basis: 50%; /* Allocate width to the image container */
+    flex-basis: 60%; /* Allocate width to the image container */
     text-align: center; /* Center the image if it's smaller than the container */
 }
 
@@ -225,6 +225,14 @@ img {
     height: auto; /* Maintain aspect ratio */
     display: block;
     margin: auto;
+}
+
+#intermediate img {
+    width: 30%;
+    height: auto;
+    display: block;
+    margin: auto;
+
 }
 /* Adjustments for "Past Meetings" to make it less emphasized compared to "Upcoming Meeting" */
 #past-meetings {
