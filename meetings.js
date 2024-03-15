@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'The Thickness of Electric Current Sheets and Implications for Coronal Heating', url: 'https://arxiv.org/abs/2307.13825' }, video: 'TBD' },
         { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Variations in Finite-difference Potential Fields: Models and Observations', url: 'https://arxiv.org/abs/2102.05618' }, video: 'https://khu-ac.zoom.us/rec/share/E0q1Wzl_BYkEiN-r8X2wSQyCCuFg6gewO-5oAuQREZ_DNbraJoXuCKd3WXqbhP49.RS_unTEpFm0fbH17' },
         { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }, video: 'TBD'},
-        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD'},
+        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD', ppt: 'https://drive.google.com/file/d/1sBFDK5NFLNJXIDOfrkGSt0s7tf4cUxLZ/view?usp=sharing'},
         { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }, video: 'https://khu-ac.zoom.us/rec/share/q9BScJYobQVCmtOslqwzHzL2OsAttPAEKvC4Gvl1eN4D-_IPFYuG9xMSFCANbsRR.Lm2CguFzUpaTNxnk'},
         { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
         { date: '2024-03-08', presenter: 'Yeongmin Kang', article: { title: 'Comparative Study of Data-driven Solar Coronal Field Models Using a Flux Emergence Simulation as a Ground-truth Data Set', url: 'https://arxiv.org/abs/2001.03721v1' }, video: 'TBD'},
         // Future meetings without article details yet are marked as TBD
-        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC'},
-        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD' },
-        { date: '2024-03-29', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD' },
-        { date: '2024-04-05', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD' }
+        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC', ppt: 'https://drive.google.com/file/d/1kS2z4SqhBdjieq75SGlmRX-O8D9-0VvD/view?usp=drive_link'},
+        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-03-29', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-04-05', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
         // Additional meetings...
     ];
 
@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
                
             }
             let videoContent = (typeof meeting.video === 'string' && meeting.video !== 'TBD') ? `<a href="${meeting.video}" target="_blank">Video</a>` : 'TBD';
+            let pptContent = (typeof meeting.ppt === 'string' && meeting.ppt !== 'TBD') ? `<a href="${meeting.ppt}" target="_blank">PPT</a>` : 'TBD';
+
+
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
                     <p><strong>🗓️ Date:</strong> &ensp; <span class="presenter-name">${meeting.date}</span></p>
@@ -71,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>⏰ 10:30 AM</td>
                         <td>🎙️ ${meeting.presenter}</td>
                         <td>🔖 ${articleContent}</td>
-                        <td>🔗 ${videoContent} | <a href="[Link to Slides]" target="_blank">PPT</a></td>
+                        <td>🔗 ${videoContent} | ${pptContent}</td>
+                 
 
                     </tr>
                 ` + pastMeetingsHtml;
