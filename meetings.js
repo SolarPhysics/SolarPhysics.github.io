@@ -25,6 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-03-29', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD'},
         { date: '2024-04-05', presenter: 'Kyungsun Park', article: { title: 'Solar wind entry into Mercury’s magnetosphere: Simulation results for the second swingby of BepiColombo', url: 'https://www.aanda.org/articles/aa/full_html/2024/01/aa47789-23/aa47789-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/px94blvJpCYLoSoxivaOJEnYwBU48EYnuas-n9VawYVeRkoyh_TkEXRqSI9aKRv3.ftl6AfzbSTAGUlW9', ppt: 'https://drive.google.com/file/d/1_0-zmvJ1on_FzrJPeKXgt52L3zHnUhz-/view?usp=sharing'},
         // Additional meetings...
+        { date: '2024-05-03', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-05-10', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-05-17', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-05-24', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-05-31', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-07', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        // Future meetings without article details yet are marked as TBD
+        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-28', presenter: 'AOGS', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-12', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD'},
+        { date: '2024-07-19', presenter: 'COSPAR', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
     ];
 
     
