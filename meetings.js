@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-12', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD'},
         { date: '2024-07-19', presenter: 'COSPAR', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
 
     
