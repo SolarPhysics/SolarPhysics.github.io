@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>⏰ Time:</strong> &ensp; <span class="presenter-name">10:30 AM</span></p>
                     <p><strong>🎙️ Presenter:</strong> &ensp; <span class="presenter-name">${meeting.presenter}</span></p>
                     <p><strong>🔖 Article:</strong> &ensp; <span class="presenter-name">${articleContent}</span></p>
-                    <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84681128298" target="_blank">Join Meeting</a></p>
+                    <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84894619367" target="_blank">Join Meeting</a></p>
                 `;
                 foundUpcoming = true;
             } else if (meetingDate < today) {
