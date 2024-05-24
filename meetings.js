@@ -28,16 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // 3rd meetings...
         { date: '2024-05-03', presenter: 'Sibaek Yi', article: { title: 'A Magnetogram-matching Method for Energizing Magnetic Flux Ropes Toward Eruption', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac874e' }, video: 'https://khu-ac.zoom.us/rec/share/k8HjTO71M8cH5SCQ-PZQk5IhEVMf7_WqmJSCHtBeJxIpNaozBAqFzmf_B67nt0Wc.wVZ5xnaxtnU7i4an', ppt: 'TBD'},
         { date: '2024-05-10', presenter: 'Junmo An', article: { title: 'Proposed Resolution to the Solar Open Magnetic Flux Problem', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad20e2' }, video: 'https://khu-ac.zoom.us/rec/share/Q0qdLNrNdhtdKGCrXQZf9IqVc0bVFbMufYZYR4QLx2foCjrq_KVhvE73FonwfCcq.lCO7NyWE9vE_0uPc', ppt: 'TBD'},
-        { date: '2024-05-24', presenter: 'Jihye Kang', article: { title: 'Effects of Initial Conditions on Magnetic Reconnection in a Solar Transient', url: 'https://ui.adsabs.harvard.edu/abs/2022SoPh..297...91A/abstract' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2024-05-31', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-06-07', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-06-14', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-06-21', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-06-28', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-07-05', presenter: 'AOGS', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-07-12', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-07-26', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-08-02', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+        { date: '2024-05-24', presenter: 'Jihye Kang', article: { title: 'Effects of Initial Conditions on Magnetic Reconnection in a Solar Transient', url: 'https://ui.adsabs.harvard.edu/abs/2022SoPh..297...91A/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NxYmP_OmN_YTKFYIecV3CrLq38avus4SVNYhoW0fcM2BjQqJypaFUWK61lIv_kgB.a09O3tofnYLydxo6', ppt: 'TBD'},
+        { date: '2024-05-31', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-07', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        // { date: '2024-06-14', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-28', presenter: 'AOGS', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-12', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
 
 
