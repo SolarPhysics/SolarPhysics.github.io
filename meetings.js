@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-05-10', presenter: 'Junmo An', article: { title: 'Proposed Resolution to the Solar Open Magnetic Flux Problem', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad20e2' }, video: 'https://khu-ac.zoom.us/rec/share/Q0qdLNrNdhtdKGCrXQZf9IqVc0bVFbMufYZYR4QLx2foCjrq_KVhvE73FonwfCcq.lCO7NyWE9vE_0uPc', ppt: 'TBD'},
         { date: '2024-05-24', presenter: 'Jihye Kang', article: { title: 'Effects of Initial Conditions on Magnetic Reconnection in a Solar Transient', url: 'https://ui.adsabs.harvard.edu/abs/2022SoPh..297...91A/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NxYmP_OmN_YTKFYIecV3CrLq38avus4SVNYhoW0fcM2BjQqJypaFUWK61lIv_kgB.a09O3tofnYLydxo6', ppt: 'TBD'},
         { date: '2024-05-31', presenter: 'Hwanhee Lee', article: { title: 'Modeling CME encounters at Parker Solar Probe with OSPREI: Dependence on photospheric and coronal conditions', url: 'https://www.aanda.org/articles/aa/full_html/2023/05/aa45445-22/aa45445-22.html' }, video: 'https://khu-ac.zoom.us/rec/share/-9cgxa6Kr5L7oycoG1dnAlRrcjPZSeNR-RTzbDwKxHr1kWnvn1eqjx-dnUnJ142O.4dw7d8Ox6P7B1_xV', ppt: 'TBD'},
-        { date: '2024-06-14', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-14', presenter: 'Donghui Son', article: { title: 'Ideal GLM-MHD: About the entropy consistent nine-wave magnetic field divergence diminishing ideal magnetohydrodynamics equations', url: 'https://khu-ac.zoom.us/rec/share/mhOhl9WRtnajuNOmiLYlX56EdevHJlV43GZ3cFVIU-CeAzpDiFEyaPD0SxH4U-7o.-05zW1VquKay2W_F' }, video: 'https://khu-ac.zoom.us/rec/share/mhOhl9WRtnajuNOmiLYlX56EdevHJlV43GZ3cFVIU-CeAzpDiFEyaPD0SxH4U-7o.-05zW1VquKay2W_F', ppt: 'TBD'},
         // { date: '2024-06-14', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         // { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-06-21', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-07-12', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
-
-
     
 
 
