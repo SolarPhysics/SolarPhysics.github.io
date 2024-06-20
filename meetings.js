@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-06-14', presenter: 'Donghui Son', article: { title: 'Ideal GLM-MHD: About the entropy consistent nine-wave magnetic field divergence diminishing ideal magnetohydrodynamics equations', url: 'https://www.sciencedirect.com/science/article/pii/S0021999118301463' }, video: 'https://khu-ac.zoom.us/rec/share/mhOhl9WRtnajuNOmiLYlX56EdevHJlV43GZ3cFVIU-CeAzpDiFEyaPD0SxH4U-7o.-05zW1VquKay2W_F', ppt: 'TBD'},
         // { date: '2024-06-14', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         // { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: { title: 'SuNeRF: 3D Reconstruction of the Solar EUV Corona Using Neural Radiance Fields', url: 'https://doi.org/10.3847/2041-8213/ad12d2' }, video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-12', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
