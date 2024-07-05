@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // { date: '2024-06-14', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         // { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-06-21', presenter: 'Mingyu Jeon', article: { title: 'SuNeRF: 3D Reconstruction of the Solar EUV Corona Using Neural Radiance Fields', url: 'https://doi.org/10.3847/2041-8213/ad12d2' }, video: 'https://khu-ac.zoom.us/rec/share/nwU4AtBgJnHj9RCLwnKooSR8jHmV6nViU3JcljlRM_ABOIKZyqNZ-FBwlgou1WJO.Z6tsASTdd3Bu3tvC', ppt: 'TBD'},
-        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: { title: 'Advancing interplanetary magnetohydrodynamic models through solar energetic particle modelling', url: 'https://ui.adsabs.harvard.edu/abs/2023A%26A...679A..93N/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NBo78t7k8nCCCXcatfnz2DFusXYVTjoTjZCVowCfu5gdUoynj8DLcsgryYL3nHZU.kUe4yXE6rts1RqwA', ppt: 'TBD'},
         { date: '2024-07-12', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
