@@ -17,6 +17,18 @@ header {
     border-bottom: 0.3125rem solid #000000;
 }
 
+.school-mark-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 20rem;
+    object-fit: contain; 
+    /* margin: 0 1rem; */
+}
+
+
 
 .container {
     max-width: 93rem;
