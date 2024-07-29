@@ -44,12 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-09-27', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-04', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-11', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-18', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-25', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-18', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-11-01', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-08', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-15', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
-
+        { date: '2024-11-08', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
     
 
