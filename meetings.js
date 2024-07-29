@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }, video: 'TBD'},
         { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD', ppt: 'https://drive.google.com/file/d/1sBFDK5NFLNJXIDOfrkGSt0s7tf4cUxLZ/view?usp=sharing'},
         { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }, video: 'https://khu-ac.zoom.us/rec/share/q9BScJYobQVCmtOslqwzHzL2OsAttPAEKvC4Gvl1eN4D-_IPFYuG9xMSFCANbsRR.Lm2CguFzUpaTNxnk'},
-        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
+        { date: '2024-02-23', presenter: 'Hwanhe0Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
         { date: '2024-03-08', presenter: 'Yeongmin Kang', article: { title: 'Comparative Study of Data-driven Solar Coronal Field Models Using a Flux Emergence Simulation as a Ground-truth Data Set', url: 'https://arxiv.org/abs/2001.03721v1' }, video: 'TBD'},
         { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC', ppt: 'https://drive.google.com/file/d/1kS2z4SqhBdjieq75SGlmRX-O8D9-0VvD/view?usp=drive_link'},
         { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: { title: 'First Insights into the Applicability and Importance of Different 3D Magnetic Field Extrapolation Approaches for Studying the Preeruptive Conditions of Solar Active Regions', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad18bd' }, video: 'https://khu-ac.zoom.us/rec/share/1-ekoH44rObi6dlQkFVkdhX8Z5bufvWu3xoHLhrIR9pqK2c7noiAkp_y8kd2Fy47.gmnTfeL5PpULzlwD', ppt: 'TBD'},
@@ -35,8 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
         // { date: '2024-06-14', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-06-21', presenter: 'Mingyu Jeon', article: { title: 'SuNeRF: 3D Reconstruction of the Solar EUV Corona Using Neural Radiance Fields', url: 'https://doi.org/10.3847/2041-8213/ad12d2' }, video: 'https://khu-ac.zoom.us/rec/share/nwU4AtBgJnHj9RCLwnKooSR8jHmV6nViU3JcljlRM_ABOIKZyqNZ-FBwlgou1WJO.Z6tsASTdd3Bu3tvC', ppt: 'TBD'},
         { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: { title: 'Advancing interplanetary magnetohydrodynamic models through solar energetic particle modelling', url: 'https://ui.adsabs.harvard.edu/abs/2023A%26A...679A..93N/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NBo78t7k8nCCCXcatfnz2DFusXYVTjoTjZCVowCfu5gdUoynj8DLcsgryYL3nHZU.kUe4yXE6rts1RqwA', ppt: 'TBD'},
-        { date: '2024-07-26', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-08-02', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+        { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD'},
+    
+        // 4th meetings...
+        { date: '2024-09-06', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-13', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-20', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-27', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-04', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-11', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-18', presenter: 'Yeongmin Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-25', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-01', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-08', presenter: 'Sunghong Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-15', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+
     ];
     
 
