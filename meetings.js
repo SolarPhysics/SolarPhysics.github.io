@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD'},
     
         // 4th meetings...
-        { date: '2024-09-06', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TB'},
+        { date: '2024-09-06', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-09-13', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-09-20', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-09-27', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
