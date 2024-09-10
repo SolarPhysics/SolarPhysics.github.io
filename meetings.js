@@ -38,15 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD'},
     
         // 4th meetings...
-        { date: '2024-09-06', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-09-13', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-09-20', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-09-27', presenter: 'Hwanhee Lee', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-04', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-11', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-18', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-01', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-08', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+        { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-27', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-04', presenter: 'Daeil Kim', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-11', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-08', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-22', presenter: 'Junmu Youn', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-29', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-06', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+
     ];
     
 
