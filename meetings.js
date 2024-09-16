@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2023-11-24', presenter: 'Mingyu Jeon', article: { title: 'Probing the solar coronal magnetic field with physics-informed neural networks', url: 'https://www.nature.com/articles/s41550-023-02085-8' }, video: 'https://khu-ac.zoom.us/rec/share/IfOOGO1Oj0w7L-O7zjanmtCJ40ld6KCmBn3BtUgKo_ZlfLfzq7DAGehc6Xoq5EfL.nlC8VEiAVNNPTqgv'},
         { date: '2023-12-01', presenter: 'Hyunjin Jeong', article: { title: 'Rotation and interaction of the CMEs of September 8 and 10, 2014, tested with EUHFORIA', url: 'https://www.aanda.org/articles/aa/full_html/2023/07/aa45902-23/aa45902-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/8M-6tyRGHj3ZxhWP1uiwyGEPEG6EAbGgjN0n7vpmXcTYXEmpVxQ80MOOvxvtZoxJ.HTpzFqJ3LcuQ_kld'},
         { date: '2023-12-08', presenter: 'Sunghong Park', article: { title: 'Testing the Alfvén-wave Model of the Solar Wind with Interplanetary Scintillation', url: 'https://ui.adsabs.harvard.edu/abs/2022ApJ...928..130S/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/F_2ueUqEWtt4nyWF8Ama2ScjWBAiGMR3Nr8TAER9qgx2nO6zmeOA_u1wTHTrwWBZ.1RIplgH_EL6wZa67'},
+        
         // 2nd meetings...
         { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'The Thickness of Electric Current Sheets and Implications for Coronal Heating', url: 'https://arxiv.org/abs/2307.13825' }, video: 'TBD' },
         { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Variations in Finite-difference Potential Fields: Models and Observations', url: 'https://arxiv.org/abs/2102.05618' }, video: 'https://khu-ac.zoom.us/rec/share/E0q1Wzl_BYkEiN-r8X2wSQyCCuFg6gewO-5oAuQREZ_DNbraJoXuCKd3WXqbhP49.RS_unTEpFm0fbH17' },
@@ -51,35 +52,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ];
     
-
-
-
     function updateMeetings() {
         const today = new Date();
         const upcomingSection = document.getElementById('upcoming-meeting');
-        const pastMeetingsTableBody = document.querySelector('#past-meetings tbody');
+        const meetingsContainer = document.getElementById('quarters-container');
+        const meetingsTableContainer = document.getElementById('meetings-table-container');
 
         let upcomingHtml = '<h2>📚 Upcoming Meeting</h2>';
-        let pastMeetingsHtml = '';
         let foundUpcoming = false;
 
-        meetings.forEach(meeting => {
-            const meetingDate = new Date(meeting.date + 'T10:30:00');
-            let articleContent;
-            if (typeof meeting.article === 'string') {
-                articleContent = meeting.article; // Directly use the string (e.g., "TBD")
-            } else {
-                // articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`; // Use link and title for past meetings
-                let titleWords = meeting.article.title.split(' ');
-                titleWords = titleWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-                meeting.article.title = titleWords.join(' ');
-                // articleContent = `<a href="${meeting.article.url}">${meeting.article.title}</a>`;
-                articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
-               
-            }
-            let videoContent = (typeof meeting.video === 'string' && meeting.video !== 'TBD') ? `<a href="${meeting.video}" target="_blank">Video</a>` : 'TBD';
-            let pptContent = (typeof meeting.ppt === 'string' && meeting.ppt !== 'TBD') ? `<a href="${meeting.ppt}" target="_blank">PPT</a>` : 'TBD';
+        const meetingGroups = {
+            '2023-1st': meetings.slice(0, 10),
+            '2024-1st': meetings.slice(10, 21),
+            '2024-2nd': meetings.slice(21, 29),
+            '2024-3rd': meetings.slice(29)
+        };
 
+        meetings.forEach(meeting => {
+            const meetingDate = new Date(meeting.date);
+            const articleContent = typeof meeting.article === 'string' ? meeting.article : 
+                `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
 
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
@@ -90,24 +82,99 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84894619367" target="_blank">Join Meeting</a></p>
                 `;
                 foundUpcoming = true;
-            } else if (meetingDate < today) {
-                pastMeetingsHtml = `
-                    <tr>
-                        <td>🗓️ ${meeting.date}</td>
-                        <td>⏰ 10:30 AM</td>
-                        <td>🎙️ ${meeting.presenter}</td>
-                        <td>🔖 ${articleContent}</td>
-                        <td>🔗 ${videoContent} | ${pptContent}</td>
-                 
-
-                    </tr>
-                ` + pastMeetingsHtml;
             }
         });
 
         upcomingSection.innerHTML = foundUpcoming ? upcomingHtml : '<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>';
-        pastMeetingsTableBody.innerHTML = pastMeetingsHtml;
+
+        meetingsContainer.innerHTML = '';
+        Object.keys(meetingGroups).forEach(key => {
+            const button = document.createElement('button');
+            button.textContent = key;
+            button.classList.add('quarter-button');
+            button.addEventListener('click', () => showMeetings(key, meetingGroups[key]));
+            meetingsContainer.appendChild(button);
+        });
+
+        // 가장 최근 미팅 그룹을 기본으로 표시
+        const latestGroup = Object.keys(meetingGroups)[Object.keys(meetingGroups).length - 1];
+        showMeetings(latestGroup, meetingGroups[latestGroup]);
+    }
+
+    function showMeetings(groupName, meetings) {
+        const meetingsTableContainer = document.getElementById('meetings-table-container');
+        const startDate = meetings[0].date;
+        const endDate = meetings[meetings.length - 1].date;
+        
+        let tableHtml = `
+            <h3>${startDate} ~ ${endDate}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Presenter</th>
+                        <th>Article</th>
+                        <th>Materials</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        meetings.forEach(meeting => {
+            const articleContent = typeof meeting.article === 'string' ? meeting.article : 
+                `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+            const videoContent = meeting.video === 'TBD' ? 'TBD' : `<a href="${meeting.video}" target="_blank">Video</a>`;
+            const pptContent = meeting.ppt ? (meeting.ppt === 'TBD' ? 'TBD' : `<a href="${meeting.ppt}" target="_blank">PPT</a>`) : 'N/A';
+
+            tableHtml += `
+                <tr>
+                    <td data-label="Date">🗓️ ${meeting.date}</td>
+                    <td data-label="Time">⏰ 10:30 AM</td>
+                    <td data-label="Presenter">🎙️ ${meeting.presenter}</td>
+                    <td data-label="Article">🔖 ${articleContent}</td>
+                    <td data-label="Materials">🔗 ${videoContent} | ${pptContent}</td>
+                </tr>
+            `;
+        });
+
+        tableHtml += `
+                </tbody>
+            </table>
+        `;
+
+        meetingsTableContainer.innerHTML = tableHtml;
+
+        // 선택된 그룹 버튼 스타일 변경
+        document.querySelectorAll('.quarter-button').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent === groupName) {
+                btn.classList.add('active');
+            }
+        });
     }
 
     updateMeetings();
+    // Automatically update meetings daily
+    setInterval(updateMeetings, 24 * 60 * 60 * 1000);
+
+
+    // 모바일 메뉴 토글
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    mobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+    });
+
+    // 스크롤 시 네비게이션 바 스타일 변경
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        }
+    });
 });
