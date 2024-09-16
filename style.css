@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #ffffff;
     color: #333;
-    line-height: 2;
+    line-height: 1.6;
 }
 
 
@@ -17,105 +17,90 @@ header {
     border-bottom: 0.3125rem solid #000000;
 }
 
-.school-mark-container {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    width: 20rem;
-    object-fit: contain; 
-    /* margin: 0 1rem; */
-}
 
-
-
-.container {
+.container, .pcontainer {
     max-width: 93rem;
-    width: 100%; 
-    /* width: auto;  */
+    width: 100%;
     margin: auto;
     padding: 1.25rem;
-    text-align: center; /* Center the text for smaller containers */
-}
-
-.pcontainer {
-    max-width: 93rem;
-    /* width: 100%;  */
-    width: auto; 
-    margin: auto;
-    padding: 1.25rem;
-    text-align: center; /* Center the text for smaller containers */
+    text-align: center;
 }
 
 
 .header-container {
+    margin-top: 60px;
+    position: relative;
+    padding-top: 80px;
     background-image: url('movingSun.gif');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: auto; 
-    /* overflow: auto; Adds scrollbars if content overflows */
-    background-color: #000; /* Outer color */
-    color: #fff; 
+    background-color: #000;
+    color: #fff;
+    width: 100%;
     width: auto;
     margin: auto;
     padding: 12.5rem 3.75rem;
-    text-align: center; 
+    text-align: center;
+}
+
+
+.school-mark-container {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    top: 2rem;
+    left: 2rem;
+    width: 20rem;
+    object-fit: contain;
 }
 
 .header-container h1 {
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 800; 
-    font-size: 5rem; 
-/*     text-transform: uppercase; */
+    font-weight: 800;
+    font-size: 5rem;
     text-shadow: 0.1875rem 0.1875rem 0.3125rem rgba(0, 0, 0, 0.8);
-    position: relative;
-    margin: auto;
+    margin: 1rem 0;
 }
-
 
 .header-container p {
     font-family: "Bad Script", cursive;
     font-weight: 500;
-    font-style: normal;
     font-size: 4rem;
     text-shadow: 0.1875rem 0.1875rem 0.3125rem rgba(0, 0, 0, 0.9);
-    position: relative;
-    margin: auto;
+    margin: 1rem 0;
 }
 
- 
 .header-container h2 {
-
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 200; 
+    font-weight: 200;
     font-size: 2.8rem;
     font-style: italic;
     color: #ffffffd7;
     text-shadow: 0.1875rem 0.1875rem 0.3125rem rgba(0, 0, 0, 0.7);
-    position: relative;
-    margin: auto;
+    margin: 1rem 0;
 }
 
-
 section {
-    padding: 1.25rem 0;
+    padding: 2rem 0;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: #333;
+    margin-bottom: 1rem;
 }
 
 p, a {
     font-size: 1.125rem;
 }
 
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1.25rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
 
@@ -126,47 +111,57 @@ th, td {
     color: #333;
     min-width: 1rem;
     max-width: 43rem; 
-    /* width: auto; */
     height: auto;
     margin: auto;
 }
 
 th {
-    /* background-color: #007bff; */
     background-color: #333;
     color: #ffffff
 }
 
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
 a {
-    font-family: "Josefin Slab", serif;
-    font-optical-sizing: auto;
+    /* font-family: "Josefin Slab", serif; */
+    font-family: Arial, sans-serif;
     font-weight: 800;
     font-style: italic;
     color: #007bff;
-    text-decoration: underline;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-footer {
+/* Improve accessibility */
+a:focus {
+    outline: 2px solid #007bff;
+}
+
+
+/* footer {
     height: auto;
     width: auto;
     margin: auto;
     text-align: center;
     padding: 0.5rem;
     background: #eaeaea;
-}
-
-/* .upcoming-meeting-container, .past-meeting-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 68.75rem; 
-    margin: auto;
-    padding: 1.25rem; 
-    
 } */
+
+footer {
+    background: #eaeaea;
+    padding: 1rem;
+    text-align: center;
+}
 
 .upcoming-meeting-container {
     display: flex;
@@ -246,38 +241,160 @@ img {
     margin: auto;
 
 }
-/* Adjustments for "Past Meetings" to make it less emphasized compared to "Upcoming Meeting" */
+
 #past-meetings {
     padding: 1.25rem;
     
 }
 
 #past-meetings h2 {
-    color: #333; /* Standard text color */
-    font-size: 3rem; /* Standard size, slightly smaller than "Upcoming Meeting" */
+    color: #333; 
+    font-size: 3rem; 
     text-align: center;
     padding: auto;
     margin: auto;
 
 }
 
+/* Past Meetings 섹션 스타일 */
+#quarters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
 
-@media only screen and (max-width: 600px) {
+.quarter-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.quarter-button:hover, .quarter-button.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#meetings-table-container {
+    overflow-x: auto;
+}
+
+#meetings-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+#meetings-table-container th, #meetings-table-container td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#meetings-table-container th {
+    background-color: #3f3f3f;
+    color: white;
+}
+
+#meetings-table-container tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+#meetings-table-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+#meetings-table-container h3 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.4rem;
+    color: #333;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.full-width-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.full-width-image {
+    width: 100%;
+    display: block;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    #meetings-table-container table, #meetings-table-container thead, #meetings-table-container tbody, #meetings-table-container th, #meetings-table-container td, #meetings-table-container tr {
+        display: block;
+    }
+
+    #meetings-table-container thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #meetings-table-container td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    #meetings-table-container td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 20px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    #meetings-table-container tr {
+        margin-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .content-container {
+        max-width: 1100px; 
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
 
     .container {
         width: auto; 
-        /* width: auto;  */
         margin: 0;
-        text-align: center; /* Center the text for smaller containers */
+        text-align: center;
     }
 
+    .school-mark-container {
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 10rem;
+        object-fit: contain;
+    }
+
+
     .header-container {
+        /* padding: 4.5rem 2rem; */
         padding: 4.5rem 2rem;
-        /* margin: auto; */
-        /* width: 100%; */
         margin: 0;
         height: auto;
         text-align: center; 
+        width: 100%;
     } 
 
     .header-container h1 {
@@ -304,52 +421,60 @@ img {
         margin: 0;
     }
     body, p, a {
-        font-size: 0.5rem; /* Adjust base font size for smaller screens */
+        font-size: 0.5rem; 
     }
 
     h1 {
-        font-size: 0.5rem; /* Adjust h1 font size for smaller screens */
+        font-size: 0.5rem; 
     }
 
     h2 {
-        font-size: 0.5rem; /* Adjust h2 font size for smaller screens */
+        font-size: 0.5rem; 
     }
 
     .header-container h1 {
-        font-size: 2rem; /* Further adjustments for specific elements */
+        font-size: 2rem; 
     }
 
     .header-container h2 {
-        font-size: 1.2rem; /* Further adjustments for specific elements */
+        font-size: 1.2rem; 
     }
 
     .header-container p {
-        font-size: 1.5rem; /* Further adjustments for specific elements */
+        font-size: 1.5rem; 
     }
 
     #upcoming-meeting a {
 
-        font-size: 2rem; /* Adjust font size for links */
+        font-size: 2rem; 
     }
 
     #upcoming-meeting h2 {
-        color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
-        font-size: 2.5rem; /* Adjusts the font size back to match other headings if desired */
+        color: #333; 
+        font-size: 2.5rem; 
     }
 
     #past-meetings h2 {
-        color: #333; /* Standard text color */
-        font-size: 2.2rem; /* Standard size, slightly smaller than "Upcoming Meeting" */
+        color: #333; 
+        font-size: 2.2rem; 
         text-align: center;
         padding: auto;
         margin: auto;
-        /* margin-right: -5rem; */
+
     
     }
 
+    .content-container {
+        padding: 0 0.5rem;
+
+    }
+
+    .full-width-container {
+        margin: 0 -0.5rem;
+    }
     
     .presenter-name {
-        font-size: 2rem; /* Adjust font size for descriptions and links */
+        font-size: 2rem; 
     }
 
 }
