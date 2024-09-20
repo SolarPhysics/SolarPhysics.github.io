@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD'},
     
         // 4th meetings...
-        { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: { title: 'The McNish and Lincoln Solar-Activity Predictions: The Method and Its Performance', url: 'https://doi.org/10.1007/s11207-024-02266-2' }, video: 'https://khu-ac.zoom.us/rec/share/kUgjUu5iMEpinMVEzzgbPHGCg52nlPzjksjDbcnX3qZjrvnREvQg13u9VeLTAHTf.3WBXzVdJIysT66mw', ppt: 'TBD'},
         { date: '2024-09-27', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-04', presenter: 'Daeil Kim', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-11', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
