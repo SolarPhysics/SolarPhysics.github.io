@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // 4th meetings...
         { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: { title: 'The McNish and Lincoln Solar-Activity Predictions: The Method and Its Performance', url: 'https://doi.org/10.1007/s11207-024-02266-2' }, video: 'https://khu-ac.zoom.us/rec/share/kUgjUu5iMEpinMVEzzgbPHGCg52nlPzjksjDbcnX3qZjrvnREvQg13u9VeLTAHTf.3WBXzVdJIysT66mw', ppt: 'TBD'},
-        { date: '2024-09-27', presenter: 'Kyungsun Park', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-09-27', presenter: 'Kyungsun Park', articles: [
+            { title: 'The Twisted Configuration of the Martian Magnetotail: MAVEN Observations', url: 'https://doi.org/10.1029/2018GL077251' },
+            { title: 'Oxygen Ion Energization at Mars: Comparison of MAVEN and Mars Express Observations to Global Hybrid Simulation', url: 'https://doi.org/10.1002/2017JA024884' },
+        ], video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-04', presenter: 'Daeil Kim', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-11', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
@@ -52,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ];
     
+   
+
     function updateMeetings() {
         const today = new Date();
         const upcomingSection = document.getElementById('upcoming-meeting');
@@ -70,15 +75,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date);
-            const articleContent = typeof meeting.article === 'string' ? meeting.article : 
-                `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
-
+            let articleContent;
+            
+            if (Array.isArray(meeting.articles)) {
+                articleContent = meeting.articles.map((article, index) => 
+                    `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
+                ).join('<br>');
+            } else if (typeof meeting.article === 'object') {
+                articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+            } else {
+                articleContent = meeting.article || 'TBD';
+            }
+    
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
                     <p><strong>🗓️ Date:</strong> &ensp; <span class="presenter-name">${meeting.date}</span></p>
                     <p><strong>⏰ Time:</strong> &ensp; <span class="presenter-name">10:30 AM</span></p>
                     <p><strong>🎙️ Presenter:</strong> &ensp; <span class="presenter-name">${meeting.presenter}</span></p>
-                    <p><strong>🔖 Article:</strong> &ensp; <span class="presenter-name">${articleContent}</span></p>
+                    <p><strong>🔖 Article(s):</strong> &ensp; <span class="presenter-name">${articleContent}</span></p>
                     <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/84894619367" target="_blank">Join Meeting</a></p>
                 `;
                 foundUpcoming = true;
@@ -122,11 +136,21 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         meetings.forEach(meeting => {
-            const articleContent = typeof meeting.article === 'string' ? meeting.article : 
-                `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+            let articleContent;
+            
+            if (Array.isArray(meeting.articles)) {
+                articleContent = meeting.articles.map((article, index) => 
+                    `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
+                ).join('<br>');
+            } else if (typeof meeting.article === 'object') {
+                articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+            } else {
+                articleContent = meeting.article || 'TBD';
+            }
+    
             const videoContent = meeting.video === 'TBD' ? 'TBD' : `<a href="${meeting.video}" target="_blank">Video</a>`;
             const pptContent = meeting.ppt ? (meeting.ppt === 'TBD' ? 'TBD' : `<a href="${meeting.ppt}" target="_blank">PPT</a>`) : 'N/A';
-
+    
             tableHtml += `
                 <tr>
                     <td data-label="Date">🗓️ ${meeting.date}</td>
@@ -137,11 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </tr>
             `;
         });
-
-        tableHtml += `
-                </tbody>
-            </table>
-        `;
 
         meetingsTableContainer.innerHTML = tableHtml;
 
