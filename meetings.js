@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-09-27', presenter: 'Kyungsun Park', articles: [
             { title: 'The Twisted Configuration of the Martian Magnetotail: MAVEN Observations', url: 'https://doi.org/10.1029/2018GL077251' },
             { title: 'Oxygen Ion Energization at Mars: Comparison of MAVEN and Mars Express Observations to Global Hybrid Simulation', url: 'https://doi.org/10.1002/2017JA024884' },
-        ], video: 'TBD', ppt: 'TBD'},
+        ], video: 'https://khu-ac.zoom.us/rec/share/PyN2uKNVbZynXRXjMxvrfIy-F8oGdz0EiurrktBZAE1zDyMt22dZpFY_geTMdtk0.ai4LiR_zF4nhZagx', ppt: 'https://drive.google.com/file/d/1NNCK4XZLrpU1j6RPtY9muy2f9en_1WUD/view?usp=drive_link'},
         { date: '2024-10-04', presenter: 'Daeil Kim', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-11', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
