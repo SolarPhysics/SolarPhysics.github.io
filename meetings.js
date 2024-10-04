@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
             { title: 'The Twisted Configuration of the Martian Magnetotail: MAVEN Observations', url: 'https://doi.org/10.1029/2018GL077251' },
             { title: 'Oxygen Ion Energization at Mars: Comparison of MAVEN and Mars Express Observations to Global Hybrid Simulation', url: 'https://doi.org/10.1002/2017JA024884' },
         ], video: 'https://khu-ac.zoom.us/rec/share/PyN2uKNVbZynXRXjMxvrfIy-F8oGdz0EiurrktBZAE1zDyMt22dZpFY_geTMdtk0.ai4LiR_zF4nhZagx', ppt: 'https://drive.google.com/file/d/1NNCK4XZLrpU1j6RPtY9muy2f9en_1WUD/view?usp=drive_link'},
-        { date: '2024-10-04', presenter: 'Daeil Kim',  article: { title: 'Impact of far-side structures observed by Solar Orbiter on coronal and heliospheric wind simulations', url: 'https://doi.org/10.1051/0004-6361/202349040' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-11', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-08', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-22', presenter: 'Junmu Youn', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-29', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-12-06', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+        { date: '2024-10-11', presenter: 'Daeil Kim',  article: { title: 'Impact of far-side structures observed by Solar Orbiter on coronal and heliospheric wind simulations', url: 'https://doi.org/10.1051/0004-6361/202349040' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2024-10-18', presenter: 'Jihye Kang', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-01', presenter: 'Hyunjin Jeong', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-15', presenter: 'Sibaek Yi', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-29', presenter: 'Junmu Youn', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-06', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-13', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-27', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
 
     ];
     
