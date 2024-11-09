@@ -205,7 +205,7 @@ th, td {
 #meetings-table-container td {
     padding: 1rem;
     border: 1px solid #f0f0f0;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3 ease;
 }
 
 
@@ -489,25 +489,169 @@ img {
         font-size: 2rem;
     }
 
-}
- */
+} */
 
-/* 모바일 환경을 위한 테이블 스타일 수정 */
+/* @media only screen and (max-width: 600px) { */
 @media only screen and (max-width: 768px) {
-    #meetings-table-container {
-        width: 100%;
-        overflow-x: auto; /* 가로 스크롤 허용 */
-        -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
+    .container {
+        width: auto; 
         margin: 0;
-        padding: 0 1rem;
+        text-align: center;
     }
 
+    /* .header-container {
+        padding: 4.5rem 2rem;
+        margin: 0;
+        height: auto;
+        text-align: center; 
+    }  */
+
+    .header-container {
+        background-attachment: scroll; /* fixed 대신 scroll 사용 */
+        background-size: cover; /* contain 대신 cover 사용하여 더 나은 모바일 표시 */
+        padding: 4.5rem 2rem;
+        margin: 0;
+        height: auto;
+        text-align: center;
+    }
+
+
+    .school-mark-container {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 10rem;
+        object-fit: contain; 
+    }
+
+
+    .header-container h1 {
+        font-size: 0.5rem;
+    }
+
+    .header-container p {
+        font-size: 0.5rem;
+    }
+
+    #meetings-table-container {
+        padding: 4.5rem 2rem;
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        margin: 0;
+        position: relative;
+    }
+
+    /* 날짜 표시 부분 고정 */
+    #meetings-table-container h3 {
+        position: sticky;
+        top: 0;
+        left: 0;
+        /* width: 100%; */
+        background-color: #f0f0f0;
+        margin: 0 0 1rem 0;
+        padding: 1rem;
+        z-index: 1; /* 테이블 위에 표시되도록 */
+        font-size: 1rem;
+    }
+
+
     #meetings-table-container table {
-        width: 100%;
-        min-width: unset; /* 기존 최소 너비 제거 */
+        margin-top: 0; /* 날짜와의 간격 조정 */
+    }
+        
+
+    .upcoming-meeting-container {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .past-meeting-container {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .meeting-image-placeholder {
+        width: 85%;
+        margin: 0;
+    }
+
+
+    body, p, a {
         font-size: 0.8rem;
     }
 
+    a {
+
+        font-family: Arial, sans-serif;
+        font-weight: 800;
+        font-optical-sizing: auto;
+        color: #007bff;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    
+    }
+    
+    a:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+    
+    a:focus {
+        outline: 2px solid #007bff;
+    }
+
+
+    
+    h1 {
+        font-size: 0.5rem; 
+    }
+
+    h2 {
+        font-size: 0.5rem; 
+    }
+
+    .header-container h1 {
+        font-size: 1.5rem; 
+    }
+
+    .header-container h2 {
+        font-size: 1.2rem; 
+    }
+
+    .header-container p {
+        font-size: 1.5rem; 
+    }
+
+    #upcoming-meeting a {
+
+        font-size: 1rem; 
+    }
+
+    #upcoming-meeting h2 {
+        color: #333; 
+        font-size: 2rem; 
+    }
+
+    #upcoming-meeting p {
+        color: #333; 
+        font-size: 1rem; 
+    }
+
+
+    #meetings-table-container th {
+
+        background-color: #007bff;
+        color: white;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-align: center;
+    
+    }
     /* 각 열의 너비 최적화 */
     #meetings-table-container th,
     #meetings-table-container td {
@@ -515,64 +659,15 @@ img {
         white-space: normal; /* 긴 텍스트 줄바꿈 허용 */
     }
 
-    /* Date 열 */
-    #meetings-table-container td[data-label="Date"],
-    #meetings-table-container th:nth-child(1) {
-        width: 80px;
-        min-width: 80px;
+    
+    #past-meetings h2 {
+        color: #333; 
+        font-size: 2rem; 
+        text-align: center;
+        padding: auto;
+        margin: auto;
     }
-
-    /* Time 열 */
-    #meetings-table-container td[data-label="Time"],
-    #meetings-table-container th:nth-child(2) {
-        width: 70px;
-        min-width: 70px;
-    }
-
-    /* Presenter 열 */
-    #meetings-table-container td[data-label="Presenter"],
-    #meetings-table-container th:nth-child(3) {
-        width: 90px;
-        min-width: 90px;
-    }
-
-    /* Article 열 - 남은 공간 차지 */
-    #meetings-table-container td[data-label="Article"],
-    #meetings-table-container th:nth-child(4) {
-        min-width: 200px;
-    }
-
-    /* Materials 열 */
-    #meetings-table-container td[data-label="Materials"],
-    #meetings-table-container th:nth-child(5) {
-        width: 100px;
-        min-width: 100px;
-    }
-
-    /* 긴 제목 처리 */
-    #meetings-table-container td[data-label="Article"] a {
-        display: block;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: normal; /* 긴 텍스트 줄바꿈 */
-        line-height: 1.4;
-    }
-
-    /* 테이블 내부 링크 스타일 */
-    #meetings-table-container a {
-        word-break: break-word;
-    }
-}
-
-/* 더 작은 화면을 위한 추가 조정 */
-@media only screen and (max-width: 480px) {
-    #meetings-table-container table {
-        font-size: 0.7rem;
-    }
-
-    #meetings-table-container th,
-    #meetings-table-container td {
-        padding: 0.4rem;
+    .presenter-name {
+        font-size: 1rem;
     }
 }
