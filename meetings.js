@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <table>
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Presenter</th>
-                        <th>Article</th>
-                        <th>Materials</th>
+                        <th>🗓️ Date</th>
+                        <th>⏰ Time</th>
+                        <th>🎙️ Presenter</th>
+                        <th>🔖 Article</th>
+                        <th>🔗 Materials</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -150,11 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
             tableHtml += `
                 <tr>
-                    <td data-label="Date">🗓️ ${meeting.date}</td>
-                    <td data-label="Time">⏰ 10:30 AM</td>
-                    <td data-label="Presenter">🎙️ ${meeting.presenter}</td>
-                    <td data-label="Article">🔖 ${articleContent}</td>
-                    <td data-label="Materials">🔗 ${videoContent} | ${pptContent}</td>
+                    <td data-label="Date"> ${meeting.date}</td>
+                    <td data-label="Time"> 10:30 AM</td>
+                    <td data-label="Presenter"> ${meeting.presenter}</td>
+                    <td data-label="Article"> ${articleContent}</td>
+                    <td data-label="Materials"> ${videoContent} | ${pptContent}</td>
                 </tr>
             `;
         });

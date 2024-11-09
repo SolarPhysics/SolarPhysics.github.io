@@ -68,8 +68,10 @@ header {
     padding: 1.25rem;
     text-align: center; */
 
-    max-width: 1200px;
-    padding: 0 2rem;
+    /* max-width: 1200px; */
+    max-width: 93rem;
+    /* padding: 0 2rem; */
+    padding: 1.25rem;
     margin: 0 auto;
 
 }
@@ -193,7 +195,7 @@ th, td {
     font-weight: 800;
     padding: 1rem;
     text-transform: uppercase;
-    font-size: 1.0rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     text-align: center;
 
@@ -214,6 +216,32 @@ th, td {
     background-color: #f1f1f1;
 }
 
+/* Date 열 */
+#meetings-table-container td[data-label="Date"] {
+    text-align: center;
+}
+
+/* Time 열 */
+#meetings-table-container td[data-label="Time"] {
+    text-align: center;
+}
+
+/* Presenter 열 */
+#meetings-table-container td[data-label="Presenter"] {
+    text-align: center;
+}
+
+/* Article 열 - 왼쪽 정렬 유지 */
+#meetings-table-container td[data-label="Article"] {
+    text-align: left;
+}
+
+/* Materials 열 */
+#meetings-table-container td[data-label="Materials"] {
+    text-align: center;
+}
+
+
 a {
     /* font-family: "Josefin Slab", serif; */
 
@@ -225,6 +253,7 @@ a {
     text-decoration: underline; */
 
     font-family: Arial, sans-serif;
+    font-weight: 800;
     font-optical-sizing: auto;
     color: #007bff;
     text-decoration: none;
@@ -338,8 +367,8 @@ img {
     height: auto;
     display: block;
     margin: auto;
-
 }
+
 /* Adjustments for "Past Meetings" to make it less emphasized compared to "Upcoming Meeting" */
 #past-meetings {
     padding: 1.25rem;
