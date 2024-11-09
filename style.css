@@ -1,5 +1,6 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
+    /* font-family: 'Segoe UI', sans-serif; */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -61,12 +62,16 @@ header {
 
 
 .container {
-    max-width: 93rem;
+    /* max-width: 93rem;
     width: 100%; 
-    /* width: auto;  */
     margin: auto;
     padding: 1.25rem;
-    text-align: center; /* Center the text for smaller containers */
+    text-align: center; */
+
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin: 0 auto;
+
 }
 
 .pcontainer {
@@ -80,13 +85,16 @@ header {
 
 
 .header-container {
+
     background-image: url('movingSun.gif');
+    /* background-size: cover;  */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; 
     height: auto; 
-    /* overflow: auto; Adds scrollbars if content overflows */
-    background-color: #000; /* Outer color */
+
+    background-color: #000;
     color: #fff; 
     width: auto;
     margin: auto;
@@ -164,15 +172,39 @@ th, td {
 
 #meetings-table-container table {
 
-    border-collapse: collapse;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    /* border-collapse: collapse; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);  */
+
+    border-radius: 8px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+
 }
 
 #meetings-table-container th {
-    background-color: #333;
+    /* background-color: #333;
     color: white;
+    text-align: center; */
+
+    background-color: #007bff;
+    color: white;
+    font-weight: 800;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    letter-spacing: 1px;
     text-align: center;
+
 }
+
+#meetings-table-container td {
+    padding: 1rem;
+    border: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
 
 #meetings-table-container tr:nth-child(even) {
     background-color: #f8f8f8;
@@ -184,21 +216,32 @@ th, td {
 
 a {
     /* font-family: "Josefin Slab", serif; */
-    font-family: Arial, sans-serif;
+
+    /* font-family: Arial, sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: italic;
     color: #007bff;
-    text-decoration: underline;
+    text-decoration: underline; */
+
+    font-family: Arial, sans-serif;
+    font-optical-sizing: auto;
+    color: #007bff;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+
 }
 
 a:hover {
     text-decoration: underline;
+    color: #0056b3;
 }
 
 a:focus {
     outline: 2px solid #007bff;
 }
+
 
 footer {
     height: auto;
