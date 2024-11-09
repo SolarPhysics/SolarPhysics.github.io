@@ -31,10 +31,10 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 header {
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    color: #fff; /* Adjusted text color to white for better contrast */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    color: #fff; 
     padding: 1.25rem 0;
     border-bottom: 0.3125rem solid #000000;
 }
@@ -47,7 +47,6 @@ header {
     left: 2rem;
     width: 20rem;
     object-fit: contain; 
-    /* margin: 0 1rem; */
 }
 
 #meetings-table-container h3 {
@@ -62,16 +61,7 @@ header {
 
 
 .container {
-    /* max-width: 93rem;
-    width: 100%; 
-    margin: auto;
-    padding: 1.25rem;
-    text-align: center; */
-
-    /* max-width: 1200px; */
     max-width: 93rem;
-    /* width: 100%;  */
-    /* padding: 0 2rem; */
     padding: 1.25rem;
     margin: 0 auto;
 
@@ -163,20 +153,16 @@ table {
 th, td {
     padding: 0.625rem;
     border: 1.5px solid #ccc;
-    /* text-align: center; */
     text-align: left;
     color: #333;
     min-width: 1rem;
     max-width: 43rem; 
-    /* width: auto; */
     height: auto;
     margin: auto;
 }
 
 #meetings-table-container table {
 
-    /* border-collapse: collapse; 
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);  */
 
     border-radius: 8px;
     overflow: hidden;
@@ -187,9 +173,6 @@ th, td {
 }
 
 #meetings-table-container th {
-    /* background-color: #333;
-    color: white;
-    text-align: center; */
 
     background-color: #007bff;
     color: white;
@@ -244,14 +227,6 @@ th, td {
 
 
 a {
-    /* font-family: "Josefin Slab", serif; */
-
-    /* font-family: Arial, sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: italic;
-    color: #007bff;
-    text-decoration: underline; */
 
     font-family: Arial, sans-serif;
     font-weight: 800;
@@ -282,14 +257,6 @@ footer {
     background: #eaeaea;
 }
 
-/* .upcoming-meeting-container, .past-meeting-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 68.75rem; 
-    margin: auto;
-    padding: 1.25rem; 
-    
-} */
 
 .upcoming-meeting-container {
     display: flex;
@@ -386,111 +353,6 @@ img {
 }
 
 
-/* @media only screen and (max-width: 600px) {
-
-    .container {
-        width: auto; 
-        margin: 0;
-        text-align: center;
-    }
-
-    .header-container {
-        padding: 4.5rem 2rem;
-        margin: 0;
-        height: auto;
-        text-align: center; 
-    } 
-
-    .school-mark-container {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        width: 10rem;
-        object-fit: contain; 
-    }
-
-    .header-container h1 {
-        font-size: 0.5rem;
-    }
-
-    .header-container p {
-        font-size: 0.5rem;
-    }
-
-
-    .upcoming-meeting-container {
-        flex-direction: column;
-        margin: 0;
-        
-    }
-    .past-meeting-container {
-        flex-direction: column;
-        margin: 0;
-    }
-
-    .meeting-image-placeholder {
-        width: 85%;
-        margin: 0;
-    }
-    body, p, a {
-        font-size: 0.5rem;
-    }
-
-    a {
-        font-family: Arial, sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 800;
-        font-style: italic;
-        color: #007bff;
-        text-decoration: underline;
-    }
-
-    
-    h1 {
-        font-size: 0.5rem; 
-    }
-
-    h2 {
-        font-size: 0.5rem; 
-    }
-
-    .header-container h1 {
-        font-size: 2rem; 
-    }
-
-    .header-container h2 {
-        font-size: 1.2rem; 
-    }
-
-    .header-container p {
-        font-size: 1.5rem; 
-    }
-
-    #upcoming-meeting a {
-
-        font-size: 2rem; 
-    }
-
-    #upcoming-meeting h2 {
-        color: #333; 
-        font-size: 2.5rem; 
-    }
-
-    #past-meetings h2 {
-        color: #333; 
-        font-size: 2.2rem; 
-        text-align: center;
-        padding: auto;
-        margin: auto;
-    }
-    .presenter-name {
-        font-size: 2rem;
-    }
-
-} */
-
 /* @media only screen and (max-width: 600px) { */
 @media only screen and (max-width: 768px) {
     .container {
@@ -499,16 +361,10 @@ img {
         text-align: center;
     }
 
-    /* .header-container {
-        padding: 4.5rem 2rem;
-        margin: 0;
-        height: auto;
-        text-align: center; 
-    }  */
 
     .header-container {
-        background-attachment: scroll; /* fixed 대신 scroll 사용 */
-        background-size: cover; /* contain 대신 cover 사용하여 더 나은 모바일 표시 */
+        background-attachment: scroll; 
+        background-size: cover; 
         padding: 4.5rem 2rem;
         margin: 0;
         height: auto;
@@ -543,22 +399,20 @@ img {
         position: relative;
     }
 
-    /* 날짜 표시 부분 고정 */
     #meetings-table-container h3 {
         position: sticky;
         top: 0;
         left: 0;
-        /* width: 100%; */
         background-color: #f0f0f0;
         margin: 0 0 1rem 0;
         padding: 1rem;
-        z-index: 1; /* 테이블 위에 표시되도록 */
+        z-index: 1; 
         font-size: 1rem;
     }
 
 
     #meetings-table-container table {
-        margin-top: 0; /* 날짜와의 간격 조정 */
+        margin-top: 0; 
     }
         
 
@@ -652,11 +506,11 @@ img {
         text-align: center;
     
     }
-    /* 각 열의 너비 최적화 */
+
     #meetings-table-container th,
     #meetings-table-container td {
         padding: 0.5rem;
-        white-space: normal; /* 긴 텍스트 줄바꿈 허용 */
+        white-space: normal; 
     }
 
     
