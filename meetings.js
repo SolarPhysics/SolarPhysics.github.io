@@ -47,12 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-10-11', presenter: 'Jihye Kang', article: { title: 'Thermodynamic and Magnetic Topology Evolution of the X1.0 Flare on 2021 October 28 Simulated by a Data-driven Radiative Magnetohydrodynamic Model', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/acc797' }, video: 'https://khu-ac.zoom.us/rec/share/M8aFX9fPSgD-lrZ6fjEbxOd_N8CyIaAYLlXSBM4rq-8Gmvp-v_azhtFig7-SCwbz.EIDCeDMsTIxmjUmr', ppt: 'TBD'},
         { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: { title: 'Modeling the propagation of coronal mass ejections with COCONUT: Implementation of the regularized Biot-Savart law flux rope model', url: 'https://www.aanda.org/articles/aa/full_html/2024/03/aa47634-23/aa47634-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/9JtUY2TsgCe7XOxcv4V3Pi2nrCYYMPW7_92lSiU2CARhNtzP5gTPmGxPQ5p1wGh_.teLNUBiwZZDYKD5D', ppt: 'TBD'},
         { date: '2024-11-08', presenter: 'Sibaek Yi', article: { title: 'Toroidal Miller-Turner and Soloviev coronal mass ejection models in EUHFORIA I. Implementation', url: 'https://doi.org/10.1051/0004-6361/202347794' }, video: ' https://khu-ac.zoom.us/rec/share/m-JTbaF42B2UWgUk6qG5YVvGLz1AwQDa_QbKgmEteb9vPJZiwOi70I2nu5Ya2xZB.RHwtFvK-1jqBLMpC', ppt: 'TBD'},
-        { date: '2024-11-15', presenter: 'Daeil Kim',  article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2024-11-22', presenter: 'Junmu Youn', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-11-15', presenter: 'Daeil Kim',  article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'https://khu-ac.zoom.us/rec/share/Uu6Kjhmh2jMGxGGu6gr9-MUHGz87lDSzXM-vNMpT9f_d8_2V3CS4zXAZ-F33eGNx.MFhhoc-QdrHlFaSK', ppt: 'TBD'},
+        { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'TBD', ppt: 'TBD'},
         { date: '2024-11-29', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-12-06', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-12-20', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
+
+    
 
     function updateMeetings() {
         const today = new Date();
