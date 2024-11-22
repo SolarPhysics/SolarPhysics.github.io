@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-11-15', presenter: 'Daeil Kim',  article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'https://khu-ac.zoom.us/rec/share/Uu6Kjhmh2jMGxGGu6gr9-MUHGz87lDSzXM-vNMpT9f_d8_2V3CS4zXAZ-F33eGNx.MFhhoc-QdrHlFaSK', ppt: 'TBD'},
         { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'https://khu-ac.zoom.us/rec/share/wQYwx8Qb-irtVvu_krQh1REferHyZ0rq2T6mKoM5jZOaViKb2RosmjbMjbViYvcv.LlvlABjFoTnPWDYk', ppt: 'TBD'},
         { date: '2024-11-29', presenter: 'Donghui Son', article: 'TBD', video: 'TBD', ppt: 'TBD'},
-        { date: '2024-12-06', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
+        { date: '2024-12-13', presenter: 'Junmo An', article: 'TBD', video: 'TBD', ppt: 'TBD'},
         { date: '2024-12-20', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
     ];
 
