@@ -51,10 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'https://khu-ac.zoom.us/rec/share/wQYwx8Qb-irtVvu_krQh1REferHyZ0rq2T6mKoM5jZOaViKb2RosmjbMjbViYvcv.LlvlABjFoTnPWDYk', ppt: 'TBD'},
         { date: '2024-11-29', presenter: 'Donghui Son', article: { title: 'The Sun’s differential rotation is controlled by high-latitude baroclinically unstable inertial modes', url: 'https://www.science.org/doi/10.1126/sciadv.adk5643' }, video: 'https://khu-ac.zoom.us/rec/share/FFQa2Yp61H2xO7sCPgyZ0LE1w0UD-SK2rMVBUCaagp5XBW9QMrTAUXIK6Jzx_vQ-.3K4w7EmrmTDX8If0', ppt: 'TBD'},
         { date: '2024-12-13', presenter: 'Junmo An', article: { title: 'Magnetograms underestimate even unipolar magnetic flux nearly everywhere on the solar disk', url: 'https://doi.org/10.1051/0004-6361/202450267' }, video: 'https://khu-ac.zoom.us/rec/share/jaFtuVnDYbLZvfzSbmQgIxDhoZKXT8CcbXDMzAERJqy1BIoEhTtpqbD80-pQkQcS.zXvKctR3esgpIZfV', ppt: 'TBD'},
-        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: 'TBD', video: 'TBD', ppt: 'TBD'}
+        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: { title: 'A Near-half-century Simulation of the Solar Corona', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad1934' }, video: 'TBD', ppt: 'TBD'},
     ];
 
-    
+
+
   
     function updateMeetings() {
         const today = new Date();
