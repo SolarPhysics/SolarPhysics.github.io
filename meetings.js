@@ -65,8 +65,45 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
     ];
+
+    // 미팅 그룹의 시작과 끝 인덱스를 명확하게 정의
+    const GROUP_INDICES = {
+        '2023-1st': { start: 0, end: 10 },
+        '2024-1st': { start: 10, end: 21 },
+        '2024-2nd': { start: 21, end: 29 },
+        '2024-3rd': { start: 29, end: 39 },
+        '2025-1st': { start: 39, end: 50 }
+    };
   
+    // 미팅 그룹 생성을 더 명확하고 유지보수하기 쉽게 수정
+    const meetingGroups = Object.fromEntries(
+        Object.entries(GROUP_INDICES).map(([key, {start, end}]) => [
+            key,
+            meetings.slice(start, end)
+        ])
+    );
+
+    // 유효성 검사 추가
+    function validateMeetings() {
+        // 날짜 순서 확인
+        for (let i = 1; i < meetings.length; i++) {
+            const prevDate = new Date(meetings[i-1].date);
+            const currDate = new Date(meetings[i].date);
+            if (prevDate > currDate) {
+                console.warn(`Meeting dates are not in chronological order: ${meetings[i-1].date} -> ${meetings[i].date}`);
+            }
+        }
+
+        // 그룹 크기 확인
+        Object.entries(meetingGroups).forEach(([groupName, groupMeetings]) => {
+            if (groupMeetings.length === 0) {
+                console.warn(`Group ${groupName} is empty`);
+            }
+        });
+    }
+    
     function updateMeetings() {
+        validateMeetings(); // 유효성 검사 실행
         const today = new Date();
         const upcomingSection = document.getElementById('upcoming-meeting');
         const meetingsContainer = document.getElementById('quarters-container');
