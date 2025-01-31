@@ -15,7 +15,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.quarter-button {
+/* .quarter-button {
     background-color: #f0f0f0;
     border: none;
     padding: 10px 20px;
@@ -24,12 +24,38 @@ body {
     border-radius: 20px;
     transition: all 0.3s ease;
     font-weight: bold;
+} */
+
+.quarter-button {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 12px 24px;
+    margin: 8px;
+    border-radius: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
-.quarter-button:hover, .quarter-button.active {
+
+/* .quarter-button:hover, .quarter-button.active {
     background-color: #007bff;
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+} */
+
+.quarter-button:hover {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,123,255,0.2);
 }
+
+.quarter-button.active {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: white;
+}
+
 header {
     display: flex; 
     flex-direction: column; 
@@ -196,8 +222,16 @@ th, td {
     background-color: #f8f8f8;
 }
 
+#meetings-table-container tr:last-child {
+    border-bottom: none;
+}
+
 #meetings-table-container tr:hover {
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
+    background-color: #f8f9fa;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Date 열 */
@@ -413,6 +447,14 @@ img {
 
     #meetings-table-container table {
         margin-top: 0; 
+    }
+
+    #meetings-table-container thead {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
         
 
