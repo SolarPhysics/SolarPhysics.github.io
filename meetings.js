@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
             '2023-1st': meetings.slice(0, 10),
             '2024-1st': meetings.slice(10, 21),
             '2024-2nd': meetings.slice(21, 29),
-            '2024-3rd': meetings.slice(29)
+            '2024-3rd': meetings.slice(29, 41),
+            '2025-1st': meetings.slice(41)
         };
 
         meetings.forEach(meeting => {
