@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-12-20', presenter: 'Mingyu Jeon', article: { title: 'A Near-half-century Simulation of the Solar Corona', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad1934' }, video: 'https://khu-ac.zoom.us/rec/share/nNnTokmVw4t4Q-xF2ujADwSeEb8GXgvkW467-KFdTldyAAOKTJNFvp2t-jqGOqaL.YXQGz6UGWXqe2uAA', ppt: 'TBD'},
 
         // 2025-1st: 39-50 (12개)
-        { date: '2025-02-14', presenter: 'Daeil Kim', article: { title: 'Studying the Spheromak Rotation in Data-constrained Coronal Mass Ejection Modeling with EUHFORIA and Assessing Its Effect on the Bz Prediction', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/ad0df4' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-02-14', presenter: 'Daeil Kim', article: { title: 'Studying the Spheromak Rotation in Data-constrained Coronal Mass Ejection Modeling with EUHFORIA and Assessing Its Effect on the Bz Prediction', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/ad0df4' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
         { date: '2025-02-21', presenter: 'Junmu Youn', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-02-28', presenter: 'Yeongmin Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-07', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
