@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 2025-1st: 39-50 (12개)
         { date: '2025-02-14', presenter: 'Daeil Kim', article: { title: 'Studying the Spheromak Rotation in Data-constrained Coronal Mass Ejection Modeling with EUHFORIA and Assessing Its Effect on the Bz Prediction', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/ad0df4' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
         { date: '2025-02-21', presenter: 'Junmu Youn', article: { title: 'The Coronal Veil', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac3df9' }, video: 'https://khu-ac.zoom.us/rec/share/zwH2H4Gkt_ct3swucDxhegoliKYN2qBNuHojRjTAcb6WciGVEZTZkW7Vv8i0Tm4.QUJVczMCFVgOxvwN', ppt: 'TBD'},
-        { date: '2025-02-28', presenter: 'Yeongmin Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-02-28', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD Simulation of the Formation of a Magnetic Flux Rope and an Inclined Solar Eruption', url: 'https://doi.org/10.3847/1538-4357/ad6a54' }, video: 'https://khu-ac.zoom.us/rec/share/G20O-BFdsYKLlnRUIoJ2xdjzoDZiUBSRrxmJDyQyI43gyg-Z6cSYIwUNeGU6jJn-._B1qVeDdkKROF17g', ppt: 'TBD'},
         { date: '2025-03-07', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
