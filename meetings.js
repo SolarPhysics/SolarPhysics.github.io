@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-03-07', presenter: 'Sangjin Park', articles: [
             { title: 'Penumbral fine structure and driving mechanisms of large-scale flows in simulated sunspots', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/729/1/5' },
             { title: 'NUMERICAL SUNSPOT MODELS: ROBUSTNESS OF PHOTOSPHERIC VELOCITY AND MAGNETIC FIELD STRUCTURE', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/750/1/62' },
-        ], video: 'TBD', ppt: 'TBD'},
+        ], video: 'https://khu-ac.zoom.us/rec/share/JP_JBwn2rXzXxqVRnyAJf9WEp3pSA3MAdPDzOXCJrGM6ea4lGdfLJ4VSZ4gCdoXd.XMYkZSGqfee5uwRg', ppt: 'TBD'},
         { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
