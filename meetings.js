@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { title: 'Penumbral fine structure and driving mechanisms of large-scale flows in simulated sunspots', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/729/1/5' },
             { title: 'NUMERICAL SUNSPOT MODELS: ROBUSTNESS OF PHOTOSPHERIC VELOCITY AND MAGNETIC FIELD STRUCTURE', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/750/1/62' },
         ], video: 'https://khu-ac.zoom.us/rec/share/JP_JBwn2rXzXxqVRnyAJf9WEp3pSA3MAdPDzOXCJrGM6ea4lGdfLJ4VSZ4gCdoXd.XMYkZSGqfee5uwRg', ppt: 'TBD'},
-        { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'Multispecies and Multifluid MHD Approaches for the Study of Ionospheric Escape at Mars', url: 'https://doi.org/10.1029/2017JA025117' }, video: 'https://khu-ac.zoom.us/rec/share/0P7irjW7v7Bpd3SlCi7ZhEQSCzbWGL_C56usbjBoevSU8QOvEVD-B9QSDiHLNDrm.q5Byp7l9EQvq7EMn', ppt: 'TBD'},
         { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
