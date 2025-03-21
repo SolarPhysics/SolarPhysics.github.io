@@ -107,6 +107,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Title case 변환 함수 추가
+    function toTitleCase(str) {
+        // 소문자로 변환하지 않을 특수 단어들 (약어, 단위 등)
+        const specialWords = new Set(['MHD', 'CME', 'CMEs', '3D', 'EUHFORIA', 'MAVEN', 'SOHO', 'MDI', 'SDO', 'HMI', 'BBSO', 'HOW-MHD', 'WENO', 'GLM-MHD', 'SuNeRF', 'EUV', 'OSPREI', 'COCONUT']);
+    
+        // 항상 소문자로 유지할 단어들
+        const lowercaseWords = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'if', 'in', 'of', 'on', 'or', 'the', 'to', 'up', 'yet']);
+
+        return str.split(' ').map((word, index) => {
+            // 특수 단어는 그대로 유지
+            if (specialWords.has(word.toUpperCase())) {
+                return word.toUpperCase();
+            }
+        
+            // 첫 단어이거나 소문자로 유지할 단어가 아닌 경우
+            if (index === 0 || !lowercaseWords.has(word.toLowerCase())) {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }
+        
+            return word.toLowerCase();
+        }).join(' ');
+    }
+    
     function updateMeetings() {
         validateMeetings(); // 유효성 검사 실행
         const today = new Date();
@@ -128,16 +151,26 @@ document.addEventListener('DOMContentLoaded', function() {
         meetings.forEach(meeting => {
             const meetingDate = new Date(meeting.date);
             let articleContent;
-            
             if (Array.isArray(meeting.articles)) {
-                articleContent = meeting.articles.map((article, index) => 
-                    `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
-                ).join('<br>');
+                articleContent = meeting.articles.map((article, index) => {
+                    article.title = toTitleCase(article.title); // 제목 변환
+                    return `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`;
+                }).join('<br>');
             } else if (typeof meeting.article === 'object') {
+                meeting.article.title = toTitleCase(meeting.article.title); // 제목 변환
                 articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
             } else {
                 articleContent = meeting.article || 'TBD';
             }
+            // if (Array.isArray(meeting.articles)) {
+            //     articleContent = meeting.articles.map((article, index) => 
+            //         `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
+            //     ).join('<br>');
+            // } else if (typeof meeting.article === 'object') {
+            //     articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+            // } else {
+            //     articleContent = meeting.article || 'TBD';
+            // }
     
             if (meetingDate >= today && !foundUpcoming) {
                 upcomingHtml += `
