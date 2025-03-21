@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Title case 변환 함수 추가
     function toTitleCase(str) {
         // 소문자로 변환하지 않을 특수 단어들 (약어, 단위 등)
-        const specialWords = new Set(['MHD', 'CME', 'CMEs', '3D', 'EUHFORIA', 'MAVEN', 'SOHO', 'MDI', 'SDO', 'HMI', 'BBSO', 'HOW-MHD', 'WENO', 'GLM-MHD', 'SuNeRF', 'EUV', 'OSPREI', 'COCONUT']);
+        const specialWords = new Set(['MHD', 'TBD','CME', 'CMEs', '3D', 'EUHFORIA', 'MAVEN', 'SOHO', 'MDI', 'SDO', 'HMI', 'BBSO', 'HOW-MHD', 'WENO', 'GLM-MHD', 'SuNeRF', 'EUV', 'OSPREI', 'COCONUT']);
     
         // 항상 소문자로 유지할 단어들
         const lowercaseWords = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'if', 'in', 'of', 'on', 'or', 'the', 'to', 'up', 'yet']);
