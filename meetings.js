@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'Applying the Weighted Horizontal Magnetic Gradient Method to a Simulated Flaring Active Region', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aab891/meta' }, video: 'https://khu-ac.zoom.us/rec/share/vU-Ur-HXGsMj6ooe09QG0gJv_XF1va7xKl70Lnf-zCE0PkCGzVL4LizdJUfFriZg.8e63ke1abtdJgqun', ppt: 'TBD'},
         { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'A Data-constrained Model for Coronal Mass Ejections Using the Graduated Cylindrical Shell Method', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aad3b4/meta' }, video: 'https://khu-ac.zoom.us/rec/share/mBCZNlhl2EDsr8KNl-BUFx8lSQpy5IF1JE9tpuvaVn1JxnJaG6VafFfhvApxXX_Z.w5DZwUCOf9K7Y3sS', ppt: 'TBD'},
         { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'Convective Magnetic Flux Emergence Simulations from the Deep Solar Interior to the Photosphere: Comprehensive Study of Flux Tube Twist', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad7e1d' }, video: 'https://khu-ac.zoom.us/rec/share/oCjZN6pEldM7-yoKhkpUjXwbymMK1wOSjoLXcbit--Cvpmsfhfu7mQzGtHDYatw3.oFWSlNMsIaUJ0YQR', ppt: 'TBD'},
-        { date: '2025-04-18', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-05-09', presenter: 'Yeonwoo Jang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-05-30', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
     ];
     
 
