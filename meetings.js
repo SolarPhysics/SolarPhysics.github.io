@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const meetings = [
-
         // 2023-1st: 0-9 (10개)
         { date: '2023-09-08', presenter: 'Sibaek Yi', article: { title: 'A Model for the Sources of the Slow Solar Wind', url: 'https://arxiv.org/abs/1102.3704'}, video: 'TBD' },
         { date: '2023-09-15', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD'}, video: 'TBD'},
         { date: '2023-09-22', presenter: 'Jihye Kang', article: { title: 'Onset mechanism and a physics-based prediction of large solar flares', url: 'https://ui.adsabs.harvard.edu/abs/2021AGUFMSH23B..01K/abstract' }, video: 'TBD'},
         { date: '2023-10-06', presenter: 'Donghui Son', article: { title: 'On rising magnetic flux tube and formation of sunspots in a deep domain', url: 'https://arxiv.org/abs/2003.10583'}, video: 'TBD'},
         { date: '2023-10-13', presenter: 'Yeonwoo Jang', article: { title: 'A Framework for Detecting Polarity Inversion Lines from Longitudinal Magnetograms', url: 'https://ieeexplore.ieee.org/document/9377808'}, video: 'TBD'},
-        { date: '2023-11-10', presenter: 'Hwanhee Lee', article: { title: 'Origin of the Wang–Sheeley–Arge solar wind model', url: 'https://hgss.copernicus.org/articles/8/21/2017/' }, video: 'https://khu-ac.zoom.us/rec/share/3I3bxvfs1K46M7tC0UtWozl6eEuuvdNIjwRNM2_q6Vlt1JY5IFW6VmAEDaeBoafj.NHLOBvawpYkdG_Kp'},
+        { date: '2023-11-10', presenter: 'Hwanhee Lee', article: { title: 'Origin of the Wang-Sheeley-Arge solar wind model', url: 'https://hgss.copernicus.org/articles/8/21/2017/' }, video: 'https://khu-ac.zoom.us/rec/share/3I3bxvfs1K46M7tC0UtWozl6eEuuvdNIjwRNM2_q6Vlt1JY5IFW6VmAEDaeBoafj.NHLOBvawpYkdG_Kp'},
         { date: '2023-11-17', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD simulation study of an inclined solar eruption in NOAA active region 11283', url: 'TBD' }, video: 'https://khu-ac.zoom.us/rec/share/UXKfj93JlHNoRZwn_F4Rxg-8rD-tUk-lbVARb744S3TXLLkHaKoWSk83ZxVg68MQ.yLydNWG3iVwPw3nN'},
         { date: '2023-11-24', presenter: 'Mingyu Jeon', article: { title: 'Probing the solar coronal magnetic field with physics-informed neural networks', url: 'https://www.nature.com/articles/s41550-023-02085-8' }, video: 'https://khu-ac.zoom.us/rec/share/IfOOGO1Oj0w7L-O7zjanmtCJ40ld6KCmBn3BtUgKo_ZlfLfzq7DAGehc6Xoq5EfL.nlC8VEiAVNNPTqgv'},
         { date: '2023-12-01', presenter: 'Hyunjin Jeong', article: { title: 'Rotation and interaction of the CMEs of September 8 and 10, 2014, tested with EUHFORIA', url: 'https://www.aanda.org/articles/aa/full_html/2023/07/aa45902-23/aa45902-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/8M-6tyRGHj3ZxhWP1uiwyGEPEG6EAbGgjN0n7vpmXcTYXEmpVxQ80MOOvxvtZoxJ.HTpzFqJ3LcuQ_kld'},
@@ -19,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }, video: 'TBD'},
         { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD', ppt: 'https://drive.google.com/file/d/1sBFDK5NFLNJXIDOfrkGSt0s7tf4cUxLZ/view?usp=sharing'},
         { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }, video: 'https://khu-ac.zoom.us/rec/share/q9BScJYobQVCmtOslqwzHzL2OsAttPAEKvC4Gvl1eN4D-_IPFYuG9xMSFCANbsRR.Lm2CguFzUpaTNxnk'},
-        { date: '2024-02-23', presenter: 'Hwanhe0Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
+        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
         { date: '2024-03-08', presenter: 'Yeongmin Kang', article: { title: 'Comparative Study of Data-driven Solar Coronal Field Models Using a Flux Emergence Simulation as a Ground-truth Data Set', url: 'https://arxiv.org/abs/2001.03721v1' }, video: 'TBD'},
         { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC', ppt: 'https://drive.google.com/file/d/1kS2z4SqhBdjieq75SGlmRX-O8D9-0VvD/view?usp=drive_link'},
         { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: { title: 'First Insights into the Applicability and Importance of Different 3D Magnetic Field Extrapolation Approaches for Studying the Preeruptive Conditions of Solar Active Regions', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad18bd' }, video: 'https://khu-ac.zoom.us/rec/share/1-ekoH44rObi6dlQkFVkdhX8Z5bufvWu3xoHLhrIR9pqK2c7noiAkp_y8kd2Fy47.gmnTfeL5PpULzlwD', ppt: 'TBD'},
         { date: '2024-03-29', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD'},
-        { date: '2024-04-05', presenter: 'Kyungsun Park', article: { title: 'Solar wind entry into Mercury’s magnetosphere: Simulation results for the second swingby of BepiColombo', url: 'https://www.aanda.org/articles/aa/full_html/2024/01/aa47789-23/aa47789-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/px94blvJpCYLoSoxivaOJEnYwBU48EYnuas-n9VawYVeRkoyh_TkEXRqSI9aKRv3.ftl6AfzbSTAGUlW9', ppt: 'https://drive.google.com/file/d/1_0-zmvJ1on_FzrJPeKXgt52L3zHnUhz-/view?usp=sharing'},
+        { date: '2024-04-05', presenter: 'Kyungsun Park', article: { title: 'Solar wind entry into Mercury\'s magnetosphere: Simulation results for the second swingby of BepiColombo', url: 'https://www.aanda.org/articles/aa/full_html/2024/01/aa47789-23/aa47789-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/px94blvJpCYLoSoxivaOJEnYwBU48EYnuas-n9VawYVeRkoyh_TkEXRqSI9aKRv3.ftl6AfzbSTAGUlW9', ppt: 'https://drive.google.com/file/d/1_0-zmvJ1on_FzrJPeKXgt52L3zHnUhz-/view?usp=sharing'},
         
         // 2024-2nd: 21-28 (8개)
         { date: '2024-05-03', presenter: 'Sibaek Yi', article: { title: 'A Magnetogram-matching Method for Energizing Magnetic Flux Ropes Toward Eruption', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac874e' }, video: 'https://khu-ac.zoom.us/rec/share/k8HjTO71M8cH5SCQ-PZQk5IhEVMf7_WqmJSCHtBeJxIpNaozBAqFzmf_B67nt0Wc.wVZ5xnaxtnU7i4an', ppt: 'TBD'},
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2024-11-08', presenter: 'Sibaek Yi', article: { title: 'Toroidal Miller-Turner and Soloviev coronal mass ejection models in EUHFORIA I. Implementation', url: 'https://doi.org/10.1051/0004-6361/202347794' }, video: ' https://khu-ac.zoom.us/rec/share/m-JTbaF42B2UWgUk6qG5YVvGLz1AwQDa_QbKgmEteb9vPJZiwOi70I2nu5Ya2xZB.RHwtFvK-1jqBLMpC', ppt: 'TBD'},
         { date: '2024-11-15', presenter: 'Daeil Kim',  article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'https://khu-ac.zoom.us/rec/share/Uu6Kjhmh2jMGxGGu6gr9-MUHGz87lDSzXM-vNMpT9f_d8_2V3CS4zXAZ-F33eGNx.MFhhoc-QdrHlFaSK', ppt: 'TBD'},
         { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'https://khu-ac.zoom.us/rec/share/wQYwx8Qb-irtVvu_krQh1REferHyZ0rq2T6mKoM5jZOaViKb2RosmjbMjbViYvcv.LlvlABjFoTnPWDYk', ppt: 'TBD'},
-        { date: '2024-11-29', presenter: 'Donghui Son', article: { title: 'The Sun’s differential rotation is controlled by high-latitude baroclinically unstable inertial modes', url: 'https://www.science.org/doi/10.1126/sciadv.adk5643' }, video: 'https://khu-ac.zoom.us/rec/share/FFQa2Yp61H2xO7sCPgyZ0LE1w0UD-SK2rMVBUCaagp5XBW9QMrTAUXIK6Jzx_vQ-.3K4w7EmrmTDX8If0', ppt: 'TBD'},
+        { date: '2024-11-29', presenter: 'Donghui Son', article: { title: 'The Sun\'s differential rotation is controlled by high-latitude baroclinically unstable inertial modes', url: 'https://www.science.org/doi/10.1126/sciadv.adk5643' }, video: 'https://khu-ac.zoom.us/rec/share/FFQa2Yp61H2xO7sCPgyZ0LE1w0UD-SK2rMVBUCaagp5XBW9QMrTAUXIK6Jzx_vQ-.3K4w7EmrmTDX8If0', ppt: 'TBD'},
         { date: '2024-12-13', presenter: 'Junmo An', article: { title: 'Magnetograms underestimate even unipolar magnetic flux nearly everywhere on the solar disk', url: 'https://doi.org/10.1051/0004-6361/202450267' }, video: 'https://khu-ac.zoom.us/rec/share/jaFtuVnDYbLZvfzSbmQgIxDhoZKXT8CcbXDMzAERJqy1BIoEhTtpqbD80-pQkQcS.zXvKctR3esgpIZfV', ppt: 'TBD'},
         { date: '2024-12-20', presenter: 'Mingyu Jeon', article: { title: 'A Near-half-century Simulation of the Solar Corona', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad1934' }, video: 'https://khu-ac.zoom.us/rec/share/nNnTokmVw4t4Q-xF2ujADwSeEb8GXgvkW467-KFdTldyAAOKTJNFvp2t-jqGOqaL.YXQGz6UGWXqe2uAA', ppt: 'TBD'},
 
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'A Data-constrained Model for Coronal Mass Ejections Using the Graduated Cylindrical Shell Method', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aad3b4/meta' }, video: 'https://khu-ac.zoom.us/rec/share/mBCZNlhl2EDsr8KNl-BUFx8lSQpy5IF1JE9tpuvaVn1JxnJaG6VafFfhvApxXX_Z.w5DZwUCOf9K7Y3sS', ppt: 'TBD'},
         { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'Convective Magnetic Flux Emergence Simulations from the Deep Solar Interior to the Photosphere: Comprehensive Study of Flux Tube Twist', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad7e1d' }, video: 'https://khu-ac.zoom.us/rec/share/oCjZN6pEldM7-yoKhkpUjXwbymMK1wOSjoLXcbit--Cvpmsfhfu7mQzGtHDYatw3.oFWSlNMsIaUJ0YQR', ppt: 'TBD'},
         { date: '2025-05-09', presenter: 'Yeonwoo Jang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
         { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-05-30', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
     ];
@@ -87,25 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ])
     );
 
-    // 유효성 검사 추가
-    function validateMeetings() {
-        // 날짜 순서 확인
-        for (let i = 1; i < meetings.length; i++) {
-            const prevDate = new Date(meetings[i-1].date);
-            const currDate = new Date(meetings[i].date);
-            if (prevDate > currDate) {
-                console.warn(`Meeting dates are not in chronological order: ${meetings[i-1].date} -> ${meetings[i].date}`);
-            }
-        }
-
-        // 그룹 크기 확인
-        Object.entries(meetingGroups).forEach(([groupName, groupMeetings]) => {
-            if (groupMeetings.length === 0) {
-                console.warn(`Group ${groupName} is empty`);
-            }
-        });
-    }
-    
     // Title case 변환 함수 추가
     function toTitleCase(str) {
         // 소문자로 변환하지 않을 특수 단어들 (약어, 단위 등)
@@ -130,13 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMeetings() {
-        validateMeetings(); // 유효성 검사 실행
+        // validateMeetings(); // 유효성 검사 실행 (주석 처리)
         const today = new Date();
         const upcomingSection = document.getElementById('upcoming-meeting');
         const meetingsContainer = document.getElementById('quarters-container');
         const meetingsTableContainer = document.getElementById('meetings-table-container');
 
-        let upcomingHtml = '<h2>📚 Upcoming Meeting</h2>';
+        let upcomingCardHtml = ''; // Changed variable name
         let foundUpcoming = false;
 
         const meetingGroups = {
@@ -147,43 +127,52 @@ document.addEventListener('DOMContentLoaded', function() {
             '2025-1st': meetings.slice(39)
         };
 
-        meetings.forEach(meeting => {
-            const meetingDate = new Date(meeting.date);
-            let articleContent;
-            if (Array.isArray(meeting.articles)) {
-                articleContent = meeting.articles.map((article, index) => {
-                    article.title = toTitleCase(article.title); // 제목 변환
-                    return `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`;
-                }).join('<br>');
-            } else if (typeof meeting.article === 'object') {
-                meeting.article.title = toTitleCase(meeting.article.title); // 제목 변환
-                articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
-            } else {
-                articleContent = meeting.article || 'TBD';
-            }
-            // if (Array.isArray(meeting.articles)) {
-            //     articleContent = meeting.articles.map((article, index) => 
-            //         `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
-            //     ).join('<br>');
-            // } else if (typeof meeting.article === 'object') {
-            //     articleContent = `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
-            // } else {
-            //     articleContent = meeting.article || 'TBD';
-            // }
-    
-            if (meetingDate >= today && !foundUpcoming) {
-                upcomingHtml += `
-                    <p><strong>🗓️ Date:</strong> &ensp; <span class="presenter-name">${meeting.date}</span></p>
-                    <p><strong>⏰ Time:</strong> &ensp; <span class="presenter-name">10:30 AM</span></p>
-                    <p><strong>🎙️ Presenter:</strong> &ensp; <span class="presenter-name">${meeting.presenter}</span></p>
-                    <p><strong>🔖 Article(s):</strong> &ensp; <span class="presenter-name">${articleContent}</span></p>
-                    <p><strong>🖥️ Zoom Link:</strong> &ensp; <a href="https://khu-ac.zoom.us/j/89012045054" target="_blank">Join Meeting</a></p>
-                `;
-                foundUpcoming = true;
-            }
-        });
+        // Find the next upcoming meeting
+        const upcomingMeeting = meetings.find(meeting => new Date(meeting.date) >= today);
 
-        upcomingSection.innerHTML = foundUpcoming ? upcomingHtml : '<h2>Upcoming Meeting</h2><p>No more scheduled meetings.</p>';
+        if (upcomingMeeting) {
+            foundUpcoming = true;
+            let articleContent;
+            if (Array.isArray(upcomingMeeting.articles)) {
+                articleContent = upcomingMeeting.articles.map((article, index) => {
+                    article.title = toTitleCase(article.title); // 제목 변환
+                    return `<li class="article-item"><a href="${article.url}" target="_blank">${index + 1}. ${article.title}</a></li>`;
+                }).join('');
+                articleContent = `<ul class="article-list">${articleContent}</ul>`;
+            } else if (typeof upcomingMeeting.article === 'object') {
+                // Check if title or url is TBD, if so, treat as plain text
+                const title = upcomingMeeting.article.title;
+                const url = upcomingMeeting.article.url;
+
+                if (title && title.toUpperCase() !== 'TBD') {
+                    const formattedTitle = toTitleCase(title); // 제목 변환
+                    if (url && url.toUpperCase() !== 'TBD') {
+                        // Title and URL are available
+                        articleContent = `<a href="${url}" target="_blank">${formattedTitle}</a>`; // Render as link
+                    } else {
+                        // Title is available, URL is TBD
+                        articleContent = `<span>${formattedTitle}</span>`; // Render title as span
+                    }
+                } else {
+                    // Title is TBD (or missing)
+                    articleContent = `<span>TBD</span>`; // Render TBD as span
+                }
+            } else {
+                // Wrap TBD or other plain text in a span for consistent styling
+                articleContent = `<span>${upcomingMeeting.article || 'TBD'}</span>`; 
+            }
+
+            upcomingCardHtml = `\n                <div class=\"upcoming-card\">\n                    <h2 class=\"card-title\">📚 Upcoming Meeting</h2>\n                    <div class=\"card-body\">\n                        <p class=\"card-item\"><strong class=\"item-label\">🗓️ Date:</strong> <span class=\"item-value\">${upcomingMeeting.date}</span></p>\n                        <p class=\"card-item\"><strong class=\"item-label\">⏰ Time:</strong> <span class=\"item-value\">10:30 AM</span></p>\n                        <p class=\"card-item\"><strong class=\"item-label\">🎙️ Presenter:</strong> <span class=\"item-value\">${upcomingMeeting.presenter}</span></p>\n                        <p class=\"card-item article-section\">\n                            <strong class=\"item-label\">🔖 Article(s):</strong>\n                            <div class=\"item-value\">${articleContent}</div>\n                        </p>\n                        <p class=\"card-item zoom-link\"><strong class=\"item-label\">🖥️ Zoom:</strong> <a href=\"https://khu-ac.zoom.us/j/89012045054\" target=\"_blank\" class=\"zoom-button\">Join Meeting</a></p>\n                    </div>\n                </div>\n            `;
+        } else {
+           upcomingCardHtml = `
+                <div class="upcoming-card upcoming-card-empty">
+                    <h2 class="card-title">📚 Upcoming Meeting</h2>
+                    <p class="card-body">No more scheduled meetings.</p>
+                </div>
+            `;
+        }
+
+        upcomingSection.innerHTML = upcomingCardHtml; // Update the section with card HTML
 
         meetingsContainer.innerHTML = '';
         Object.keys(meetingGroups).forEach(key => {
@@ -258,26 +247,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateMeetings();
-    // Automatically update meetings daily
-    setInterval(updateMeetings, 24 * 60 * 60 * 1000);
+    // setInterval 제거됨: 페이지 로드 시 한 번 업데이트하는 것으로 충분
 
 
-    // 모바일 메뉴 토글
+    // --- Navbar Mobile Menu Toggle --- 
     const mobileMenu = document.getElementById('mobile-menu');
-    const navbarMenu = document.querySelector('.navbar-menu');
-
-    mobileMenu.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
+    const navbarMenu = document.getElementById('navbar-menu');
+    
+    if (mobileMenu && navbarMenu) {
+      mobileMenu.addEventListener('click', () => {
         navbarMenu.classList.toggle('active');
-    });
+        mobileMenu.classList.toggle('active'); // For the 'X' animation
+      });
 
-    // 스크롤 시 네비게이션 바 스타일 변경
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        }
-    });
+      // Close mobile menu when a link is clicked
+      navbarMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navbarMenu.classList.contains('active')) {
+            navbarMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          }
+        });
+      });
+    }
+    // --- End Navbar Mobile Menu Toggle --- 
+
+
+    // 스크롤 시 네비게이션 바 스타일 변경 (기존 코드 제거 - CSS로 처리)
+    // window.addEventListener('scroll', function() {
+    //     const navbar = document.querySelector('.navbar');
+    //     if (window.scrollY > 50) {
+    //         navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+    //     } else {
+    //         navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    //     }
+    // });
 });

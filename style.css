@@ -73,6 +73,7 @@ header {
     left: 2rem;
     width: 20rem;
     object-fit: contain; 
+    z-index: 10;
 }
 
 #meetings-table-container h3 {
@@ -229,8 +230,8 @@ th, td {
 #meetings-table-container tr:hover {
     /* background-color: #f1f1f1; */
     background-color: #f8f9fa;
-    transform: scale(1.01);
-    transition: all 0.2s ease;
+    transform: scale(1.01); /* Slightly smaller scale for subtlety */
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -294,9 +295,10 @@ footer {
 
 .upcoming-meeting-container {
     display: flex;
-    flex-direction: row; /* Align children side by side */
-    justify-content: space-between; /* Space between the text and image */
-    align-items: center; /* Align items vertically in the center */
+    align-items: flex-start; /* Keep alignment */
+    gap: 2rem;
+    /* Added align-items: stretch to make children fill height */
+    align-items: stretch; 
     max-width: 93rem;
     margin: auto;
     padding: 1.25rem;
@@ -304,13 +306,22 @@ footer {
 }
 
 .meeting-image-placeholder {
-    flex-basis: 60%; /* Allocate width to the image container */
-    text-align: center; /* Center the image if it's smaller than the container */
+    /* Removed fixed basis/width */
+    /* flex: 0 0 300px; */ /* Let's remove fixed width for now, can add back if needed */
+    display: flex; /* Make it a flex container for the image */
+    /* align-self: stretch; /* Ensure this container stretches */
+    /* Use flex-grow/shrink/basis for better control if needed */
+    flex: 0 0 30%; /* Example: Give it 30% width, allow shrinking */
+    max-width: 400px; /* Optional: prevent it from becoming too wide */
 }
 
 .upcoming-meeting-image {
-    max-width: 100%; /* Ensure the image is responsive and doesn't overflow its container */
-    height: auto; /* Maintain aspect ratio */
+    /* max-width: 100%; Remove max-width if we want it to fill container width */
+    width: 100%; /* Fill placeholder width */
+    height: 100%; /* Fill placeholder height */
+    /* height: auto; Removed auto height */
+    border-radius: 8px; 
+    object-fit: contain; /* Or 'cover', ensures aspect ratio is maintained */
 }
 
 .past-meeting-container {
@@ -390,16 +401,16 @@ img {
 /* @media only screen and (max-width: 600px) { */
 @media only screen and (max-width: 768px) {
     .container {
-        width: auto; 
+        width: auto;
         margin: 0;
         text-align: center;
     }
 
 
     .header-container {
-        background-attachment: scroll; 
-        background-size: cover; 
-        padding: 4.5rem 2rem;
+        background-attachment: scroll;
+        background-size: cover;
+        padding: 3.5rem 1.5rem; /* Adjusted padding */
         margin: 0;
         height: auto;
         text-align: center;
@@ -412,23 +423,23 @@ img {
         position: absolute;
         top: 1rem;
         left: 1rem;
-        width: 10rem;
-        object-fit: contain; 
+        width: 8rem; /* Slightly smaller logo */
+        object-fit: contain;
     }
 
-
-    .header-container h1 {
+    /* Removed overly small generic header styles */
+    /* .header-container h1 {
         font-size: 0.5rem;
-    }
-
-    .header-container p {
+    } */
+    /* .header-container p {
         font-size: 0.5rem;
-    }
+    } */
 
     #meetings-table-container {
-        padding: 4.5rem 2rem;
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; 
+        /* padding: 4.5rem 2rem; */ /* Removed excessive padding */
+        padding: 1rem; /* Reduced padding */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         margin: 0;
         position: relative;
     }
@@ -439,14 +450,14 @@ img {
         left: 0;
         background-color: #f0f0f0;
         margin: 0 0 1rem 0;
-        padding: 1rem;
-        z-index: 1; 
-        font-size: 1rem;
+        padding: 0.8rem; /* Adjusted padding */
+        z-index: 1;
+        font-size: 1.1rem; /* Slightly larger */
     }
 
 
     #meetings-table-container table {
-        margin-top: 0; 
+        margin-top: 0;
     }
 
     #meetings-table-container thead {
@@ -456,30 +467,35 @@ img {
         z-index: 10;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-        
+
 
     .upcoming-meeting-container {
-        flex-direction: column;
-        margin: 0;
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center; /* Center items when stacked */
     }
 
-    .past-meeting-container {
+    /* .past-meeting-container - already flex-column, no extra style needed here */
+    /* .past-meeting-container {
         flex-direction: column;
         margin: 0;
-    }
+    } */
 
     .meeting-image-placeholder {
-        width: 85%;
-        margin: 0;
+        width: 80%; /* Adjust width for stacked layout */
+        /* height: 200px; Remove fixed height */
+        margin-top: 1rem; /* Add space when stacked */
+        /* Remove flex properties not relevant for column layout */
+        flex: none; 
+        max-width: none; /* Remove max-width for stacked layout */
     }
 
 
-    body, p, a {
-        font-size: 0.8rem;
+    body, p { /* Keep link separate */
+        font-size: 1rem; /* Increased base font size */
     }
 
-    a {
-
+    a { /* Keep link specific styles */
+        font-size: 1rem; /* Match base font size */
         font-family: Arial, sans-serif;
         font-weight: 800;
         font-optical-sizing: auto;
@@ -487,83 +503,450 @@ img {
         text-decoration: none;
         position: relative;
         transition: all 0.3s ease;
-    
     }
-    
+
     a:hover {
         text-decoration: underline;
         color: #0056b3;
     }
-    
+
     a:focus {
         outline: 2px solid #007bff;
     }
 
-
-    
-    h1 {
-        font-size: 0.5rem; 
-    }
-
-    h2 {
-        font-size: 0.5rem; 
-    }
+    /* Removed overly small generic h1, h2 */
+    /* h1 {
+        font-size: 0.5rem;
+    } */
+    /* h2 {
+        font-size: 0.5rem;
+    } */
 
     .header-container h1 {
-        font-size: 1.5rem; 
+        font-size: 2.5rem; /* Increased */
     }
 
     .header-container h2 {
-        font-size: 1.2rem; 
+        font-size: 1.4rem; /* Increased */
     }
 
     .header-container p {
-        font-size: 1.5rem; 
+        font-size: 2rem; /* Increased */
     }
 
-    #upcoming-meeting a {
-
-        font-size: 1rem; 
+    /* Upcoming meeting specific font sizes */
+    #upcoming-meeting .card-title { /* Target card title specifically */
+        font-size: 1.6rem; /* Adjusted */
     }
 
-    #upcoming-meeting h2 {
-        color: #333; 
-        font-size: 2rem; 
+    #upcoming-meeting .item-label {
+        font-size: 1.1rem; /* Adjusted */
+        min-width: 60px; /* Reduced min-width for smaller screens */
     }
-
-    #upcoming-meeting p {
-        color: #333; 
-        font-size: 1rem; 
+    #upcoming-meeting .item-value {
+        font-size: 1.1rem; /* Adjusted */
+        font-style: normal; /* Remove italic for better readability? Keep for now */
     }
+    #upcoming-meeting .item-value span { /* Ensure spans match */
+         font-size: inherit; /* Inherit size from .item-value */
+         font-weight: inherit; /* Inherit weight from .item-value */
+         color: inherit; /* Inherit color from .item-value */
+         font-style: inherit; /* Inherit style from .item-value */
+         text-decoration: none; /* Ensure no underline for non-links */
+    }
+     #upcoming-meeting .article-item a { /* Make article links slightly smaller */
+         font-size: 1rem;
+     }
+     #upcoming-meeting .zoom-button {
+         font-size: 1rem;
+         /* padding: 0.4rem 1rem; */
 
+     }
+     /* No need to redefine #upcoming-meeting p, a generally, handled by body/a */
 
     #meetings-table-container th {
-
         background-color: #007bff;
         color: white;
-        font-weight: 800;
+        font-weight: 600; /* Slightly less bold */
         text-transform: uppercase;
-        font-size: 0.6rem;
-        letter-spacing: 1px;
+        font-size: 0.85rem; /* Increased */
+        letter-spacing: 0.5px; /* Reduced spacing */
         text-align: center;
-    
     }
 
     #meetings-table-container th,
     #meetings-table-container td {
-        padding: 0.5rem;
-        white-space: normal; 
+        padding: 0.6rem; /* Slightly more padding */
+        white-space: normal;
     }
 
-    
+
     #past-meetings h2 {
-        color: #333; 
-        font-size: 2rem; 
+        color: #333;
+        font-size: 1.8rem; /* Adjusted */
         text-align: center;
         padding: auto;
         margin: auto;
     }
     .presenter-name {
-        font-size: 1rem;
+        font-size: 1.1rem; /* Adjusted */
+    }
+
+    .upcoming-meeting-image {
+        /* Keep height 100% and object-fit for consistency */
+        /* Or adjust if a different behavior is needed on mobile */
+         height: auto; /* Let height be natural on mobile stack */
+         max-height: 300px; /* Optional: constrain max height */
     }
 }
+
+/* --- Navbar Styles --- */
+.navbar {
+  position: static; /* Ensure it\'s static */
+  background: #000; /* Restore solid black background */
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1); /* Subtle top shadow */
+  z-index: 1000; /* Ensure it stays on top if needed */
+}
+.navbar-container {
+  display: flex;
+  justify-content: flex-end; /* Align menu to the right */
+  align-items: center;
+  max-width: 1400px; 
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 4rem; /* Adjusted height */
+}
+/* Removed .navbar-logo, .navbar-logo-img, .navbar-title styles */
+
+.navbar-menu {
+  display: flex;
+  gap: 1.8rem; /* Slightly increased gap */
+}
+.nav-link {
+  color: #f0f0f0; /* Brighter white */
+  font-family: \'Times New Roman\', Times, serif; /* Keep the font */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem; /* Keep the font size */
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+  position: relative;
+}
+.nav-link:hover, .nav-link:focus {
+  color: #ffffff; /* Pure white on hover/focus */
+  font-weight: 800;
+}
+.nav-link::after {
+  content: \'\';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Position underline slightly below text */
+  width: 0;
+  height: 2px;
+  background-color: #ffffff; /* White underline */
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link:focus::after {
+  width: 100%;
+}
+.mobile-menu {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+}
+.mobile-menu span {
+  display: block;
+  width: 1.8rem;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+/* Mobile Menu Active State (transform into 'X') */
+.mobile-menu.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  .navbar-container {
+    height: auto; /* Allow height to adjust */
+    min-height: 4rem; /* Ensure minimum height */
+    padding: 0.5rem 1rem; /* Adjust padding */
+  }
+  .navbar-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; /* Position below the static navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 999; /* Ensure it's above content, below potential fixed elements if any */
+  }
+  .navbar-menu.active {
+    display: flex; /* Show when active */
+  }
+  .nav-link {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-link::after {
+    display: none; /* No underline for mobile links */
+  }
+  .mobile-menu {
+    display: block; /* Show hamburger icon */
+  }
+}
+/* --- End Navbar Styles --- */
+
+/* --- Upcoming Meeting Card Styles --- */
+.upcoming-card {
+  background-color: #f8f9fa; /* Light gray background */
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem; /* Add space below the card */
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.upcoming-card-empty {
+  text-align: center;
+}
+.card-title {
+  font-size: 1.8rem; /* Slightly smaller title */
+  color: #343a40;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.8rem;
+}
+.card-body {
+  font-size: 1.1rem;
+}
+.card-item {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.item-label {
+  font-weight: 600;
+  color: #495057;
+  display: inline-block;
+  min-width: 100px; /* Align labels */
+  font-size: 1.8rem; /* Increased size for ALL labels */
+}
+.item-value {
+  color: #212529; /* Default text color for the value container */
+  font-size: 1.8rem; /* Explicitly set font size */
+  font-weight: normal; /* Ensure normal weight */
+  font-style: italic; /* Apply italic style */
+  /* Links within item-value should override this color if needed */
+}
+.item-value span { /* Style for plain text spans inside item-value (like TBD) */
+  font-size: inherit; /* Inherit size from .item-value */
+  font-weight: inherit; /* Inherit weight from .item-value */
+  color: inherit; /* Inherit color from .item-value */
+  font-style: inherit; /* Inherit style from .item-value */
+  text-decoration: none; /* Ensure no underline for non-links */
+}
+
+.article-list {
+  list-style: none;
+  padding-left: 0; 
+  margin-top: 0.3rem;
+}
+.article-item {
+  margin-bottom: 0.4rem;
+}
+.article-item a {
+  font-family: 'Arial', sans-serif; /* Match other links */
+  font-weight: normal; /* Ensure normal weight (already set, but re-confirm) */
+  font-size: 1.1rem; /* Re-confirm consistent size */
+  color: #007bff; /* Explicitly set link color */
+}
+.article-item a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.zoom-link {
+  margin-top: 1.5rem;
+}
+.zoom-button {
+  display: inline-block;
+  /* background-color: #007bff; */ /* Removed background color */
+  color: #007bff !important; /* Changed text color to blue */
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease; /* Adjusted transition */
+  margin-left: 0.5rem;
+}
+.zoom-button:hover {
+  /* background-color: #0056b3; */ /* Removed background color */
+  color: #0056b3 !important; /* Darker blue on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+/* Adjust container for card layout */
+.upcoming-meeting-container {
+  align-items: flex-start; /* Align items to the top */
+}
+#upcoming-meeting.container {
+  flex-basis: 100%; /* Adjust width for card */
+  padding-right: 2rem; /* Add space between card and image */
+}
+.meeting-image-placeholder {
+  flex-basis: 60%; /* Adjust image width */
+  height: auto;
+  margin-top: 10%;
+}
+/* --- End Upcoming Meeting Card Styles --- */
+
+/* --- Participants Page Styles --- */
+.participants-container {
+    padding-top: 2rem; /* Add some space above the content */
+}
+
+#participants-list h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem; /* Adjust size as needed */
+}
+
+#participants-list .participants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Max 3 columns, min 300px width, flexible */
+    gap: 1.5rem; /* Space between grid items */
+}
+
+.participant-card {
+    display: flex !important; /* Use flexbox for internal layout - !important added for emphasis */
+    align-items: flex-start !important; /* Align items to the top - !important added for emphasis */
+    gap: 1rem !important; /* Space between photo and details - !important added for emphasis */
+    margin-bottom: 0 !important; /* Remove margin if grid handles spacing - !important added for emphasis */
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.participant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+}
+
+.participant-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #0056b3; /* Use a theme color for names */
+    font-size: 1.4rem; /* Slightly larger name */
+}
+
+.participant-card p {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+.participant-card strong {
+    color: #333; /* Darker label text */
+}
+
+.participant-card a {
+    font-weight: normal; /* Standard weight for email links */
+}
+
+/* Style for participant images */
+img.participant-photo { 
+    flex-shrink: 0; 
+    /* width: 80px; */    /* Use important below */
+    height: 80px;   
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 1px solid #ddd; 
+
+    /* Override general img styles that break flex layout */
+    display: inline-block; /* Override display: block from general img rule */
+    width: 80px !important; /* Override width: 100% from general img rule */
+    margin: 0 !important; /* Override margin: auto from general img rule */
+    vertical-align: top; /* Align with top of text, works well with align-items: flex-start */
+}
+
+.participant-details {
+    flex-grow: 1;
+}
+/* --- End Participants Page Styles --- */
+
+/* Re-applying Participants Page Improved Styles */
+
+#participants-list .participants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Max 3 columns, min 300px width, flexible */
+    gap: 1.5rem; /* Space between grid items */
+}
+
+.participant-card {
+   display: flex !important; /* Use flexbox for internal layout - !important added for emphasis */
+   align-items: flex-start !important; /* Align items to the top - !important added for emphasis */
+   gap: 1rem !important; /* Space between photo and details - !important added for emphasis */
+   margin-bottom: 0 !important; /* Remove margin if grid handles spacing - !important added for emphasis */
+}
+
+.participant-photo-placeholder {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+}
+
+.participant-details {
+    flex-grow: 1;
+}
+
+.participant-card h3 {
+    font-size: 1.4rem; /* Slightly larger name */
+}
+/* --- End Re-applied Styles --- */
+
+/* Media Queries for Responsive Participant Grid Columns */
+@media (max-width: 991.98px) { /* Adjust breakpoint as needed (e.g., before 3 cols become too narrow) */
+    #participants-list .participants-grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Switch to 2 columns */
+    }
+}
+
+@media (max-width: 650px) { /* Adjust breakpoint as needed (e.g., before 2 cols become too narrow) */
+    #participants-list .participants-grid {
+        grid-template-columns: repeat(1, minmax(300px, 1fr)); /* Switch to 1 column */
+    }
+}
+
+/* Re-applying Participants Page Improved Styles */
+
+.degree-section {
+    margin-top: 3rem; /* Add space above each section */
+    margin-bottom: 2rem; /* Add space below each section */
+}
+
+.degree-section h3 {
+    font-size: 2rem; /* Increase title size */
+    color: #343a40; /* Darker title color */
+    border-bottom: 2px solid #007bff; /* Add an accent border */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem; /* Space between title and grid */
+    display: inline-block; /* Make border only as wide as text */
+}
+
+#participants-list .participants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Max 3 columns, min 300px width, flexible */
+}
+
