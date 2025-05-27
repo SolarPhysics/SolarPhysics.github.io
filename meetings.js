@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'A Data-constrained Model for Coronal Mass Ejections Using the Graduated Cylindrical Shell Method', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aad3b4/meta' }, video: 'https://khu-ac.zoom.us/rec/share/mBCZNlhl2EDsr8KNl-BUFx8lSQpy5IF1JE9tpuvaVn1JxnJaG6VafFfhvApxXX_Z.w5DZwUCOf9K7Y3sS', ppt: 'TBD'},
         { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'Convective Magnetic Flux Emergence Simulations from the Deep Solar Interior to the Photosphere: Comprehensive Study of Flux Tube Twist', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad7e1d' }, video: 'https://khu-ac.zoom.us/rec/share/oCjZN6pEldM7-yoKhkpUjXwbymMK1wOSjoLXcbit--Cvpmsfhfu7mQzGtHDYatw3.oFWSlNMsIaUJ0YQR', ppt: 'TBD'},
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'Models and data analysis tools for the Solar Orbiter mission', url: 'https://www.aanda.org/articles/aa/full_html/2020/10/aa35305-19/aa35305-19.html' }, video: 'https://khu-ac.zoom.us/rec/share/VjuvVJkxQ8jKqlwC3sK8ode_4Ksce8h7WJfXncRaDrh8ejTaYReLUCv3_P0Nf-5Y.7hsYCO86pTOKDUS2', ppt: 'TBD' },
-        { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-05-30', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
-        { date: '2025-06-13', presenter: 'Yeonwoo Jang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'}
+        { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/acd053' }, video: 'https://khu-ac.zoom.us/rec/share/OFAfjfu7XqbZd6AJJA8P2uiQTQQ7LuIyKWiwHH27fz80NxesAAjKc4-JVNYlY2nr.WNGhrqPr87Xf6Rbe', ppt: 'TBD'},
+        { date: '2025-06-13', presenter: 'Yeonwoo Jang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
+        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'}
     ];
     
 
