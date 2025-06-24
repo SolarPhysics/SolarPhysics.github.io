@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'Models and data analysis tools for the Solar Orbiter mission', url: 'https://www.aanda.org/articles/aa/full_html/2020/10/aa35305-19/aa35305-19.html' }, video: 'https://khu-ac.zoom.us/rec/share/VjuvVJkxQ8jKqlwC3sK8ode_4Ksce8h7WJfXncRaDrh8ejTaYReLUCv3_P0Nf-5Y.7hsYCO86pTOKDUS2', ppt: 'TBD' },
         { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/acd053' }, video: 'https://khu-ac.zoom.us/rec/share/OFAfjfu7XqbZd6AJJA8P2uiQTQQ7LuIyKWiwHH27fz80NxesAAjKc4-JVNYlY2nr.WNGhrqPr87Xf6Rbe', ppt: 'TBD'},
         { date: '2025-06-13', presenter: 'Yeonwoo Jang', article: { title: 'Solar Eruptions Triggered by Flux Emergence below or near a Coronal Flux Rope', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad1826' }, video: 'https://khu-ac.zoom.us/rec/share/nXjCpDdkOqshqFJ_kQsd27b7aqPlDROQ8hsl9I1tXPze36RojtLg-YSJvpsJg88f.IjZnNtbnsvwCBrcN', ppt: 'TBD' },
-        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'}
+        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'The role of the external toroidal magnetic field on the large-angle rotation of magnetic flux ropes', url: 'https://www.aanda.org/articles/aa/full_html/2025/03/aa51543-24/aa51543-24.html' }, video: 'https://khu-ac.zoom.us/rec/share/enUtuEwwgq-PIG8IZ6_NQz-tsHsRgh6VIR9zl8FL6XEXgc6kWJobtROmUaB_OPBk.K-3iY6hTJ6yaqlar', ppt: 'TBD'}
     ];
     
 
