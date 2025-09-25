@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
             '2024-1st': meetings.slice(10, 21),
             '2024-2nd': meetings.slice(21, 29),
             '2024-3rd': meetings.slice(29, 39),
-            '2025-1st': meetings.slice(39)
+            '2025-1st': meetings.slice(39, 50),
+            '2025-2nd': meetings.slice(50, 60)
         };
 
         // Find the next upcoming meeting
