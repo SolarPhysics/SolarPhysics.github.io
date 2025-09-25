@@ -1,4 +1,243 @@
+// Lazy Loading Implementation
+class LazyImageLoader {
+    constructor() {
+        this.images = document.querySelectorAll('.lazy-img');
+        this.imageObserver = null;
+        this.init();
+    }
+
+    init() {
+        // Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window) {
+            this.imageObserver = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.loadImage(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    rootMargin: '50px 0px', // Start loading 50px before the image enters viewport
+                    threshold: 0.01
+                }
+            );
+
+            this.images.forEach(img => this.imageObserver.observe(img));
+        } else {
+            // Fallback for browsers that don't support IntersectionObserver
+            this.loadAllImages();
+        }
+    }
+
+    loadImage(img) {
+        const src = img.dataset.src;
+        if (!src) return;
+
+        // Create a new image to preload
+        const tempImg = new Image();
+        tempImg.onload = () => {
+            img.src = src;
+            img.classList.add('loaded');
+            delete img.dataset.src;
+        };
+        tempImg.src = src;
+    }
+
+    loadAllImages() {
+        this.images.forEach(img => this.loadImage(img));
+    }
+}
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered successfully:', registration);
+            })
+            .catch(error => {
+                console.log('Service Worker registration failed:', error);
+            });
+    });
+}
+
+// Dark Mode Toggle - Removed (Light mode only)
+
+// Global Search Engine
+class SearchEngine {
+    constructor() {
+        this.searchIndex = [];
+        this.initializeUI();
+        this.bindEvents();
+    }
+
+    buildSearchIndex(meetings) {
+        // Index meetings
+        const meetingIndex = meetings.map((meeting, idx) => ({
+            type: 'meeting',
+            id: `meeting-${idx}`,
+            date: meeting.date,
+            presenter: meeting.presenter,
+            title: meeting.article?.title || meeting.articles?.[0]?.title || 'TBD',
+            searchText: `${meeting.date} ${meeting.presenter} ${meeting.article?.title || ''} ${meeting.articles?.map(a => a.title).join(' ') || ''}`.toLowerCase()
+        }));
+
+        // Index participants (if on participants page)
+        const participantCards = document.querySelectorAll('.participant-card');
+        const participantIndex = Array.from(participantCards).map((card, idx) => ({
+            type: 'participant',
+            id: `participant-${idx}`,
+            name: card.querySelector('h3')?.textContent || '',
+            affiliation: card.querySelector('p strong:contains("Affiliation")')?.nextSibling?.textContent || '',
+            searchText: card.textContent.toLowerCase()
+        }));
+
+        this.searchIndex = [...meetingIndex, ...participantIndex];
+    }
+
+    initializeUI() {
+        // Create search container
+        const searchHTML = `
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="search"
+                           id="global-search"
+                           class="search-input"
+                           placeholder="Search meetings, presenters... (Press /)"
+                           aria-label="Search">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </div>
+                <div id="search-results" class="search-results" style="display: none;"></div>
+            </div>
+        `;
+
+        // Insert search into navbar
+        const navbar = document.querySelector('.navbar-menu');
+        if (navbar) {
+            navbar.insertAdjacentHTML('beforeend', searchHTML);
+        }
+    }
+
+    bindEvents() {
+        const searchInput = document.getElementById('global-search');
+        const searchResults = document.getElementById('search-results');
+
+        if (!searchInput) return;
+
+        // Search input handler
+        searchInput.addEventListener('input', this.debounce((e) => {
+            const query = e.target.value.trim();
+            if (query.length > 1) {
+                const results = this.search(query);
+                this.displayResults(results);
+            } else {
+                searchResults.style.display = 'none';
+            }
+        }, 300));
+
+        // Focus search on '/' key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && !this.isInputFocused()) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            if (e.key === 'Escape') {
+                searchInput.blur();
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchResults.style.display = 'none';
+            }
+        });
+    }
+
+    search(query) {
+        const q = query.toLowerCase();
+        return this.searchIndex
+            .filter(item => item.searchText.includes(q))
+            .slice(0, 10); // Limit to 10 results
+    }
+
+    displayResults(results) {
+        const container = document.getElementById('search-results');
+
+        if (!results.length) {
+            container.innerHTML = '<div class="no-results">No results found</div>';
+            container.style.display = 'block';
+            return;
+        }
+
+        const meetingResults = results.filter(r => r.type === 'meeting');
+        const participantResults = results.filter(r => r.type === 'participant');
+
+        let html = '';
+
+        if (meetingResults.length) {
+            html += '<div class="results-section"><h4>Meetings</h4>';
+            meetingResults.forEach(m => {
+                html += `
+                    <a href="#${m.id}" class="result-item" onclick="document.getElementById('search-results').style.display='none'">
+                        <span class="result-date">${m.date}</span>
+                        <span class="result-presenter">${m.presenter}</span>
+                        <span class="result-title">${m.title.substring(0, 50)}...</span>
+                    </a>`;
+            });
+            html += '</div>';
+        }
+
+        if (participantResults.length) {
+            html += '<div class="results-section"><h4>Participants</h4>';
+            participantResults.forEach(p => {
+                html += `
+                    <a href="/participants.html#${p.id}" class="result-item">
+                        <span class="result-name">${p.name}</span>
+                    </a>`;
+            });
+            html += '</div>';
+        }
+
+        container.innerHTML = html;
+        container.style.display = 'block';
+    }
+
+    isInputFocused() {
+        const activeElement = document.activeElement;
+        return activeElement.tagName === 'INPUT' ||
+               activeElement.tagName === 'TEXTAREA';
+    }
+
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme manager (dark mode)
+    // Theme manager removed - light mode only
+
+    // Initialize lazy loading
+    new LazyImageLoader();
+
+    // Initialize search engine
+    const searchEngine = new SearchEngine();
+
     const meetings = [
         // 2023-1st: 0-9 (10개)
         { date: '2023-09-08', presenter: 'Sibaek Yi', article: { title: 'A Model for the Sources of the Slow Solar Wind', url: 'https://arxiv.org/abs/1102.3704'}, video: 'TBD' },
@@ -177,11 +416,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 articleContent = `<span>${upcomingMeeting.article || 'TBD'}</span>`; 
             }
 
-            upcomingCardHtml = `\n                <div class=\"upcoming-card\">\n                    <h2 class=\"card-title\">📚 Upcoming Meeting</h2>\n                    <div class=\"card-body\">\n                        <p class=\"card-item\"><strong class=\"item-label\">🗓️ Date:</strong> <span class=\"item-value\">${upcomingMeeting.date}</span></p>\n                        <p class=\"card-item\"><strong class=\"item-label\">⏰ Time:</strong> <span class=\"item-value\">10:30 AM</span></p>\n                        <p class=\"card-item\"><strong class=\"item-label\">🎙️ Presenter:</strong> <span class=\"item-value\">${upcomingMeeting.presenter}</span></p>\n                        <p class=\"card-item article-section\">\n                            <strong class=\"item-label\">🔖 Article(s):</strong>\n                            <div class=\"item-value\">${articleContent}</div>\n                        </p>\n                        <p class=\"card-item zoom-link\"><strong class=\"item-label\">🖥️ Zoom:</strong> <a href=\"https://khu-ac.zoom.us/j/89012045054\" target=\"_blank\" class=\"zoom-button\">Join Meeting</a></p>\n                    </div>\n                </div>\n            `;
+            upcomingCardHtml = `
+                <div class="upcoming-card">
+                    <h2 class="card-title">Upcoming Meeting</h2>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="item-label">Date</span>
+                            <span class="item-value">${upcomingMeeting.date}</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="item-label">Time</span>
+                            <span class="item-value">10:30 AM</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="item-label">Presenter</span>
+                            <span class="item-value">${upcomingMeeting.presenter}</span>
+                        </div>
+                        <div class="card-item article-section">
+                            <span class="item-label">Article(s)</span>
+                            <div class="item-value">${articleContent}</div>
+                        </div>
+                        <div class="card-item zoom-link">
+                            <span class="item-label">Meeting Link</span>
+                            <a href="https://khu-ac.zoom.us/j/89012045054" target="_blank" class="zoom-button">Join Zoom Meeting</a>
+                        </div>
+                    </div>
+                </div>
+            `;
         } else {
            upcomingCardHtml = `
                 <div class="upcoming-card upcoming-card-empty">
-                    <h2 class="card-title">📚 Upcoming Meeting</h2>
+                    <h2 class="card-title">Upcoming Meeting</h2>
                     <p class="card-body">No more scheduled meetings.</p>
                 </div>
             `;
@@ -213,11 +478,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <table>
                 <thead>
                     <tr>
-                        <th>🗓️ Date</th>
-                        <th>⏰ Time</th>
-                        <th>🎙️ Presenter</th>
-                        <th>🔖 Article</th>
-                        <th>🔗 Materials</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Presenter</th>
+                        <th>Article</th>
+                        <th>Materials</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -263,6 +528,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateMeetings();
     // setInterval 제거됨: 페이지 로드 시 한 번 업데이트하는 것으로 충분
+
+    // Build search index after meetings are loaded
+    searchEngine.buildSearchIndex(meetings);
 
 
     // --- Navbar Mobile Menu Toggle --- 

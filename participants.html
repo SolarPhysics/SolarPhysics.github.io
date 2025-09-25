@@ -4,42 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Participants - Journal Club for Solar Physics</title>
-    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF6B35">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="navbar-menu" id="navbar-menu">
-          <a href="index.html" class="nav-link">Home</a> <!-- Link back to index.html -->
-          <a href="index.html#upcoming-meeting" class="nav-link">Upcoming</a>
-          <a href="index.html#past-meetings" class="nav-link">Past Meetings</a>
-          <a href="participants.html" class="nav-link">Participants</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
-        <div class="mobile-menu" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-
     <header class="header-container participants-header"> <!-- Optional: Add a class for specific header styling -->
-        <!-- Add the SSR logo container like in index.html -->
-        <div class="school-mark-container">
-            <img src="SSR_LOGO.png" alt="School Mark 1" class="school-mark1">
-        </div>
+        <a href="index.html" class="corner-logo-link">
+            <img src="SSR_LOGO.png" alt="School of Space Research" class="corner-logo" loading="eager">
+        </a>
+        <nav class="navbar">
+          <div class="navbar-container">
+            <div class="navbar-menu" id="navbar-menu">
+              <a href="index.html" class="nav-link">Home</a> <!-- Link back to index.html -->
+              <a href="index.html#upcoming-meeting" class="nav-link">Upcoming</a>
+              <a href="index.html#past-meetings" class="nav-link">Past Meetings</a>
+              <a href="participants.html" class="nav-link">Participants</a>
+              <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </nav>
 
-        <h1>Club Participants</h1>
-        <h2>Meet the members of our Solar Physics Journal Club</h2>
+        <div class="header-content">
+            <h1>Club Participants</h1>
+            <h2>Meet the members of our Solar Physics Journal Club</h2>
+        </div>
     </header>
 
     <main class="container participants-container">
@@ -48,37 +46,43 @@
             <p id="last-updated-date" style="text-align: center; font-style: italic; color: #666; margin-bottom: 1.5rem;">Information updated as of: Loading date...</p>
 
             <!-- Ph.D. Section -->
-            <div class="degree-section">
-                <h3>Ph.D.</h3>
+            <div class="degree-section" data-degree="phd">
+                <h3>Ph.D. <span class="participant-count">(8)</span></h3>
                 <div class="participants-grid">
                     <!-- Hyunjin Jeong -->
-                    <div class="participant-card">
-                        <div class="participant-photo-placeholder"></div>
+                    <div class="participant-card" data-name="Hyunjin Jeong">
+                        <div class="participant-avatar" data-initials="HJ">
+                            <span>HJ</span>
+                        </div>
                         <div class="participant-details">
                             <h3>Hyunjin Jeong</h3>
-                            <p><strong>Affiliation:</strong> Centre for mathematical Plasma Astrophysics, Department of Mathematics, KU Leuven</p> 
-                            <p><strong>Email:</strong> <a href="mailto:hyun-jin.jeong@kuleuven.be">hyun-jin.jeong@kuleuven.be</a></p>
-                            <p><strong>Research Field:</strong> TBD</p>
+                            <p class="affiliation"><strong>Affiliation:</strong> <span title="Centre for mathematical Plasma Astrophysics, Department of Mathematics, KU Leuven">Centre for mathematical Plasma Astrophysics, KU Leuven</span></p>
+                            <p class="email"><strong>Email:</strong> <a href="mailto:hyun-jin.jeong@kuleuven.be">hyun-jin.jeong@kuleuven.be</a></p>
+                            <p class="research-field hidden"><strong>Research Field:</strong> <span>TBD</span></p>
                         </div>
                     </div>
                     <!-- Jihye Kang -->
-                    <div class="participant-card">
-                        <div class="participant-photo-placeholder"></div>
+                    <div class="participant-card" data-name="Jihye Kang">
+                        <div class="participant-avatar" data-initials="JK">
+                            <span>JK</span>
+                        </div>
                         <div class="participant-details">
                             <h3>Jihye Kang</h3>
-                            <p><strong>Affiliation:</strong> Department of Astronomy & Space Science, Kyung Hee University</p>
-                            <p><strong>Email:</strong> <a href="mailto:siriustar@khu.ac.kr">siriustar@khu.ac.kr</a></p>
-                            <p><strong>Research Field:</strong> TBD</p>
+                            <p class="affiliation"><strong>Affiliation:</strong> <span>Department of Astronomy & Space Science, KHU</span></p>
+                            <p class="email"><strong>Email:</strong> <a href="mailto:siriustar@khu.ac.kr">siriustar@khu.ac.kr</a></p>
+                            <p class="research-field hidden"><strong>Research Field:</strong> <span>TBD</span></p>
                         </div>
                     </div>
                     <!-- Junmo An -->
-                    <div class="participant-card">
-                        <div class="participant-photo-placeholder"></div>
+                    <div class="participant-card" data-name="Junmo An">
+                        <div class="participant-avatar" data-initials="JA">
+                            <span>JA</span>
+                        </div>
                         <div class="participant-details">
                             <h3>Junmo An</h3>
-                            <p><strong>Affiliation:</strong> Department of Astronomy & Space Science, Kyung Hee University</p>
-                            <p><strong>Email:</strong> <a href="mailto:ajmyaa@khu.ac.kr">ajmyaa@khu.ac.kr</a></p>
-                            <p><strong>Research Field:</strong> TBD</p>
+                            <p class="affiliation"><strong>Affiliation:</strong> <span>Department of Astronomy & Space Science, KHU</span></p>
+                            <p class="email"><strong>Email:</strong> <a href="mailto:ajmyaa@khu.ac.kr">ajmyaa@khu.ac.kr</a></p>
+                            <p class="research-field hidden"><strong>Research Field:</strong> <span>TBD</span></p>
                         </div>
                     </div>
                     <!-- Kyungsun Park -->
@@ -135,12 +139,12 @@
             </div>
 
             <!-- Ph.D. Student Section -->
-            <div class="degree-section">
-                <h3>Ph.D. Student</h3>
+            <div class="degree-section" data-degree="phd-student">
+                <h3>Ph.D. Student <span class="participant-count">(5)</span></h3>
                 <div class="participants-grid">
                     <!-- Donghui Son -->
                     <div class="participant-card">
-                        <img src="avatar.png" alt="Donghui Son profile picture" class="participant-photo">
+                        <img data-src="avatar.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Donghui Son profile picture" class="participant-photo lazy-img">
                         <div class="participant-details">
                             <h3>Donghui Son</h3>
                             <p><strong>Affiliation:</strong> School of Space Research, Kyung Hee University</p>
@@ -192,8 +196,8 @@
             </div>
 
             <!-- Master Student Section -->
-            <div class="degree-section">
-                <h3>Master Student</h3>
+            <div class="degree-section" data-degree="master">
+                <h3>Master Student <span class="participant-count">(3)</span></h3>
                 <div class="participants-grid">
                     <div class="participant-card">
                         <div class="participant-photo-placeholder"></div>
@@ -229,11 +233,31 @@
         </section>
     </main>
 
-    <footer id="contact">
-        <p>Contact us at <a href="mailto:dh5243@khu.ac.kr">dh5243@khu.ac.kr</a> for more information.</p>
+    <footer id="contact" class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Solar Physics Journal Club</h3>
+                <p>School of Space Research<br>
+                Kyung Hee University</p>
+                <!-- <p class="footer-description">A weekly forum for discussing research in solar and space physics.</p> -->
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p class="contact-info">
+                    <span class="contact-label">Email:</span> <a href="mailto:dh5243@khu.ac.kr">dh5243@khu.ac.kr</a><br>
+                    <span class="contact-label">Time:</span> Every Friday, 10:30 AM<br>
+                    <span class="contact-label">Location:</span> Online (Zoom) and Offline (KHAO)
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Solar Physics Journal Club, School of Space Research, Kyung Hee University. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="meetings.js"></script> <!-- Include JS for mobile menu functionality -->
+    <script src="meetings.js" defer></script> <!-- Include JS for mobile menu functionality -->
 
     <script>
         // Set the last updated date
@@ -247,6 +271,76 @@
                 const formattedDate = `${year}-${month}-${day}`;
                 dateElement.textContent = `Information updated as of: ${formattedDate}`;
             }
+
+            // Auto-generate initials for participant cards that don't have them
+            const participantCards = document.querySelectorAll('.participant-card');
+            participantCards.forEach(card => {
+                // Check if card has old placeholder
+                const placeholder = card.querySelector('.participant-photo-placeholder');
+                if (placeholder) {
+                    // Get the name from the h3 element
+                    const nameElement = card.querySelector('.participant-details h3');
+                    if (nameElement) {
+                        const fullName = nameElement.textContent.trim();
+                        const nameParts = fullName.split(' ');
+                        const initials = nameParts.map(part => part.charAt(0).toUpperCase()).join('');
+
+                        // Create new avatar element
+                        const avatar = document.createElement('div');
+                        avatar.className = 'participant-avatar';
+                        avatar.setAttribute('data-initials', initials);
+                        avatar.innerHTML = `<span>${initials}</span>`;
+
+                        // Replace placeholder with avatar
+                        placeholder.replaceWith(avatar);
+                    }
+                }
+
+                // Hide TBD research fields
+                const researchField = card.querySelector('.participant-details p:last-child');
+                if (researchField && researchField.textContent.includes('TBD')) {
+                    researchField.classList.add('hidden');
+                }
+
+                // Shorten long affiliations
+                const affiliation = card.querySelector('.participant-details p:nth-child(2)');
+                if (affiliation && !affiliation.classList.contains('affiliation')) {
+                    affiliation.classList.add('affiliation');
+                    const affiliationText = affiliation.textContent.replace('Affiliation:', '').trim();
+
+                    // Common abbreviations
+                    const abbreviations = {
+                        'Department of Astronomy & Space Science, Kyung Hee University': 'Department of Astronomy & Space Science, KHU',
+                        'Department of Astronomy and Space Science/Basic Science Research Institute, Chungbuk National University': 'Chungbuk National University',
+                        'Centre for mathematical Plasma Astrophysics, Department of Mathematics, KU Leuven': 'Centre for mathematical Plasma Astrophysics, KU Leuven',
+                        'Institute for Space-Earth Environmental Research, Nagoya University': 'ISEE, Nagoya University',
+                        'School of Space Research, Kyung Hee University': 'School of Space Research, KHU',
+                        'Korea Astronomy and Space Science Institute': 'KASI'
+                    };
+
+                    let shortAffiliation = affiliationText;
+                    for (const [long, short] of Object.entries(abbreviations)) {
+                        if (affiliationText.includes(long)) {
+                            shortAffiliation = short;
+                            break;
+                        }
+                    }
+
+                    if (shortAffiliation !== affiliationText) {
+                        affiliation.innerHTML = `<strong>Affiliation:</strong> <span title="${affiliationText}">${shortAffiliation}</span>`;
+                    }
+                }
+            });
+
+            // Update participant counts dynamically
+            const degreeSections = document.querySelectorAll('.degree-section');
+            degreeSections.forEach(section => {
+                const cards = section.querySelectorAll('.participant-card');
+                const countSpan = section.querySelector('.participant-count');
+                if (countSpan) {
+                    countSpan.textContent = `(${cards.length})`;
+                }
+            });
         });
     </script>
 </body>

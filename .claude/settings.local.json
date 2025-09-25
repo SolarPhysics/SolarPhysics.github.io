@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(open index.html)",
+      "Bash(open participants.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

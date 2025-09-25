@@ -4,49 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Club for Solar Physics</title>
-    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF6B35">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="style.css">
-    <script src="meetings.js"></script>
+    <script src="meetings.js" defer></script>
 </head>
 <body>
     
-    <nav class="navbar">
-      <div class="navbar-container">
-        <!-- Logo and Title Removed -->
-        <div class="navbar-menu" id="navbar-menu">
-          <a href="#" class="nav-link">Home</a>
-          <a href="#upcoming-meeting" class="nav-link">Upcoming</a>
-          <a href="#past-meetings" class="nav-link">Past Meetings</a>
-          <a href="participants.html" class="nav-link">Participants</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <div class="mobile-menu" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-
     <header class="header-container">
+        <a href="#" class="corner-logo-link">
+            <img src="SSR_LOGO.png" alt="School of Space Research" class="corner-logo" loading="eager">
+        </a>
+        <nav class="navbar">
+          <div class="navbar-container">
+            <div class="navbar-menu" id="navbar-menu">
+              <a href="#" class="nav-link">Home</a>
+              <a href="#upcoming-meeting" class="nav-link">Upcoming</a>
+              <a href="#past-meetings" class="nav-link">Past Meetings</a>
+              <a href="participants.html" class="nav-link">Participants</a>
+              <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </nav>
 
-        <div class="school-mark-container">
-            <img src="SSR_LOGO.png" alt="School Mark 1" class="school-mark1">
+        <div class="header-content">
+            <p>Welcome!</p>
+            <h1>Solar Physics Journal Club</h1>
+            <h2>School of Space Research</br>
+                Kyung Hee University, Republic of Korea</h2>
         </div>
-        
-        <p>Welcome!</p>
-        <h1>Solar Physics Journal Club</h1>
-        <h2>School of Space Research</br>
-            Kyung Hee University, Republic of Korea</h2>
-    
     </header>
 
     </br>
@@ -58,13 +54,13 @@
             <!-- Upcoming meeting details will be injected here -->
         </section>
         <div class="meeting-image-placeholder">
-            <img src="SP_LOGO2.png" alt="SP LOGO" class="upcoming-meeting-image">
+            <img data-src="SP_LOGO2.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="SP LOGO" class="upcoming-meeting-image lazy-img">
         </div>
     </div>
     </br>
 
     <section id="intermediate">
-        <img src="SP_image.png" alt="astronaut_with_papers">
+        <img data-src="SP_image.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="astronaut_with_papers" class="lazy-img">
     </section>
 
     <section id="past-meetings" class="pcontainer">
@@ -77,10 +73,30 @@
         </div>
     </section>
 
-    <img src="KHAO.jpeg" alt="KHAO" style="width: 100%;">
+    <img data-src="KHAO.jpeg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="KHAO" style="width: 100%;" class="lazy-img">
     
-    <footer id="contact">
-        <p>Contact us at <a href="mailto:dh5243@khu.ac.kr">dh5243@khu.ac.kr</a> for more information.</p>
+    <footer id="contact" class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Solar Physics Journal Club</h3>
+                <p>School of Space Research<br>
+                Kyung Hee University</p>
+                <!-- <p class="footer-description">A weekly forum for discussing research in solar and space physics.</p> -->
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p class="contact-info">
+                    <span class="contact-label">Email:</span> <a href="mailto:dh5243@khu.ac.kr">dh5243@khu.ac.kr</a><br>
+                    <span class="contact-label">Time:</span> Every Friday, 10:30 AM<br>
+                    <span class="contact-label">Location:</span> Online (Zoom) and Offline (KHAO)
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Solar Physics Journal Club, School of Space Research, Kyung Hee University. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
