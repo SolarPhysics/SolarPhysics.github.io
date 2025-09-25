@@ -65,7 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'Models and data analysis tools for the Solar Orbiter mission', url: 'https://www.aanda.org/articles/aa/full_html/2020/10/aa35305-19/aa35305-19.html' }, video: 'https://khu-ac.zoom.us/rec/share/VjuvVJkxQ8jKqlwC3sK8ode_4Ksce8h7WJfXncRaDrh8ejTaYReLUCv3_P0Nf-5Y.7hsYCO86pTOKDUS2', ppt: 'TBD' },
         { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/acd053' }, video: 'https://khu-ac.zoom.us/rec/share/OFAfjfu7XqbZd6AJJA8P2uiQTQQ7LuIyKWiwHH27fz80NxesAAjKc4-JVNYlY2nr.WNGhrqPr87Xf6Rbe', ppt: 'TBD'},
         { date: '2025-06-13', presenter: 'Yeonwoo Jang', article: { title: 'Solar Eruptions Triggered by Flux Emergence below or near a Coronal Flux Rope', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad1826' }, video: 'https://khu-ac.zoom.us/rec/share/nXjCpDdkOqshqFJ_kQsd27b7aqPlDROQ8hsl9I1tXPze36RojtLg-YSJvpsJg88f.IjZnNtbnsvwCBrcN', ppt: 'TBD' },
-        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'The role of the external toroidal magnetic field on the large-angle rotation of magnetic flux ropes', url: 'https://www.aanda.org/articles/aa/full_html/2025/03/aa51543-24/aa51543-24.html' }, video: 'https://khu-ac.zoom.us/rec/share/enUtuEwwgq-PIG8IZ6_NQz-tsHsRgh6VIR9zl8FL6XEXgc6kWJobtROmUaB_OPBk.K-3iY6hTJ6yaqlar', ppt: 'TBD'}
+        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'The role of the external toroidal magnetic field on the large-angle rotation of magnetic flux ropes', url: 'https://www.aanda.org/articles/aa/full_html/2025/03/aa51543-24/aa51543-24.html' }, video: 'https://khu-ac.zoom.us/rec/share/enUtuEwwgq-PIG8IZ6_NQz-tsHsRgh6VIR9zl8FL6XEXgc6kWJobtROmUaB_OPBk.K-3iY6hTJ6yaqlar', ppt: 'TBD'},
+    
+        // 2025-2nd: 50-60 (11개)
+        { date: '2025-09-05', presenter: 'Seungwoo Ahn', article: { title: 'Deriving the Coronal Separatrix-Web With the WSA Model', url: 'https://khu-ac.zoom.us/rec/share/qp20uyAAAEm6yhlSZ7I2fYyFU-zp34cmUZHcJ_lTUp1Xzjc3H9Dr88_BRlODxKRk.2UsfUsAM9pffhZ4Z' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
+        { date: '2025-09-12', presenter: 'Yeonwoo Jang', article: { title: 'Computation of Winding-Based Magnetic Helicity and Magnetic Winding Density for SHARP Magnetograms in Spherical Coordinates', url: 'https://link.springer.com/article/10.1007/s11207-023-02211-9' }, video: 'https://khu-ac.zoom.us/rec/share/PJUAxfIjI3jHt_1k2Yydp_LVERKE7U7qd4y5TlnrZyDzeNGPQ4Y71N1VWHskUPlP.hCl_WzNeIHONMNsV', ppt: 'TBD'},
+        { date: '2025-10-10', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-11-21', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-12-05', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
+        { date: '2025-12-12', presenter: 'Junmu Youn', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' }    
     ];
     
 
@@ -75,7 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
         '2024-1st': { start: 10, end: 21 },
         '2024-2nd': { start: 21, end: 29 },
         '2024-3rd': { start: 29, end: 39 },
-        '2025-1st': { start: 39, end: 50 }
+        '2025-1st': { start: 39, end: 50 },
+        '2025-2nd': { start: 50, end: 60 }
     };
   
     // 미팅 그룹 생성을 더 명확하고 유지보수하기 쉽게 수정
