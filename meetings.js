@@ -309,7 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 2025-2nd: 50-60 (11개)
         { date: '2025-09-05', presenter: 'Seungwoo Ahn', article: { title: 'Deriving the Coronal Separatrix-Web With the WSA Model', url: 'https://khu-ac.zoom.us/rec/share/qp20uyAAAEm6yhlSZ7I2fYyFU-zp34cmUZHcJ_lTUp1Xzjc3H9Dr88_BRlODxKRk.2UsfUsAM9pffhZ4Z' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
         { date: '2025-09-12', presenter: 'Yeonwoo Jang', article: { title: 'Computation of Winding-Based Magnetic Helicity and Magnetic Winding Density for SHARP Magnetograms in Spherical Coordinates', url: 'https://link.springer.com/article/10.1007/s11207-023-02211-9' }, video: 'https://khu-ac.zoom.us/rec/share/PJUAxfIjI3jHt_1k2Yydp_LVERKE7U7qd4y5TlnrZyDzeNGPQ4Y71N1VWHskUPlP.hCl_WzNeIHONMNsV', ppt: 'TBD'},
-        { date: '2025-10-10', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
@@ -317,7 +316,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-12-05', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
         { date: '2025-12-12', presenter: 'Junmu Youn', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' }    
+        { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
+        { date: '2026-01-09', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
     ];
     
 
