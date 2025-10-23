@@ -323,12 +323,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 미팅 그룹의 시작과 끝 인덱스를 명확하게 정의
     const GROUP_INDICES = {
-        '2023-1st': { start: 0, end: 10 },
-        '2024-1st': { start: 10, end: 21 },
-        '2024-2nd': { start: 21, end: 29 },
-        '2024-3rd': { start: 29, end: 39 },
-        '2025-1st': { start: 39, end: 50 },
-        '2025-2nd': { start: 50, end: 60 }
+        '2023-1st': { start: 0, end: 10 },   // [0, 10)
+        '2024-1st': { start: 10, end: 21 },  // [10, 21)
+        '2024-2nd': { start: 21, end: 29 },  // [21, 29)
+        '2024-3rd': { start: 29, end: 39 },  // [29, 39)
+        '2025-1st': { start: 39, end: 51 },  // [39, 51) -> 12 items
+        '2025-2nd': { start: 51, end: 62 }   // [51, 62) -> 11 items (includes 2026-01-09)
     };
   
     // 미팅 그룹 생성을 더 명확하고 유지보수하기 쉽게 수정
@@ -377,8 +377,8 @@ document.addEventListener('DOMContentLoaded', function() {
             '2024-1st': meetings.slice(10, 21),
             '2024-2nd': meetings.slice(21, 29),
             '2024-3rd': meetings.slice(29, 39),
-            '2025-1st': meetings.slice(39, 50),
-            '2025-2nd': meetings.slice(50, 60)
+            '2025-1st': meetings.slice(39, 51),
+            '2025-2nd': meetings.slice(51, 62)
         };
 
         // Find the next upcoming meeting
