@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 2025-2nd: 50-60 (11개)
         { date: '2025-09-05', presenter: 'Seungwoo Ahn', article: { title: 'Deriving the Coronal Separatrix-Web With the WSA Model', url: 'https://khu-ac.zoom.us/rec/share/qp20uyAAAEm6yhlSZ7I2fYyFU-zp34cmUZHcJ_lTUp1Xzjc3H9Dr88_BRlODxKRk.2UsfUsAM9pffhZ4Z' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
         { date: '2025-09-12', presenter: 'Yeonwoo Jang', article: { title: 'Computation of Winding-Based Magnetic Helicity and Magnetic Winding Density for SHARP Magnetograms in Spherical Coordinates', url: 'https://link.springer.com/article/10.1007/s11207-023-02211-9' }, video: 'https://khu-ac.zoom.us/rec/share/PJUAxfIjI3jHt_1k2Yydp_LVERKE7U7qd4y5TlnrZyDzeNGPQ4Y71N1VWHskUPlP.hCl_WzNeIHONMNsV', ppt: 'TBD'},
-        { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'The origin of interplanetary switchbacks in reconnection at chromospheric network boundaries', url: 'https://www.nature.com/articles/s41550-024-02321-9' }, video: 'https://khu-ac.zoom.us/rec/share/N-D9Ce0csx9Bp4-MFgRivoV6zEYktPb_U1Mu6gQWVFHsTfHN9SAyESEOAWzz-ifr.C0Q-_OEAJiYAZurH', ppt: 'TBD'},
         { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-11-21', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
