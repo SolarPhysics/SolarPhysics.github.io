@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'MHD modelling of the near-sun evolution of coronal mass ejection initiated from a sheared arcade', url: 'https://doi.org/10.1093/mnras/staf307' }, video: 'https://khu-ac.zoom.us/rec/share/rrNxe7vvzdj2V3jIGYdVBx_p-XkWzmPaTd3Kr0fp04JBgF9Zx4J6WmdVfTA4oPUW.aO41iN0ziRPaOVSC', ppt: 'TBD'},
         { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'Current Helicity in Response to Coronal Mass Ejections', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/adf18b' }, video: 'https://khu-ac.zoom.us/rec/share/rRV2Qd20uBsOdpHWmy1zzosabAhLU9-70C22A5TYo8NPgy57RzAkMcTtUQ0V7uQT.JLlDi5IvjYaWSUqX', ppt: 'TBD'},
         { date: '2025-11-21', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
+        { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'What Determines the Brightness of the Magnetically Open Solar Corona?: Insights from Three-dimensional Radiative Magnetohydrodynamic Simulations and Observations', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ae0468' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-12-05', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
         { date: '2025-12-12', presenter: 'Junmu Youn', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
         { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
