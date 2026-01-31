@@ -212,7 +212,7 @@ class SearchEngine {
     isInputFocused() {
         const activeElement = document.activeElement;
         return activeElement.tagName === 'INPUT' ||
-               activeElement.tagName === 'TEXTAREA';
+            activeElement.tagName === 'TEXTAREA';
     }
 
     debounce(func, wait) {
@@ -228,7 +228,7 @@ class SearchEngine {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize theme manager (dark mode)
     // Theme manager removed - light mode only
 
@@ -240,86 +240,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const meetings = [
         // 2023-1st: 0-9 (10개)
-        { date: '2023-09-08', presenter: 'Sibaek Yi', article: { title: 'A Model for the Sources of the Slow Solar Wind', url: 'https://arxiv.org/abs/1102.3704'}, video: 'TBD' },
-        { date: '2023-09-15', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD'}, video: 'TBD'},
-        { date: '2023-09-22', presenter: 'Jihye Kang', article: { title: 'Onset mechanism and a physics-based prediction of large solar flares', url: 'https://ui.adsabs.harvard.edu/abs/2021AGUFMSH23B..01K/abstract' }, video: 'TBD'},
-        { date: '2023-10-06', presenter: 'Donghui Son', article: { title: 'On rising magnetic flux tube and formation of sunspots in a deep domain', url: 'https://arxiv.org/abs/2003.10583'}, video: 'TBD'},
-        { date: '2023-10-13', presenter: 'Yeonwoo Jang', article: { title: 'A Framework for Detecting Polarity Inversion Lines from Longitudinal Magnetograms', url: 'https://ieeexplore.ieee.org/document/9377808'}, video: 'TBD'},
-        { date: '2023-11-10', presenter: 'Hwanhee Lee', article: { title: 'Origin of the Wang-Sheeley-Arge solar wind model', url: 'https://hgss.copernicus.org/articles/8/21/2017/' }, video: 'https://khu-ac.zoom.us/rec/share/3I3bxvfs1K46M7tC0UtWozl6eEuuvdNIjwRNM2_q6Vlt1JY5IFW6VmAEDaeBoafj.NHLOBvawpYkdG_Kp'},
-        { date: '2023-11-17', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD simulation study of an inclined solar eruption in NOAA active region 11283', url: 'TBD' }, video: 'https://khu-ac.zoom.us/rec/share/UXKfj93JlHNoRZwn_F4Rxg-8rD-tUk-lbVARb744S3TXLLkHaKoWSk83ZxVg68MQ.yLydNWG3iVwPw3nN'},
-        { date: '2023-11-24', presenter: 'Mingyu Jeon', article: { title: 'Probing the solar coronal magnetic field with physics-informed neural networks', url: 'https://www.nature.com/articles/s41550-023-02085-8' }, video: 'https://khu-ac.zoom.us/rec/share/IfOOGO1Oj0w7L-O7zjanmtCJ40ld6KCmBn3BtUgKo_ZlfLfzq7DAGehc6Xoq5EfL.nlC8VEiAVNNPTqgv'},
-        { date: '2023-12-01', presenter: 'Hyunjin Jeong', article: { title: 'Rotation and interaction of the CMEs of September 8 and 10, 2014, tested with EUHFORIA', url: 'https://www.aanda.org/articles/aa/full_html/2023/07/aa45902-23/aa45902-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/8M-6tyRGHj3ZxhWP1uiwyGEPEG6EAbGgjN0n7vpmXcTYXEmpVxQ80MOOvxvtZoxJ.HTpzFqJ3LcuQ_kld'},
-        { date: '2023-12-08', presenter: 'Sunghong Park', article: { title: 'Testing the Alfvén-wave Model of the Solar Wind with Interplanetary Scintillation', url: 'https://ui.adsabs.harvard.edu/abs/2022ApJ...928..130S/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/F_2ueUqEWtt4nyWF8Ama2ScjWBAiGMR3Nr8TAER9qgx2nO6zmeOA_u1wTHTrwWBZ.1RIplgH_EL6wZa67'},
-        
+        { date: '2023-09-08', presenter: 'Sibaek Yi', article: { title: 'A Model for the Sources of the Slow Solar Wind', url: 'https://arxiv.org/abs/1102.3704' }, video: 'TBD' },
+        { date: '2023-09-15', presenter: 'Junmo An', article: { title: 'TBD', url: 'TBD' }, video: 'TBD' },
+        { date: '2023-09-22', presenter: 'Jihye Kang', article: { title: 'Onset mechanism and a physics-based prediction of large solar flares', url: 'https://ui.adsabs.harvard.edu/abs/2021AGUFMSH23B..01K/abstract' }, video: 'TBD' },
+        { date: '2023-10-06', presenter: 'Donghui Son', article: { title: 'On rising magnetic flux tube and formation of sunspots in a deep domain', url: 'https://arxiv.org/abs/2003.10583' }, video: 'TBD' },
+        { date: '2023-10-13', presenter: 'Yeonwoo Jang', article: { title: 'A Framework for Detecting Polarity Inversion Lines from Longitudinal Magnetograms', url: 'https://ieeexplore.ieee.org/document/9377808' }, video: 'TBD' },
+        { date: '2023-11-10', presenter: 'Hwanhee Lee', article: { title: 'Origin of the Wang-Sheeley-Arge solar wind model', url: 'https://hgss.copernicus.org/articles/8/21/2017/' }, video: 'https://khu-ac.zoom.us/rec/share/3I3bxvfs1K46M7tC0UtWozl6eEuuvdNIjwRNM2_q6Vlt1JY5IFW6VmAEDaeBoafj.NHLOBvawpYkdG_Kp' },
+        { date: '2023-11-17', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD simulation study of an inclined solar eruption in NOAA active region 11283', url: 'TBD' }, video: 'https://khu-ac.zoom.us/rec/share/UXKfj93JlHNoRZwn_F4Rxg-8rD-tUk-lbVARb744S3TXLLkHaKoWSk83ZxVg68MQ.yLydNWG3iVwPw3nN' },
+        { date: '2023-11-24', presenter: 'Mingyu Jeon', article: { title: 'Probing the solar coronal magnetic field with physics-informed neural networks', url: 'https://www.nature.com/articles/s41550-023-02085-8' }, video: 'https://khu-ac.zoom.us/rec/share/IfOOGO1Oj0w7L-O7zjanmtCJ40ld6KCmBn3BtUgKo_ZlfLfzq7DAGehc6Xoq5EfL.nlC8VEiAVNNPTqgv' },
+        { date: '2023-12-01', presenter: 'Hyunjin Jeong', article: { title: 'Rotation and interaction of the CMEs of September 8 and 10, 2014, tested with EUHFORIA', url: 'https://www.aanda.org/articles/aa/full_html/2023/07/aa45902-23/aa45902-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/8M-6tyRGHj3ZxhWP1uiwyGEPEG6EAbGgjN0n7vpmXcTYXEmpVxQ80MOOvxvtZoxJ.HTpzFqJ3LcuQ_kld' },
+        { date: '2023-12-08', presenter: 'Sunghong Park', article: { title: 'Testing the Alfvén-wave Model of the Solar Wind with Interplanetary Scintillation', url: 'https://ui.adsabs.harvard.edu/abs/2022ApJ...928..130S/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/F_2ueUqEWtt4nyWF8Ama2ScjWBAiGMR3Nr8TAER9qgx2nO6zmeOA_u1wTHTrwWBZ.1RIplgH_EL6wZa67' },
+
         // 2024-1st: 10-20 (11개)
         { date: '2024-01-12', presenter: 'Sibaek Yi', article: { title: 'The Thickness of Electric Current Sheets and Implications for Coronal Heating', url: 'https://arxiv.org/abs/2307.13825' }, video: 'TBD' },
         { date: '2024-01-19', presenter: 'Junmo An', article: { title: 'The Variations in Finite-difference Potential Fields: Models and Observations', url: 'https://arxiv.org/abs/2102.05618' }, video: 'https://khu-ac.zoom.us/rec/share/E0q1Wzl_BYkEiN-r8X2wSQyCCuFg6gewO-5oAuQREZ_DNbraJoXuCKd3WXqbhP49.RS_unTEpFm0fbH17' },
-        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }, video: 'TBD'},
-        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD', ppt: 'https://drive.google.com/file/d/1sBFDK5NFLNJXIDOfrkGSt0s7tf4cUxLZ/view?usp=sharing'},
-        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }, video: 'https://khu-ac.zoom.us/rec/share/q9BScJYobQVCmtOslqwzHzL2OsAttPAEKvC4Gvl1eN4D-_IPFYuG9xMSFCANbsRR.Lm2CguFzUpaTNxnk'},
-        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000'},
-        { date: '2024-03-08', presenter: 'Yeongmin Kang', article: { title: 'Comparative Study of Data-driven Solar Coronal Field Models Using a Flux Emergence Simulation as a Ground-truth Data Set', url: 'https://arxiv.org/abs/2001.03721v1' }, video: 'TBD'},
-        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC', ppt: 'https://drive.google.com/file/d/1kS2z4SqhBdjieq75SGlmRX-O8D9-0VvD/view?usp=drive_link'},
-        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: { title: 'First Insights into the Applicability and Importance of Different 3D Magnetic Field Extrapolation Approaches for Studying the Preeruptive Conditions of Solar Active Regions', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad18bd' }, video: 'https://khu-ac.zoom.us/rec/share/1-ekoH44rObi6dlQkFVkdhX8Z5bufvWu3xoHLhrIR9pqK2c7noiAkp_y8kd2Fy47.gmnTfeL5PpULzlwD', ppt: 'TBD'},
-        { date: '2024-03-29', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD'},
-        { date: '2024-04-05', presenter: 'Kyungsun Park', article: { title: 'Solar wind entry into Mercury\'s magnetosphere: Simulation results for the second swingby of BepiColombo', url: 'https://www.aanda.org/articles/aa/full_html/2024/01/aa47789-23/aa47789-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/px94blvJpCYLoSoxivaOJEnYwBU48EYnuas-n9VawYVeRkoyh_TkEXRqSI9aKRv3.ftl6AfzbSTAGUlW9', ppt: 'https://drive.google.com/file/d/1_0-zmvJ1on_FzrJPeKXgt52L3zHnUhz-/view?usp=sharing'},
-        
+        { date: '2024-01-26', presenter: 'Jihye Kang', article: { title: 'Coronal Mass Ejections: A Deep Learning Approach to Generating Photospheric Vector Magnetograms of Solar Active Regions for SOHO/MDI Using SDO/HMI and BBSO Data and Effects', url: 'https://arxiv.org/abs/2211.02278' }, video: 'TBD' },
+        { date: '2024-02-02', presenter: 'Donghui Son', article: { title: 'HOW-MHD: A High-Order WENO-Based Magnetohydrodynamic Code with a High-Order Constrained Transport Algorithm for Astrophysical Applications', url: 'https://arxiv.org/abs/2304.04360' }, video: 'TBD', ppt: 'https://drive.google.com/file/d/1sBFDK5NFLNJXIDOfrkGSt0s7tf4cUxLZ/view?usp=sharing' },
+        { date: '2024-02-16', presenter: 'Yeonwoo Jang', article: { title: 'Testing magnetohydrostatic extrapolation with radiative MHD simulation of a solar flare', url: 'https://arxiv.org/abs/1910.03523' }, video: 'https://khu-ac.zoom.us/rec/share/q9BScJYobQVCmtOslqwzHzL2OsAttPAEKvC4Gvl1eN4D-_IPFYuG9xMSFCANbsRR.Lm2CguFzUpaTNxnk' },
+        { date: '2024-02-23', presenter: 'Hwanhee Lee', article: { title: 'Ensemble Modeling of CME Propagation', url: 'https://ui.adsabs.harvard.edu/abs/2013SoPh..285..349L/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/AMDpo4or2Amp9i7er1du4sF-30zl-mMB_nhrRE-C3v4NpTv1LeLmKFZc8UjFOl5R.RKzGREJSFiiKrCRq?startTime=1708651658000' },
+        { date: '2024-03-08', presenter: 'Yeongmin Kang', article: { title: 'Comparative Study of Data-driven Solar Coronal Field Models Using a Flux Emergence Simulation as a Ground-truth Data Set', url: 'https://arxiv.org/abs/2001.03721v1' }, video: 'TBD' },
+        { date: '2024-03-15', presenter: 'Mingyu Jeon', article: { title: 'Advancing Solar Magnetic Field Extrapolations through Multiheight Magnetic Field Measurements', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad2450' }, video: 'https://khu-ac.zoom.us/rec/share/6FYq1dqi80PRrAz3uc_t8JhHdiC9IWUSOuMHowRUFNdgyWoqHABt0-fkr7RY6469.E1Zk10W9wLAEr8pC', ppt: 'https://drive.google.com/file/d/1kS2z4SqhBdjieq75SGlmRX-O8D9-0VvD/view?usp=drive_link' },
+        { date: '2024-03-22', presenter: 'Hyunjin Jeong', article: { title: 'First Insights into the Applicability and Importance of Different 3D Magnetic Field Extrapolation Approaches for Studying the Preeruptive Conditions of Solar Active Regions', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad18bd' }, video: 'https://khu-ac.zoom.us/rec/share/1-ekoH44rObi6dlQkFVkdhX8Z5bufvWu3xoHLhrIR9pqK2c7noiAkp_y8kd2Fy47.gmnTfeL5PpULzlwD', ppt: 'TBD' },
+        { date: '2024-03-29', presenter: 'Sunghong Park', article: { title: 'Magnetic Connectivity of the Ecliptic Plane within 0.5 au: Potential Field Source Surface Modeling of the First Parker Solar Probe Encounter', url: 'https://ui.adsabs.harvard.edu/abs/2020ApJS..246...23B/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/V_im5FfAIL5SrbCUfLX-pWuhwxlCv3xAO3O3fGZfQ5Eq8YZk3FnPcASJeFPv5UKF.tRmsAPKfOSTQ87Ca', ppt: 'TBD' },
+        { date: '2024-04-05', presenter: 'Kyungsun Park', article: { title: 'Solar wind entry into Mercury\'s magnetosphere: Simulation results for the second swingby of BepiColombo', url: 'https://www.aanda.org/articles/aa/full_html/2024/01/aa47789-23/aa47789-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/px94blvJpCYLoSoxivaOJEnYwBU48EYnuas-n9VawYVeRkoyh_TkEXRqSI9aKRv3.ftl6AfzbSTAGUlW9', ppt: 'https://drive.google.com/file/d/1_0-zmvJ1on_FzrJPeKXgt52L3zHnUhz-/view?usp=sharing' },
+
         // 2024-2nd: 21-28 (8개)
-        { date: '2024-05-03', presenter: 'Sibaek Yi', article: { title: 'A Magnetogram-matching Method for Energizing Magnetic Flux Ropes Toward Eruption', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac874e' }, video: 'https://khu-ac.zoom.us/rec/share/k8HjTO71M8cH5SCQ-PZQk5IhEVMf7_WqmJSCHtBeJxIpNaozBAqFzmf_B67nt0Wc.wVZ5xnaxtnU7i4an', ppt: 'TBD'},
-        { date: '2024-05-10', presenter: 'Junmo An', article: { title: 'Proposed Resolution to the Solar Open Magnetic Flux Problem', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad20e2' }, video: 'https://khu-ac.zoom.us/rec/share/Q0qdLNrNdhtdKGCrXQZf9IqVc0bVFbMufYZYR4QLx2foCjrq_KVhvE73FonwfCcq.lCO7NyWE9vE_0uPc', ppt: 'TBD'},
-        { date: '2024-05-24', presenter: 'Jihye Kang', article: { title: 'Effects of Initial Conditions on Magnetic Reconnection in a Solar Transient', url: 'https://ui.adsabs.harvard.edu/abs/2022SoPh..297...91A/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NxYmP_OmN_YTKFYIecV3CrLq38avus4SVNYhoW0fcM2BjQqJypaFUWK61lIv_kgB.a09O3tofnYLydxo6', ppt: 'TBD'},
-        { date: '2024-05-31', presenter: 'Hwanhee Lee', article: { title: 'Modeling CME encounters at Parker Solar Probe with OSPREI: Dependence on photospheric and coronal conditions', url: 'https://www.aanda.org/articles/aa/full_html/2023/05/aa45445-22/aa45445-22.html' }, video: 'https://khu-ac.zoom.us/rec/share/-9cgxa6Kr5L7oycoG1dnAlRrcjPZSeNR-RTzbDwKxHr1kWnvn1eqjx-dnUnJ142O.4dw7d8Ox6P7B1_xV', ppt: 'TBD'},
-        { date: '2024-06-14', presenter: 'Donghui Son', article: { title: 'Ideal GLM-MHD: About the entropy consistent nine-wave magnetic field divergence diminishing ideal magnetohydrodynamics equations', url: 'https://www.sciencedirect.com/science/article/pii/S0021999118301463' }, video: 'https://khu-ac.zoom.us/rec/share/mhOhl9WRtnajuNOmiLYlX56EdevHJlV43GZ3cFVIU-CeAzpDiFEyaPD0SxH4U-7o.-05zW1VquKay2W_F', ppt: 'TBD'},
-        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: { title: 'SuNeRF: 3D Reconstruction of the Solar EUV Corona Using Neural Radiance Fields', url: 'https://doi.org/10.3847/2041-8213/ad12d2' }, video: 'https://khu-ac.zoom.us/rec/share/nwU4AtBgJnHj9RCLwnKooSR8jHmV6nViU3JcljlRM_ABOIKZyqNZ-FBwlgou1WJO.Z6tsASTdd3Bu3tvC', ppt: 'TBD'},
-        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: { title: 'Advancing interplanetary magnetohydrodynamic models through solar energetic particle modelling', url: 'https://ui.adsabs.harvard.edu/abs/2023A%26A...679A..93N/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NBo78t7k8nCCCXcatfnz2DFusXYVTjoTjZCVowCfu5gdUoynj8DLcsgryYL3nHZU.kUe4yXE6rts1RqwA', ppt: 'TBD'},
-        { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD'},
-    
+        { date: '2024-05-03', presenter: 'Sibaek Yi', article: { title: 'A Magnetogram-matching Method for Energizing Magnetic Flux Ropes Toward Eruption', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac874e' }, video: 'https://khu-ac.zoom.us/rec/share/k8HjTO71M8cH5SCQ-PZQk5IhEVMf7_WqmJSCHtBeJxIpNaozBAqFzmf_B67nt0Wc.wVZ5xnaxtnU7i4an', ppt: 'TBD' },
+        { date: '2024-05-10', presenter: 'Junmo An', article: { title: 'Proposed Resolution to the Solar Open Magnetic Flux Problem', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad20e2' }, video: 'https://khu-ac.zoom.us/rec/share/Q0qdLNrNdhtdKGCrXQZf9IqVc0bVFbMufYZYR4QLx2foCjrq_KVhvE73FonwfCcq.lCO7NyWE9vE_0uPc', ppt: 'TBD' },
+        { date: '2024-05-24', presenter: 'Jihye Kang', article: { title: 'Effects of Initial Conditions on Magnetic Reconnection in a Solar Transient', url: 'https://ui.adsabs.harvard.edu/abs/2022SoPh..297...91A/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NxYmP_OmN_YTKFYIecV3CrLq38avus4SVNYhoW0fcM2BjQqJypaFUWK61lIv_kgB.a09O3tofnYLydxo6', ppt: 'TBD' },
+        { date: '2024-05-31', presenter: 'Hwanhee Lee', article: { title: 'Modeling CME encounters at Parker Solar Probe with OSPREI: Dependence on photospheric and coronal conditions', url: 'https://www.aanda.org/articles/aa/full_html/2023/05/aa45445-22/aa45445-22.html' }, video: 'https://khu-ac.zoom.us/rec/share/-9cgxa6Kr5L7oycoG1dnAlRrcjPZSeNR-RTzbDwKxHr1kWnvn1eqjx-dnUnJ142O.4dw7d8Ox6P7B1_xV', ppt: 'TBD' },
+        { date: '2024-06-14', presenter: 'Donghui Son', article: { title: 'Ideal GLM-MHD: About the entropy consistent nine-wave magnetic field divergence diminishing ideal magnetohydrodynamics equations', url: 'https://www.sciencedirect.com/science/article/pii/S0021999118301463' }, video: 'https://khu-ac.zoom.us/rec/share/mhOhl9WRtnajuNOmiLYlX56EdevHJlV43GZ3cFVIU-CeAzpDiFEyaPD0SxH4U-7o.-05zW1VquKay2W_F', ppt: 'TBD' },
+        { date: '2024-06-21', presenter: 'Mingyu Jeon', article: { title: 'SuNeRF: 3D Reconstruction of the Solar EUV Corona Using Neural Radiance Fields', url: 'https://doi.org/10.3847/2041-8213/ad12d2' }, video: 'https://khu-ac.zoom.us/rec/share/nwU4AtBgJnHj9RCLwnKooSR8jHmV6nViU3JcljlRM_ABOIKZyqNZ-FBwlgou1WJO.Z6tsASTdd3Bu3tvC', ppt: 'TBD' },
+        { date: '2024-07-05', presenter: 'Hyunjin Jeong', article: { title: 'Advancing interplanetary magnetohydrodynamic models through solar energetic particle modelling', url: 'https://ui.adsabs.harvard.edu/abs/2023A%26A...679A..93N/abstract' }, video: 'https://khu-ac.zoom.us/rec/share/NBo78t7k8nCCCXcatfnz2DFusXYVTjoTjZCVowCfu5gdUoynj8DLcsgryYL3nHZU.kUe4yXE6rts1RqwA', ppt: 'TBD' },
+        { date: '2024-07-26', presenter: 'Kyungsun Park', article: { title: 'Direct evidence of substorm-related impulsive injections of electrons at Mercury', url: 'https://www.nature.com/articles/s41467-023-39565-4' }, video: 'https://khu-ac.zoom.us/rec/share/2XEbyM4TNBvxEy8-TtuT0FFGHy3yvJOx1ijcHDlfb-PkScb8HxxyMmyHqZ99M8nk.-9FPrc6Fd0N96T91', ppt: 'TBD' },
+
         // 2024-3rd: 29-38 (10개)
-        { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: { title: 'The McNish and Lincoln Solar-Activity Predictions: The Method and Its Performance', url: 'https://doi.org/10.1007/s11207-024-02266-2' }, video: 'https://khu-ac.zoom.us/rec/share/kUgjUu5iMEpinMVEzzgbPHGCg52nlPzjksjDbcnX3qZjrvnREvQg13u9VeLTAHTf.3WBXzVdJIysT66mw', ppt: 'TBD'},
-        { date: '2024-09-27', presenter: 'Kyungsun Park', articles: [
-            { title: 'The Twisted Configuration of the Martian Magnetotail: MAVEN Observations', url: 'https://doi.org/10.1029/2018GL077251' },
-            { title: 'Oxygen Ion Energization at Mars: Comparison of MAVEN and Mars Express Observations to Global Hybrid Simulation', url: 'https://doi.org/10.1002/2017JA024884' },
-        ], video: 'https://khu-ac.zoom.us/rec/share/PyN2uKNVbZynXRXjMxvrfIy-F8oGdz0EiurrktBZAE1zDyMt22dZpFY_geTMdtk0.ai4LiR_zF4nhZagx', ppt: 'https://drive.google.com/file/d/1NNCK4XZLrpU1j6RPtY9muy2f9en_1WUD/view?usp=drive_link'},
-        { date: '2024-10-11', presenter: 'Jihye Kang', article: { title: 'Thermodynamic and Magnetic Topology Evolution of the X1.0 Flare on 2021 October 28 Simulated by a Data-driven Radiative Magnetohydrodynamic Model', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/acc797' }, video: 'https://khu-ac.zoom.us/rec/share/M8aFX9fPSgD-lrZ6fjEbxOd_N8CyIaAYLlXSBM4rq-8Gmvp-v_azhtFig7-SCwbz.EIDCeDMsTIxmjUmr', ppt: 'TBD'},
-        { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: { title: 'Modeling the propagation of coronal mass ejections with COCONUT: Implementation of the regularized Biot-Savart law flux rope model', url: 'https://www.aanda.org/articles/aa/full_html/2024/03/aa47634-23/aa47634-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/9JtUY2TsgCe7XOxcv4V3Pi2nrCYYMPW7_92lSiU2CARhNtzP5gTPmGxPQ5p1wGh_.teLNUBiwZZDYKD5D', ppt: 'TBD'},
-        { date: '2024-11-08', presenter: 'Sibaek Yi', article: { title: 'Toroidal Miller-Turner and Soloviev coronal mass ejection models in EUHFORIA I. Implementation', url: 'https://doi.org/10.1051/0004-6361/202347794' }, video: ' https://khu-ac.zoom.us/rec/share/m-JTbaF42B2UWgUk6qG5YVvGLz1AwQDa_QbKgmEteb9vPJZiwOi70I2nu5Ya2xZB.RHwtFvK-1jqBLMpC', ppt: 'TBD'},
-        { date: '2024-11-15', presenter: 'Daeil Kim',  article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'https://khu-ac.zoom.us/rec/share/Uu6Kjhmh2jMGxGGu6gr9-MUHGz87lDSzXM-vNMpT9f_d8_2V3CS4zXAZ-F33eGNx.MFhhoc-QdrHlFaSK', ppt: 'TBD'},
-        { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'https://khu-ac.zoom.us/rec/share/wQYwx8Qb-irtVvu_krQh1REferHyZ0rq2T6mKoM5jZOaViKb2RosmjbMjbViYvcv.LlvlABjFoTnPWDYk', ppt: 'TBD'},
-        { date: '2024-11-29', presenter: 'Donghui Son', article: { title: 'The Sun\'s differential rotation is controlled by high-latitude baroclinically unstable inertial modes', url: 'https://www.science.org/doi/10.1126/sciadv.adk5643' }, video: 'https://khu-ac.zoom.us/rec/share/FFQa2Yp61H2xO7sCPgyZ0LE1w0UD-SK2rMVBUCaagp5XBW9QMrTAUXIK6Jzx_vQ-.3K4w7EmrmTDX8If0', ppt: 'TBD'},
-        { date: '2024-12-13', presenter: 'Junmo An', article: { title: 'Magnetograms underestimate even unipolar magnetic flux nearly everywhere on the solar disk', url: 'https://doi.org/10.1051/0004-6361/202450267' }, video: 'https://khu-ac.zoom.us/rec/share/jaFtuVnDYbLZvfzSbmQgIxDhoZKXT8CcbXDMzAERJqy1BIoEhTtpqbD80-pQkQcS.zXvKctR3esgpIZfV', ppt: 'TBD'},
-        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: { title: 'A Near-half-century Simulation of the Solar Corona', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad1934' }, video: 'https://khu-ac.zoom.us/rec/share/nNnTokmVw4t4Q-xF2ujADwSeEb8GXgvkW467-KFdTldyAAOKTJNFvp2t-jqGOqaL.YXQGz6UGWXqe2uAA', ppt: 'TBD'},
+        { date: '2024-09-20', presenter: 'Yeonwoo Jang', article: { title: 'The McNish and Lincoln Solar-Activity Predictions: The Method and Its Performance', url: 'https://doi.org/10.1007/s11207-024-02266-2' }, video: 'https://khu-ac.zoom.us/rec/share/kUgjUu5iMEpinMVEzzgbPHGCg52nlPzjksjDbcnX3qZjrvnREvQg13u9VeLTAHTf.3WBXzVdJIysT66mw', ppt: 'TBD' },
+        {
+            date: '2024-09-27', presenter: 'Kyungsun Park', articles: [
+                { title: 'The Twisted Configuration of the Martian Magnetotail: MAVEN Observations', url: 'https://doi.org/10.1029/2018GL077251' },
+                { title: 'Oxygen Ion Energization at Mars: Comparison of MAVEN and Mars Express Observations to Global Hybrid Simulation', url: 'https://doi.org/10.1002/2017JA024884' },
+            ], video: 'https://khu-ac.zoom.us/rec/share/PyN2uKNVbZynXRXjMxvrfIy-F8oGdz0EiurrktBZAE1zDyMt22dZpFY_geTMdtk0.ai4LiR_zF4nhZagx', ppt: 'https://drive.google.com/file/d/1NNCK4XZLrpU1j6RPtY9muy2f9en_1WUD/view?usp=drive_link'
+        },
+        { date: '2024-10-11', presenter: 'Jihye Kang', article: { title: 'Thermodynamic and Magnetic Topology Evolution of the X1.0 Flare on 2021 October 28 Simulated by a Data-driven Radiative Magnetohydrodynamic Model', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/acc797' }, video: 'https://khu-ac.zoom.us/rec/share/M8aFX9fPSgD-lrZ6fjEbxOd_N8CyIaAYLlXSBM4rq-8Gmvp-v_azhtFig7-SCwbz.EIDCeDMsTIxmjUmr', ppt: 'TBD' },
+        { date: '2024-10-25', presenter: 'Hyunjin Jeong', article: { title: 'Modeling the propagation of coronal mass ejections with COCONUT: Implementation of the regularized Biot-Savart law flux rope model', url: 'https://www.aanda.org/articles/aa/full_html/2024/03/aa47634-23/aa47634-23.html' }, video: 'https://khu-ac.zoom.us/rec/share/9JtUY2TsgCe7XOxcv4V3Pi2nrCYYMPW7_92lSiU2CARhNtzP5gTPmGxPQ5p1wGh_.teLNUBiwZZDYKD5D', ppt: 'TBD' },
+        { date: '2024-11-08', presenter: 'Sibaek Yi', article: { title: 'Toroidal Miller-Turner and Soloviev coronal mass ejection models in EUHFORIA I. Implementation', url: 'https://doi.org/10.1051/0004-6361/202347794' }, video: ' https://khu-ac.zoom.us/rec/share/m-JTbaF42B2UWgUk6qG5YVvGLz1AwQDa_QbKgmEteb9vPJZiwOi70I2nu5Ya2xZB.RHwtFvK-1jqBLMpC', ppt: 'TBD' },
+        { date: '2024-11-15', presenter: 'Daeil Kim', article: { title: 'Modeling the formation and eruption of coronal structures by linking data-driven magnetofrictional and MHD simulations for AR 12673', url: 'https://doi.org/10.1051/0004-6361/202346183' }, video: 'https://khu-ac.zoom.us/rec/share/Uu6Kjhmh2jMGxGGu6gr9-MUHGz87lDSzXM-vNMpT9f_d8_2V3CS4zXAZ-F33eGNx.MFhhoc-QdrHlFaSK', ppt: 'TBD' },
+        { date: '2024-11-22', presenter: 'Junmu Youn', article: { title: 'Observational Signatures of Coronal Heating in Magnetohydrodynamic Simulations without Radiation or a Lower Atmosphere', url: 'https://doi.org/10.3847/1538-4357/ac9f41' }, video: 'https://khu-ac.zoom.us/rec/share/wQYwx8Qb-irtVvu_krQh1REferHyZ0rq2T6mKoM5jZOaViKb2RosmjbMjbViYvcv.LlvlABjFoTnPWDYk', ppt: 'TBD' },
+        { date: '2024-11-29', presenter: 'Donghui Son', article: { title: 'The Sun\'s differential rotation is controlled by high-latitude baroclinically unstable inertial modes', url: 'https://www.science.org/doi/10.1126/sciadv.adk5643' }, video: 'https://khu-ac.zoom.us/rec/share/FFQa2Yp61H2xO7sCPgyZ0LE1w0UD-SK2rMVBUCaagp5XBW9QMrTAUXIK6Jzx_vQ-.3K4w7EmrmTDX8If0', ppt: 'TBD' },
+        { date: '2024-12-13', presenter: 'Junmo An', article: { title: 'Magnetograms underestimate even unipolar magnetic flux nearly everywhere on the solar disk', url: 'https://doi.org/10.1051/0004-6361/202450267' }, video: 'https://khu-ac.zoom.us/rec/share/jaFtuVnDYbLZvfzSbmQgIxDhoZKXT8CcbXDMzAERJqy1BIoEhTtpqbD80-pQkQcS.zXvKctR3esgpIZfV', ppt: 'TBD' },
+        { date: '2024-12-20', presenter: 'Mingyu Jeon', article: { title: 'A Near-half-century Simulation of the Solar Corona', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ad1934' }, video: 'https://khu-ac.zoom.us/rec/share/nNnTokmVw4t4Q-xF2ujADwSeEb8GXgvkW467-KFdTldyAAOKTJNFvp2t-jqGOqaL.YXQGz6UGWXqe2uAA', ppt: 'TBD' },
 
         // 2025-1st: 39-50 (12개)
-        { date: '2025-02-14', presenter: 'Daeil Kim', article: { title: 'Studying the Spheromak Rotation in Data-constrained Coronal Mass Ejection Modeling with EUHFORIA and Assessing Its Effect on the Bz Prediction', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/ad0df4' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
-        { date: '2025-02-21', presenter: 'Junmu Youn', article: { title: 'The Coronal Veil', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac3df9' }, video: 'https://khu-ac.zoom.us/rec/share/zwH2H4Gkt_ct3swucDxhegoliKYN2qBNuHojRjTAcb6WciGVEZTZkW7Vv8i0Tm4.QUJVczMCFVgOxvwN', ppt: 'TBD'},
-        { date: '2025-02-28', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD Simulation of the Formation of a Magnetic Flux Rope and an Inclined Solar Eruption', url: 'https://doi.org/10.3847/1538-4357/ad6a54' }, video: 'https://khu-ac.zoom.us/rec/share/G20O-BFdsYKLlnRUIoJ2xdjzoDZiUBSRrxmJDyQyI43gyg-Z6cSYIwUNeGU6jJn-._B1qVeDdkKROF17g', ppt: 'TBD'},
-        { date: '2025-03-07', presenter: 'Sangjin Park', articles: [
-            { title: 'Penumbral fine structure and driving mechanisms of large-scale flows in simulated sunspots', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/729/1/5' },
-            { title: 'NUMERICAL SUNSPOT MODELS: ROBUSTNESS OF PHOTOSPHERIC VELOCITY AND MAGNETIC FIELD STRUCTURE', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/750/1/62' },
-        ], video: 'https://khu-ac.zoom.us/rec/share/JP_JBwn2rXzXxqVRnyAJf9WEp3pSA3MAdPDzOXCJrGM6ea4lGdfLJ4VSZ4gCdoXd.XMYkZSGqfee5uwRg', ppt: 'TBD'},
-        { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'Multispecies and Multifluid MHD Approaches for the Study of Ionospheric Escape at Mars', url: 'https://doi.org/10.1029/2017JA025117' }, video: 'https://khu-ac.zoom.us/rec/share/0P7irjW7v7Bpd3SlCi7ZhEQSCzbWGL_C56usbjBoevSU8QOvEVD-B9QSDiHLNDrm.q5Byp7l9EQvq7EMn', ppt: 'TBD'},
-        { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'Applying the Weighted Horizontal Magnetic Gradient Method to a Simulated Flaring Active Region', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aab891/meta' }, video: 'https://khu-ac.zoom.us/rec/share/vU-Ur-HXGsMj6ooe09QG0gJv_XF1va7xKl70Lnf-zCE0PkCGzVL4LizdJUfFriZg.8e63ke1abtdJgqun', ppt: 'TBD'},
-        { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'A Data-constrained Model for Coronal Mass Ejections Using the Graduated Cylindrical Shell Method', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aad3b4/meta' }, video: 'https://khu-ac.zoom.us/rec/share/mBCZNlhl2EDsr8KNl-BUFx8lSQpy5IF1JE9tpuvaVn1JxnJaG6VafFfhvApxXX_Z.w5DZwUCOf9K7Y3sS', ppt: 'TBD'},
-        { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'Convective Magnetic Flux Emergence Simulations from the Deep Solar Interior to the Photosphere: Comprehensive Study of Flux Tube Twist', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad7e1d' }, video: 'https://khu-ac.zoom.us/rec/share/oCjZN6pEldM7-yoKhkpUjXwbymMK1wOSjoLXcbit--Cvpmsfhfu7mQzGtHDYatw3.oFWSlNMsIaUJ0YQR', ppt: 'TBD'},
+        { date: '2025-02-14', presenter: 'Daeil Kim', article: { title: 'Studying the Spheromak Rotation in Data-constrained Coronal Mass Ejection Modeling with EUHFORIA and Assessing Its Effect on the Bz Prediction', url: 'https://iopscience.iop.org/article/10.3847/1538-4365/ad0df4' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD' },
+        { date: '2025-02-21', presenter: 'Junmu Youn', article: { title: 'The Coronal Veil', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ac3df9' }, video: 'https://khu-ac.zoom.us/rec/share/zwH2H4Gkt_ct3swucDxhegoliKYN2qBNuHojRjTAcb6WciGVEZTZkW7Vv8i0Tm4.QUJVczMCFVgOxvwN', ppt: 'TBD' },
+        { date: '2025-02-28', presenter: 'Yeongmin Kang', article: { title: 'Data-driven MHD Simulation of the Formation of a Magnetic Flux Rope and an Inclined Solar Eruption', url: 'https://doi.org/10.3847/1538-4357/ad6a54' }, video: 'https://khu-ac.zoom.us/rec/share/G20O-BFdsYKLlnRUIoJ2xdjzoDZiUBSRrxmJDyQyI43gyg-Z6cSYIwUNeGU6jJn-._B1qVeDdkKROF17g', ppt: 'TBD' },
+        {
+            date: '2025-03-07', presenter: 'Sangjin Park', articles: [
+                { title: 'Penumbral fine structure and driving mechanisms of large-scale flows in simulated sunspots', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/729/1/5' },
+                { title: 'NUMERICAL SUNSPOT MODELS: ROBUSTNESS OF PHOTOSPHERIC VELOCITY AND MAGNETIC FIELD STRUCTURE', url: 'https://iopscience.iop.org/article/10.1088/0004-637X/750/1/62' },
+            ], video: 'https://khu-ac.zoom.us/rec/share/JP_JBwn2rXzXxqVRnyAJf9WEp3pSA3MAdPDzOXCJrGM6ea4lGdfLJ4VSZ4gCdoXd.XMYkZSGqfee5uwRg', ppt: 'TBD'
+        },
+        { date: '2025-03-14', presenter: 'Kyungsun Park', article: { title: 'Multispecies and Multifluid MHD Approaches for the Study of Ionospheric Escape at Mars', url: 'https://doi.org/10.1029/2017JA025117' }, video: 'https://khu-ac.zoom.us/rec/share/0P7irjW7v7Bpd3SlCi7ZhEQSCzbWGL_C56usbjBoevSU8QOvEVD-B9QSDiHLNDrm.q5Byp7l9EQvq7EMn', ppt: 'TBD' },
+        { date: '2025-03-21', presenter: 'Youngjae Kim', article: { title: 'Applying the Weighted Horizontal Magnetic Gradient Method to a Simulated Flaring Active Region', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aab891/meta' }, video: 'https://khu-ac.zoom.us/rec/share/vU-Ur-HXGsMj6ooe09QG0gJv_XF1va7xKl70Lnf-zCE0PkCGzVL4LizdJUfFriZg.8e63ke1abtdJgqun', ppt: 'TBD' },
+        { date: '2025-03-28', presenter: 'Sibaek Yi', article: { title: 'A Data-constrained Model for Coronal Mass Ejections Using the Graduated Cylindrical Shell Method', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aad3b4/meta' }, video: 'https://khu-ac.zoom.us/rec/share/mBCZNlhl2EDsr8KNl-BUFx8lSQpy5IF1JE9tpuvaVn1JxnJaG6VafFfhvApxXX_Z.w5DZwUCOf9K7Y3sS', ppt: 'TBD' },
+        { date: '2025-04-04', presenter: 'Donghui Son', article: { title: 'Convective Magnetic Flux Emergence Simulations from the Deep Solar Interior to the Photosphere: Comprehensive Study of Flux Tube Twist', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad7e1d' }, video: 'https://khu-ac.zoom.us/rec/share/oCjZN6pEldM7-yoKhkpUjXwbymMK1wOSjoLXcbit--Cvpmsfhfu7mQzGtHDYatw3.oFWSlNMsIaUJ0YQR', ppt: 'TBD' },
         { date: '2025-05-16', presenter: 'Mingyu Jeon', article: { title: 'Models and data analysis tools for the Solar Orbiter mission', url: 'https://www.aanda.org/articles/aa/full_html/2020/10/aa35305-19/aa35305-19.html' }, video: 'https://khu-ac.zoom.us/rec/share/VjuvVJkxQ8jKqlwC3sK8ode_4Ksce8h7WJfXncRaDrh8ejTaYReLUCv3_P0Nf-5Y.7hsYCO86pTOKDUS2', ppt: 'TBD' },
-        { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/acd053' }, video: 'https://khu-ac.zoom.us/rec/share/OFAfjfu7XqbZd6AJJA8P2uiQTQQ7LuIyKWiwHH27fz80NxesAAjKc4-JVNYlY2nr.WNGhrqPr87Xf6Rbe', ppt: 'TBD'},
+        { date: '2025-05-23', presenter: 'Junmo An', article: { title: 'Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/acd053' }, video: 'https://khu-ac.zoom.us/rec/share/OFAfjfu7XqbZd6AJJA8P2uiQTQQ7LuIyKWiwHH27fz80NxesAAjKc4-JVNYlY2nr.WNGhrqPr87Xf6Rbe', ppt: 'TBD' },
         { date: '2025-06-13', presenter: 'Yeonwoo Jang', article: { title: 'Solar Eruptions Triggered by Flux Emergence below or near a Coronal Flux Rope', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ad1826' }, video: 'https://khu-ac.zoom.us/rec/share/nXjCpDdkOqshqFJ_kQsd27b7aqPlDROQ8hsl9I1tXPze36RojtLg-YSJvpsJg88f.IjZnNtbnsvwCBrcN', ppt: 'TBD' },
-        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'The role of the external toroidal magnetic field on the large-angle rotation of magnetic flux ropes', url: 'https://www.aanda.org/articles/aa/full_html/2025/03/aa51543-24/aa51543-24.html' }, video: 'https://khu-ac.zoom.us/rec/share/enUtuEwwgq-PIG8IZ6_NQz-tsHsRgh6VIR9zl8FL6XEXgc6kWJobtROmUaB_OPBk.K-3iY6hTJ6yaqlar', ppt: 'TBD'},
-    
-        // 2025-2nd: 50-60 (11개)
-        { date: '2025-09-05', presenter: 'Seungwoo Ahn', article: { title: 'Deriving the Coronal Separatrix-Web With the WSA Model', url: 'https://khu-ac.zoom.us/rec/share/qp20uyAAAEm6yhlSZ7I2fYyFU-zp34cmUZHcJ_lTUp1Xzjc3H9Dr88_BRlODxKRk.2UsfUsAM9pffhZ4Z' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD'},
-        { date: '2025-09-12', presenter: 'Yeonwoo Jang', article: { title: 'Computation of Winding-Based Magnetic Helicity and Magnetic Winding Density for SHARP Magnetograms in Spherical Coordinates', url: 'https://link.springer.com/article/10.1007/s11207-023-02211-9' }, video: 'https://khu-ac.zoom.us/rec/share/PJUAxfIjI3jHt_1k2Yydp_LVERKE7U7qd4y5TlnrZyDzeNGPQ4Y71N1VWHskUPlP.hCl_WzNeIHONMNsV', ppt: 'TBD'},
-        { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'The origin of interplanetary switchbacks in reconnection at chromospheric network boundaries', url: 'https://www.nature.com/articles/s41550-024-02321-9' }, video: 'https://khu-ac.zoom.us/rec/share/N-D9Ce0csx9Bp4-MFgRivoV6zEYktPb_U1Mu6gQWVFHsTfHN9SAyESEOAWzz-ifr.C0Q-_OEAJiYAZurH', ppt: 'TBD'},
-        { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'MHD modelling of the near-sun evolution of coronal mass ejection initiated from a sheared arcade', url: 'https://doi.org/10.1093/mnras/staf307' }, video: 'https://khu-ac.zoom.us/rec/share/rrNxe7vvzdj2V3jIGYdVBx_p-XkWzmPaTd3Kr0fp04JBgF9Zx4J6WmdVfTA4oPUW.aO41iN0ziRPaOVSC', ppt: 'TBD'},
-        { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'Current Helicity in Response to Coronal Mass Ejections', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/adf18b' }, video: 'https://khu-ac.zoom.us/rec/share/rRV2Qd20uBsOdpHWmy1zzosabAhLU9-70C22A5TYo8NPgy57RzAkMcTtUQ0V7uQT.JLlDi5IvjYaWSUqX', ppt: 'TBD'},
-        { date: '2025-11-21', presenter: 'Junmo An', article: { title: 'What Determines the Brightness of the Magnetically Open Solar Corona?: Insights from Three-dimensional Radiative Magnetohydrodynamic Simulations and Observations', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ae0468' }, video: 'https://khu-ac.zoom.us/rec/share/9Dlom6xYgkFUpJWHefyNrMMivqWUJMfJ1FdlHemvmxTqJJ5xdjsvOJ5RGyXSE_oV.OG-oKkfdSNYBkFmf', ppt: 'TBD'},
-        { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'EXTENSION OF THE MURAM RADIATIVE MHD CODE FOR CORONAL SIMULATIONS', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/834/1/10' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-12-05', presenter: 'Jihye Kang', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
-        { date: '2025-12-12', presenter: 'Junmu Youn', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'},
-        { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD' },
-        { date: '2026-01-09', presenter: 'Mingyu Jeon', article: { title: 'TBD', url: 'TBD' }, video: 'TBD', ppt: 'TBD'}
+        { date: '2025-06-20', presenter: 'Jihye Kang', article: { title: 'The role of the external toroidal magnetic field on the large-angle rotation of magnetic flux ropes', url: 'https://www.aanda.org/articles/aa/full_html/2025/03/aa51543-24/aa51543-24.html' }, video: 'https://khu-ac.zoom.us/rec/share/enUtuEwwgq-PIG8IZ6_NQz-tsHsRgh6VIR9zl8FL6XEXgc6kWJobtROmUaB_OPBk.K-3iY6hTJ6yaqlar', ppt: 'TBD' },
+
+        // 2025-2nd: 50-59 (10개)
+        { date: '2025-09-05', presenter: 'Seungwoo Ahn', article: { title: 'Deriving the Coronal Separatrix-Web With the WSA Model', url: 'https://khu-ac.zoom.us/rec/share/qp20uyAAAEm6yhlSZ7I2fYyFU-zp34cmUZHcJ_lTUp1Xzjc3H9Dr88_BRlODxKRk.2UsfUsAM9pffhZ4Z' }, video: 'https://khu-ac.zoom.us/rec/share/IXl9pOSfKRLkY-YvHzBOdWu8gVL-ofMn-eexgTa8V0Ieo8v9iitZNLc1vzPVtGqj._osq8XWJSXSgM86N', ppt: 'TBD' },
+        { date: '2025-09-12', presenter: 'Yeonwoo Jang', article: { title: 'Computation of Winding-Based Magnetic Helicity and Magnetic Winding Density for SHARP Magnetograms in Spherical Coordinates', url: 'https://link.springer.com/article/10.1007/s11207-023-02211-9' }, video: 'https://khu-ac.zoom.us/rec/share/PJUAxfIjI3jHt_1k2Yydp_LVERKE7U7qd4y5TlnrZyDzeNGPQ4Y71N1VWHskUPlP.hCl_WzNeIHONMNsV', ppt: 'TBD' },
+        { date: '2025-10-24', presenter: 'Youngjae Kim', article: { title: 'The origin of interplanetary switchbacks in reconnection at chromospheric network boundaries', url: 'https://www.nature.com/articles/s41550-024-02321-9' }, video: 'https://khu-ac.zoom.us/rec/share/N-D9Ce0csx9Bp4-MFgRivoV6zEYktPb_U1Mu6gQWVFHsTfHN9SAyESEOAWzz-ifr.C0Q-_OEAJiYAZurH', ppt: 'TBD' },
+        { date: '2025-11-07', presenter: 'Sibaek Yi', article: { title: 'MHD modelling of the near-sun evolution of coronal mass ejection initiated from a sheared arcade', url: 'https://doi.org/10.1093/mnras/staf307' }, video: 'https://khu-ac.zoom.us/rec/share/rrNxe7vvzdj2V3jIGYdVBx_p-XkWzmPaTd3Kr0fp04JBgF9Zx4J6WmdVfTA4oPUW.aO41iN0ziRPaOVSC', ppt: 'TBD' },
+        { date: '2025-11-14', presenter: 'Daeil Kim', article: { title: 'Current Helicity in Response to Coronal Mass Ejections', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/adf18b' }, video: 'https://khu-ac.zoom.us/rec/share/rRV2Qd20uBsOdpHWmy1zzosabAhLU9-70C22A5TYo8NPgy57RzAkMcTtUQ0V7uQT.JLlDi5IvjYaWSUqX', ppt: 'TBD' },
+        { date: '2025-11-21', presenter: 'Junmo An', article: { title: 'What Determines the Brightness of the Magnetically Open Solar Corona?: Insights from Three-dimensional Radiative Magnetohydrodynamic Simulations and Observations', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ae0468' }, video: 'https://khu-ac.zoom.us/rec/share/9Dlom6xYgkFUpJWHefyNrMMivqWUJMfJ1FdlHemvmxTqJJ5xdjsvOJ5RGyXSE_oV.OG-oKkfdSNYBkFmf', ppt: 'TBD' },
+        { date: '2025-11-28', presenter: 'Donghui Son', article: { title: 'EXTENSION OF THE MURAM RADIATIVE MHD CODE FOR CORONAL SIMULATIONS', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/834/1/10' }, video: 'https://khu-ac.zoom.us/rec/share/HWPUFPMSqqbsum-phY0OLrj53rCUFru4loFroQ8U1wIbU1WHTotmSIFrxX1Q3SaJ.Zwo2xr4_8Cr87fYw', ppt: 'TBD' },
+        { date: '2025-12-12', presenter: 'Junmu Youn', article: { title: 'Fine Structures of Tiny Quiet Sun Jets Observed by Solar Orbiter and Big Bear Solar Observatory', url: 'https://iopscience.iop.org/article/10.3847/2041-8213/ae0df2' }, video: 'https://khu-ac.zoom.us/rec/share/2vCNRYhWlEn5A3txcaFuv3VLLqfeM9s0aLFSWzHJo20t52L4UZVRknnmuBgTW-y1.aW7wPUXF1a8CDGfj', ppt: 'TBD' },
+        { date: '2025-12-19', presenter: 'Sangjin Park', article: { title: 'Solar Overshoot Region and Small-scale Dynamo with Realistic Energy Flux', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aa784b' }, video: 'https://khu-ac.zoom.us/rec/share/vq4EjEKiKnNBRarb6zMMX3j50766N4meuad3uQJ3BSSEfDhVtSHA_z1yIc_yYMlS.Rtuqp5L1OwjxaklF', ppt: 'TBD' },
+        { date: '2026-01-09', presenter: 'Mingyu Jeon', article: { title: 'Numerical Simulations of Flare-productive Active Regions: δ-sunspots, Sheared Polarity Inversion Lines, Energy Storage, and Predictions', url: 'https://iopscience.iop.org/article/10.3847/1538-4357/aa95c2/meta' }, video: 'https://khu-ac.zoom.us/rec/share/lIC25YJXJ3Uz_SW-zKBCZXDJWZCzuDVmLSWiVCzAEWuG81UzsyhjWe-SoM92OPEt.ytFvTa9LU88bPIyF', ppt: 'TBD' }
     ];
-    
+
 
     // 미팅 그룹의 시작과 끝 인덱스를 명확하게 정의
     const GROUP_INDICES = {
@@ -328,12 +331,12 @@ document.addEventListener('DOMContentLoaded', function() {
         '2024-2nd': { start: 21, end: 29 },  // [21, 29)
         '2024-3rd': { start: 29, end: 39 },  // [29, 39)
         '2025-1st': { start: 39, end: 51 },  // [39, 51) -> 12 items
-        '2025-2nd': { start: 51, end: 62 }   // [51, 62) -> 11 items (includes 2026-01-09)
+        '2025-2nd': { start: 51, end: 59 }   // [51, 59) -> 8 items (includes 2026-01-09)
     };
-  
+
     // 미팅 그룹 생성을 더 명확하고 유지보수하기 쉽게 수정
     const meetingGroups = Object.fromEntries(
-        Object.entries(GROUP_INDICES).map(([key, {start, end}]) => [
+        Object.entries(GROUP_INDICES).map(([key, { start, end }]) => [
             key,
             meetings.slice(start, end)
         ])
@@ -342,8 +345,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Title case 변환 함수 추가
     function toTitleCase(str) {
         // 소문자로 변환하지 않을 특수 단어들 (약어, 단위 등)
-        const specialWords = new Set(['MHD', 'TBD','CME', 'CMEs', '3D', 'EUHFORIA', 'MAVEN', 'SOHO', 'MDI', 'SDO', 'HMI', 'BBSO', 'HOW-MHD', 'WENO', 'GLM-MHD', 'SuNeRF', 'EUV', 'OSPREI', 'COCONUT']);
-    
+        const specialWords = new Set(['MHD', 'TBD', 'CME', 'CMEs', '3D', 'EUHFORIA', 'MAVEN', 'SOHO', 'MDI', 'SDO', 'HMI', 'BBSO', 'HOW-MHD', 'WENO', 'GLM-MHD', 'SuNeRF', 'EUV', 'OSPREI', 'COCONUT']);
+
         // 항상 소문자로 유지할 단어들
         const lowercaseWords = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'if', 'in', 'of', 'on', 'or', 'the', 'to', 'up', 'yet']);
 
@@ -352,16 +355,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (specialWords.has(word.toUpperCase())) {
                 return word.toUpperCase();
             }
-        
+
             // 첫 단어이거나 소문자로 유지할 단어가 아닌 경우
             if (index === 0 || !lowercaseWords.has(word.toLowerCase())) {
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
-        
+
             return word.toLowerCase();
         }).join(' ');
     }
-    
+
     function updateMeetings() {
         // validateMeetings(); // 유효성 검사 실행 (주석 처리)
         const today = new Date();
@@ -413,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } else {
                 // Wrap TBD or other plain text in a span for consistent styling
-                articleContent = `<span>${upcomingMeeting.article || 'TBD'}</span>`; 
+                articleContent = `<span>${upcomingMeeting.article || 'TBD'}</span>`;
             }
 
             upcomingCardHtml = `
@@ -444,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         } else {
-           upcomingCardHtml = `
+            upcomingCardHtml = `
                 <div class="upcoming-card upcoming-card-empty">
                     <h2 class="card-title">Upcoming Meeting</h2>
                     <p class="card-body">No more scheduled meetings.</p>
@@ -472,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const meetingsTableContainer = document.getElementById('meetings-table-container');
         const startDate = meetings[0].date;
         const endDate = meetings[meetings.length - 1].date;
-        
+
         let tableHtml = `
             <h3>${startDate} ~ ${endDate}</h3>
             <table>
@@ -490,9 +493,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         meetings.forEach(meeting => {
             let articleContent;
-            
+
             if (Array.isArray(meeting.articles)) {
-                articleContent = meeting.articles.map((article, index) => 
+                articleContent = meeting.articles.map((article, index) =>
                     `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
                 ).join('<br>');
             } else if (typeof meeting.article === 'object') {
@@ -500,10 +503,10 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 articleContent = meeting.article || 'TBD';
             }
-    
+
             const videoContent = meeting.video === 'TBD' ? 'TBD' : `<a href="${meeting.video}" target="_blank">Video</a>`;
             const pptContent = meeting.ppt ? (meeting.ppt === 'TBD' ? 'TBD' : `<a href="${meeting.ppt}" target="_blank">PPT</a>`) : 'N/A';
-    
+
             tableHtml += `
                 <tr>
                     <td data-label="Date"> ${meeting.date}</td>
@@ -536,22 +539,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Navbar Mobile Menu Toggle --- 
     const mobileMenu = document.getElementById('mobile-menu');
     const navbarMenu = document.getElementById('navbar-menu');
-    
-    if (mobileMenu && navbarMenu) {
-      mobileMenu.addEventListener('click', () => {
-        navbarMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('active'); // For the 'X' animation
-      });
 
-      // Close mobile menu when a link is clicked
-      navbarMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navbarMenu.classList.contains('active')) {
-            navbarMenu.classList.remove('active');
-            mobileMenu.classList.remove('active');
-          }
+    if (mobileMenu && navbarMenu) {
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active'); // For the 'X' animation
         });
-      });
+
+        // Close mobile menu when a link is clicked
+        navbarMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarMenu.classList.contains('active')) {
+                    navbarMenu.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
     }
     // --- End Navbar Mobile Menu Toggle --- 
 
