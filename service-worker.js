@@ -1,6 +1,6 @@
 // Service Worker for Solar Physics Journal Club
-const CACHE_NAME = 'spjc-cache-v1';
-const DYNAMIC_CACHE = 'spjc-dynamic-v1';
+const CACHE_NAME = 'spjc-cache-v2';
+const DYNAMIC_CACHE = 'spjc-dynamic-v2';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -9,6 +9,13 @@ const STATIC_ASSETS = [
     '/participants.html',
     '/style.css',
     '/meetings.js',
+    '/meetings-data/index.js',
+    '/meetings-data/2023-1st.js',
+    '/meetings-data/2024-1st.js',
+    '/meetings-data/2024-2nd.js',
+    '/meetings-data/2024-3rd.js',
+    '/meetings-data/2025-1st.js',
+    '/meetings-data/2025-2nd.js',
     '/SSR_LOGO.png',
     // Fonts
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap'
