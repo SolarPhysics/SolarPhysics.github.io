@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/SP_LOGO2.png",
+      "src": "/figs/SP_LOGO2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/SSR_LOGO.png",
+      "src": "/figs/SSR_LOGO.png",
       "sizes": "192x192",
       "type": "image/png"
     }

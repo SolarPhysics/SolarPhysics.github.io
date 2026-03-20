@@ -1,6 +1,6 @@
 // Service Worker for Solar Physics Journal Club
-const CACHE_NAME = 'spjc-cache-v3';
-const DYNAMIC_CACHE = 'spjc-dynamic-v3';
+const CACHE_NAME = 'spjc-cache-v4';
+const DYNAMIC_CACHE = 'spjc-dynamic-v4';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -17,10 +17,10 @@ const STATIC_ASSETS = [
     '/meetings-data/2025-1st.js',
     '/meetings-data/2025-2nd.js',
     '/meetings-data/2026-1st.js',
-    '/SSR_LOGO.png',
-    '/SP_LOGO2.png',
-    '/SP_image.png',
-    '/KHAO.jpeg',
+    '/figs/SSR_LOGO.png',
+    '/figs/SP_LOGO2.png',
+    '/figs/SP_image.png',
+    '/figs/KHAO.jpeg',
     // Fonts
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap'
 ];
@@ -117,8 +117,8 @@ self.addEventListener('push', event => {
         const data = event.data.json();
         const options = {
             body: data.body,
-            icon: '/SP_LOGO2.png',
-            badge: '/SP_LOGO2.png',
+            icon: '/figs/SP_LOGO2.png',
+            badge: '/figs/SP_LOGO2.png',
             vibrate: [100, 50, 100],
             data: {
                 dateOfArrival: Date.now(),
