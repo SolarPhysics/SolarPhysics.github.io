@@ -198,6 +198,27 @@ function formatMeetingCardMaterials(meeting) {
     return materials.join('');
 }
 
+function isMobileViewport() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function scrollActiveQuarterButtonIntoView() {
+    if (!isMobileViewport()) {
+        return;
+    }
+
+    const activeButton = document.querySelector('.quarter-button.active');
+    if (!activeButton) {
+        return;
+    }
+
+    activeButton.scrollIntoView({
+        behavior: 'auto',
+        block: 'nearest',
+        inline: 'center'
+    });
+}
+
 function showMeetings(groupName, meetings) {
     const meetingsTableContainer = document.getElementById('meetings-table-container');
     if (!meetingsTableContainer || !meetings.length) return;
@@ -268,6 +289,8 @@ function showMeetings(groupName, meetings) {
             button.classList.add('active');
         }
     });
+
+    scrollActiveQuarterButtonIntoView();
 }
 
 function updateMeetings() {
@@ -342,8 +365,9 @@ function updateMeetings() {
 function setupMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navbarMenu = document.getElementById('navbar-menu');
+    const navbar = document.querySelector('.navbar');
 
-    if (!mobileMenu || !navbarMenu) {
+    if (!mobileMenu || !navbarMenu || !navbar) {
         return;
     }
 
@@ -365,6 +389,28 @@ function setupMobileMenu() {
                 setMenuState(false);
             }
         });
+    });
+
+    document.addEventListener('click', event => {
+        if (!isMobileViewport() || !navbarMenu.classList.contains('active')) {
+            return;
+        }
+
+        if (!navbar.contains(event.target)) {
+            setMenuState(false);
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && navbarMenu.classList.contains('active')) {
+            setMenuState(false);
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (!isMobileViewport() && navbarMenu.classList.contains('active')) {
+            setMenuState(false);
+        }
     });
 }
 

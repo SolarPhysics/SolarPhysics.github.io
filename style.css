@@ -994,11 +994,25 @@ img {
         -webkit-backdrop-filter: none;
         overflow-x: auto;
         scroll-snap-type: x proximity;
-        scrollbar-width: none;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 107, 53, 0.55) transparent;
     }
 
     #quarters-container::-webkit-scrollbar {
-        display: none;
+        height: 0.35rem;
+    }
+
+    #quarters-container::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #quarters-container::-webkit-scrollbar-thumb {
+        background: rgba(255, 107, 53, 0.55);
+        border-radius: 999px;
+    }
+
+    #quarters-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 107, 53, 0.75);
     }
 
     .quarter-button {
