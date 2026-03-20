@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#FF6B35">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="style.css">
@@ -20,7 +20,7 @@
         <a href="#" class="corner-logo-link">
             <img src="figs/SSR_LOGO.png" alt="School of Space Research" class="corner-logo" loading="eager">
         </a>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Primary">
           <div class="navbar-container">
             <div class="navbar-menu" id="navbar-menu">
               <a href="#" class="nav-link">Home</a>
@@ -28,35 +28,34 @@
               <a href="#past-meetings" class="nav-link">Past Meetings</a>
               <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="mobile-menu" id="mobile-menu">
+            <button
+                class="mobile-menu"
+                id="mobile-menu"
+                type="button"
+                aria-expanded="false"
+                aria-controls="navbar-menu"
+                aria-label="Toggle navigation menu"
+            >
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </button>
           </div>
         </nav>
 
         <div class="header-content">
             <p>Welcome!</p>
             <h1>Solar Physics Journal Club</h1>
-            <h2>School of Space Research</br>
+            <h2>School of Space Research<br>
                 Kyung Hee University, Republic of Korea</h2>
         </div>
     </header>
-
-    </br>
-    </br>
-
 
     <div class="upcoming-meeting-container">
         <section id="upcoming-meeting" class="container">
             <!-- Upcoming meeting details will be injected here -->
         </section>
-        <div class="meeting-image-placeholder">
-            <img data-src="figs/SP_LOGO2.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="SP LOGO" class="upcoming-meeting-image lazy-img">
-        </div>
     </div>
-    </br>
 
     <section id="intermediate">
         <img data-src="figs/SP_image.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="astronaut_with_papers" class="lazy-img">

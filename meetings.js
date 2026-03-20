@@ -88,46 +88,114 @@ function toTitleCase(str) {
     }).join(' ');
 }
 
+function parseMeetingDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
+}
+
+function getMeetingArticles(meeting) {
+    if (Array.isArray(meeting.articles) && meeting.articles.length) {
+        return meeting.articles;
+    }
+
+    if (typeof meeting.article === 'object' && meeting.article) {
+        return [meeting.article];
+    }
+
+    if (typeof meeting.article === 'string') {
+        return [{ title: meeting.article }];
+    }
+
+    return [{ title: 'TBD' }];
+}
+
+function formatArticleMarkup(article, titleCase = false) {
+    const title = article?.title;
+
+    if (!title || title.toUpperCase() === 'TBD') {
+        return '<span>TBD</span>';
+    }
+
+    const label = titleCase ? toTitleCase(title) : title;
+
+    if (article.url && article.url.toUpperCase() !== 'TBD') {
+        return `<a href="${article.url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    }
+
+    return `<span>${label}</span>`;
+}
+
 function formatUpcomingArticleContent(meeting) {
-    if (Array.isArray(meeting.articles)) {
-        const articleItems = meeting.articles.map((article, index) =>
-            `<li class="article-item"><a href="${article.url}" target="_blank">${index + 1}. ${toTitleCase(article.title)}</a></li>`
+    const articles = getMeetingArticles(meeting);
+
+    if (articles.length > 1) {
+        const articleItems = articles.map(article =>
+            `<li class="article-item">${formatArticleMarkup(article, true)}</li>`
         ).join('');
 
         return `<ul class="article-list">${articleItems}</ul>`;
     }
 
-    if (typeof meeting.article === 'object') {
-        const title = meeting.article.title;
-        const url = meeting.article.url;
-
-        if (title && title.toUpperCase() !== 'TBD') {
-            const formattedTitle = toTitleCase(title);
-            if (url && url.toUpperCase() !== 'TBD') {
-                return `<a href="${url}" target="_blank">${formattedTitle}</a>`;
-            }
-
-            return `<span>${formattedTitle}</span>`;
-        }
-
-        return '<span>TBD</span>';
-    }
-
-    return `<span>${meeting.article || 'TBD'}</span>`;
+    return formatArticleMarkup(articles[0], true);
 }
 
 function formatTableArticleContent(meeting) {
-    if (Array.isArray(meeting.articles)) {
-        return meeting.articles.map((article, index) =>
-            `${index + 1}. <a href="${article.url}" target="_blank">${article.title}</a>`
+    const articles = getMeetingArticles(meeting);
+
+    if (articles.length > 1) {
+        return articles.map((article, index) =>
+            `${index + 1}. ${formatArticleMarkup(article)}`
         ).join('<br>');
     }
 
-    if (typeof meeting.article === 'object') {
-        return `<a href="${meeting.article.url}" target="_blank">${meeting.article.title}</a>`;
+    return formatArticleMarkup(articles[0]);
+}
+
+function formatMeetingCardArticleContent(meeting) {
+    const articles = getMeetingArticles(meeting);
+
+    if (articles.length > 1) {
+        const articleItems = articles.map((article, index) =>
+            `<li class="meeting-card-article-item">${index + 1}. ${formatArticleMarkup(article)}</li>`
+        ).join('');
+
+        return `<ul class="meeting-card-article-list">${articleItems}</ul>`;
     }
 
-    return meeting.article || 'TBD';
+    return `<div class="meeting-card-article-single">${formatArticleMarkup(articles[0])}</div>`;
+}
+
+function formatTableMaterials(meeting) {
+    const videoContent = meeting.video === 'TBD'
+        ? 'TBD'
+        : `<a href="${meeting.video}" target="_blank" rel="noopener noreferrer">Video</a>`;
+    const pptContent = meeting.ppt
+        ? (meeting.ppt === 'TBD'
+            ? 'TBD'
+            : `<a href="${meeting.ppt}" target="_blank" rel="noopener noreferrer">PPT</a>`)
+        : 'N/A';
+
+    return `${videoContent} | ${pptContent}`;
+}
+
+function formatMeetingCardMaterials(meeting) {
+    const materials = [];
+
+    if (meeting.video === 'TBD') {
+        materials.push('<span class="meeting-material-text">Video TBD</span>');
+    } else {
+        materials.push(`<a href="${meeting.video}" target="_blank" rel="noopener noreferrer" class="meeting-material-link">Video</a>`);
+    }
+
+    if (!meeting.ppt) {
+        materials.push('<span class="meeting-material-text">PPT N/A</span>');
+    } else if (meeting.ppt === 'TBD') {
+        materials.push('<span class="meeting-material-text">PPT TBD</span>');
+    } else {
+        materials.push(`<a href="${meeting.ppt}" target="_blank" rel="noopener noreferrer" class="meeting-material-link">PPT</a>`);
+    }
+
+    return materials.join('');
 }
 
 function showMeetings(groupName, meetings) {
@@ -137,40 +205,58 @@ function showMeetings(groupName, meetings) {
     const startDate = meetings[0].date;
     const endDate = meetings[meetings.length - 1].date;
 
-    let tableHtml = `
-        <h3>${startDate} ~ ${endDate}</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Presenter</th>
-                    <th>Article</th>
-                    <th>Materials</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
+    const tableRows = meetings.map(meeting => `
+        <tr>
+            <td data-label="Date">${meeting.date}</td>
+            <td data-label="Time">10:30 AM</td>
+            <td data-label="Presenter">${meeting.presenter}</td>
+            <td data-label="Article">${formatTableArticleContent(meeting)}</td>
+            <td data-label="Materials">${formatTableMaterials(meeting)}</td>
+        </tr>
+    `).join('');
 
-    meetings.forEach(meeting => {
-        const articleContent = formatTableArticleContent(meeting);
-        const videoContent = meeting.video === 'TBD' ? 'TBD' : `<a href="${meeting.video}" target="_blank">Video</a>`;
-        const pptContent = meeting.ppt ? (meeting.ppt === 'TBD' ? 'TBD' : `<a href="${meeting.ppt}" target="_blank">PPT</a>`) : 'N/A';
+    const mobileCards = meetings.map(meeting => `
+        <article class="meeting-card">
+            <div class="meeting-card-header">
+                <span class="meeting-card-date">${meeting.date}</span>
+                <span class="meeting-card-time">10:30 AM</span>
+            </div>
+            <div class="meeting-card-row">
+                <span class="meeting-card-label">Presenter</span>
+                <div class="meeting-card-value">${meeting.presenter}</div>
+            </div>
+            <div class="meeting-card-row">
+                <span class="meeting-card-label">Article</span>
+                <div class="meeting-card-value">${formatMeetingCardArticleContent(meeting)}</div>
+            </div>
+            <div class="meeting-card-row">
+                <span class="meeting-card-label">Materials</span>
+                <div class="meeting-card-value meeting-material-links">${formatMeetingCardMaterials(meeting)}</div>
+            </div>
+        </article>
+    `).join('');
 
-        tableHtml += `
-            <tr>
-                <td data-label="Date"> ${meeting.date}</td>
-                <td data-label="Time"> 10:30 AM</td>
-                <td data-label="Presenter"> ${meeting.presenter}</td>
-                <td data-label="Article"> ${articleContent}</td>
-                <td data-label="Materials"> ${videoContent} | ${pptContent}</td>
-            </tr>
-        `;
-    });
-
-    tableHtml += `
-            </tbody>
-        </table>
+    const tableHtml = `
+        <h3 class="meeting-range">${startDate} ~ ${endDate}</h3>
+        <div class="meetings-desktop-view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Presenter</th>
+                        <th>Article</th>
+                        <th>Materials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tableRows}
+                </tbody>
+            </table>
+        </div>
+        <div class="meetings-mobile-list">
+            ${mobileCards}
+        </div>
     `;
 
     meetingsTableContainer.innerHTML = tableHtml;
@@ -195,7 +281,9 @@ function updateMeetings() {
     }
 
     const today = new Date();
-    const upcomingMeeting = allMeetings.find(meeting => new Date(meeting.date) >= today);
+    today.setHours(0, 0, 0, 0);
+
+    const upcomingMeeting = allMeetings.find(meeting => parseMeetingDate(meeting.date) >= today);
 
     if (upcomingMeeting) {
         upcomingSection.innerHTML = `
@@ -220,7 +308,7 @@ function updateMeetings() {
                     </div>
                     <div class="card-item zoom-link">
                         <span class="item-label">Meeting Link</span>
-                        <a href="https://khu-ac.zoom.us/j/89012045054" target="_blank" class="zoom-button">Join Zoom Meeting</a>
+                        <a href="https://khu-ac.zoom.us/j/89012045054" target="_blank" rel="noopener noreferrer" class="zoom-button">Join Zoom Meeting</a>
                     </div>
                 </div>
             </div>
@@ -237,6 +325,7 @@ function updateMeetings() {
     meetingsContainer.innerHTML = '';
     meetingGroups.forEach(group => {
         const button = document.createElement('button');
+        button.type = 'button';
         button.textContent = group.id;
         button.classList.add('quarter-button');
         button.addEventListener('click', () => showMeetings(group.id, group.meetings));
@@ -258,17 +347,22 @@ function setupMobileMenu() {
         return;
     }
 
+    const setMenuState = isOpen => {
+        navbarMenu.classList.toggle('active', isOpen);
+        mobileMenu.classList.toggle('active', isOpen);
+        mobileMenu.setAttribute('aria-expanded', String(isOpen));
+    };
+
     mobileMenu.addEventListener('click', () => {
-        navbarMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('active'); // For the 'X' animation
+        const isOpen = !navbarMenu.classList.contains('active');
+        setMenuState(isOpen);
     });
 
     // Close mobile menu when a link is clicked
     navbarMenu.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (navbarMenu.classList.contains('active')) {
-                navbarMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                setMenuState(false);
             }
         });
     });

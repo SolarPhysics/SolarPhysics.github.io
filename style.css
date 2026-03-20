@@ -11,17 +11,19 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --accent-primary: #007bff;
     --accent-secondary: #FF6B35;
-    --solar-glow: #ff8c57;
-    --solar-core: #FFB366;
-    --solar-corona: #FF9933;
-    --solar-flare: #FF6633;
+    --solar-core-bright: #fff5d8;
+    --solar-core-mid: #ffd47d;
+    --solar-edge: #ff8d3b;
+    --solar-corona-soft: rgba(255, 137, 58, 0.28);
+    --solar-corona-hot: rgba(255, 202, 110, 0.4);
+    --solar-shadow: rgba(112, 28, 4, 0.28);
     --space-dark: #0a0a0a;
     --space-deep: #1a1a2e;
-    --header-bg: radial-gradient(ellipse at center 20%,
-        rgba(10, 10, 10, 1) 0%,
-        rgba(15, 15, 20, 1) 20%,
-        rgba(10, 10, 15, 1) 40%,
-        rgba(5, 5, 10, 1) 70%,
+    --header-bg: radial-gradient(circle at center 46%,
+        rgba(88, 32, 10, 0.35) 0%,
+        rgba(34, 18, 12, 0.18) 18%,
+        rgba(12, 12, 18, 0.96) 42%,
+        rgba(5, 5, 10, 1) 72%,
         rgba(0, 0, 0, 1) 100%);
     --navbar-bg: rgba(10, 10, 10, 0.3); /* Simplified transparent background */
 }
@@ -36,6 +38,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 2;
+    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -149,9 +152,9 @@ header {
     filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.8));
 }
 
-#meetings-table-container h3 {
+.meeting-range {
     text-align: center;
-    margin: 1.5rem 0;
+    margin: 0 0 1.5rem;
     font-size: 1.3rem;
     font-weight: 600;
     color: #495057;
@@ -192,8 +195,9 @@ header {
     margin: auto;
     padding: 0; /* Remove padding, will add to header-content */
     text-align: center;
+    isolation: isolate;
     /* Add subtle animation to background */
-    animation: headerPulse 8s ease-in-out infinite;
+    animation: headerPulse 18s ease-in-out infinite;
 }
 
 @keyframes headerPulse {
@@ -202,8 +206,8 @@ header {
         background-position: center center;
     }
     50% {
-        background-size: 105% 105%;
-        background-position: center center;
+        background-size: 104% 104%;
+        background-position: center 46%;
     }
 }
 
@@ -211,100 +215,97 @@ header {
 .header-container::before {
     content: '';
     position: absolute;
-    top: 50%; /* Centered for balanced composition */
+    top: 50%;
     left: 50%;
-    width: 420px;
-    height: 420px;
+    width: 440px;
+    height: 440px;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle at 30% 30%,
-        #FFE4CC 0%,
-        #FFD4AA 8%,
-        #FFB366 15%,
-        #FF9933 30%,
-        #FF8C57 45%,
-        #FF6633 60%,
-        rgba(255, 102, 51, 0.3) 75%,
-        rgba(255, 140, 57, 0.15) 85%,
-        transparent 95%);
+    background:
+        radial-gradient(circle at 29% 28%, rgba(255, 247, 219, 0.28) 0%, rgba(255, 247, 219, 0.28) 10%, transparent 22%),
+        radial-gradient(circle at 70% 30%, rgba(255, 225, 161, 0.18) 0%, rgba(255, 225, 161, 0.18) 9%, transparent 19%),
+        radial-gradient(circle at 26% 59%, rgba(117, 31, 5, 0.2) 0%, rgba(117, 31, 5, 0.2) 12%, transparent 24%),
+        radial-gradient(circle at 58% 63%, rgba(255, 239, 196, 0.14) 0%, rgba(255, 239, 196, 0.14) 8%, transparent 18%),
+        radial-gradient(circle at 73% 62%, rgba(100, 22, 3, 0.16) 0%, rgba(100, 22, 3, 0.16) 10%, transparent 21%),
+        radial-gradient(circle at 44% 76%, rgba(255, 248, 226, 0.12) 0%, rgba(255, 248, 226, 0.12) 8%, transparent 18%),
+        radial-gradient(circle at 41% 38%, rgba(167, 44, 10, 0.16) 0%, rgba(167, 44, 10, 0.16) 7%, transparent 15%),
+        radial-gradient(circle at 61% 46%, rgba(255, 250, 233, 0.12) 0%, rgba(255, 250, 233, 0.12) 6%, transparent 14%),
+        radial-gradient(circle at 50% 48%,
+            var(--solar-core-bright) 0%,
+            #fff1c5 14%,
+            var(--solar-core-mid) 35%,
+            #ffb75d 56%,
+            var(--solar-edge) 74%,
+            rgba(227, 100, 33, 0.96) 88%,
+            rgba(171, 55, 16, 0.92) 100%);
     border-radius: 50%;
-    filter: blur(1px);
-    animation: solarPulse 8s ease-in-out infinite, solarRotate 30s linear infinite;
+    filter: saturate(115%) brightness(1.02);
+    animation: solarSurfaceDrift 20s ease-in-out infinite;
     box-shadow:
-        0 -120px 250px rgba(255, 179, 102, 0.4), /* Softer upward corona glow */
-        0 -80px 180px rgba(255, 140, 57, 0.5),
-        0 -40px 120px rgba(255, 107, 53, 0.6),
-        0 0 200px rgba(255, 153, 51, 0.7),
-        0 0 300px rgba(255, 102, 51, 0.6),
-        0 0 400px rgba(255, 102, 51, 0.4),
-        inset 0 0 120px rgba(255, 212, 179, 0.3),
-        inset 0 -30px 80px rgba(255, 179, 102, 0.2);
+        0 0 0 1px rgba(255, 233, 186, 0.12),
+        0 0 48px rgba(255, 203, 116, 0.22),
+        0 0 130px var(--solar-corona-hot),
+        0 0 230px var(--solar-corona-soft),
+        0 0 340px rgba(255, 120, 45, 0.16),
+        inset -30px -44px 72px var(--solar-shadow),
+        inset 18px 18px 50px rgba(255, 247, 220, 0.18),
+        inset 0 0 28px rgba(255, 255, 255, 0.08);
     z-index: 1;
+    pointer-events: none;
 }
 
-/* Solar Flares */
+/* Diffuse corona and plasma haze */
 .header-container::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 50%;
-    width: 400px;
-    height: 400px;
+    width: 620px;
+    height: 620px;
     transform: translate(-50%, -50%);
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        rgba(255, 153, 51, 0.08) 30deg,
-        transparent 60deg,
-        rgba(255, 102, 51, 0.08) 120deg,
-        transparent 180deg,
-        rgba(255, 179, 102, 0.08) 240deg,
-        transparent 300deg,
-        rgba(255, 102, 51, 0.08) 330deg,
-        transparent 360deg
-    );
-    animation: flareRotate 15s linear infinite;
+    background:
+        radial-gradient(ellipse at 50% 14%, rgba(255, 236, 177, 0.3) 0%, rgba(255, 190, 97, 0.16) 24%, transparent 55%),
+        radial-gradient(ellipse at 18% 46%, rgba(255, 160, 76, 0.18) 0%, rgba(255, 160, 76, 0.08) 20%, transparent 42%),
+        radial-gradient(ellipse at 83% 43%, rgba(255, 167, 80, 0.16) 0%, rgba(255, 167, 80, 0.07) 18%, transparent 40%),
+        radial-gradient(ellipse at 33% 82%, rgba(255, 121, 56, 0.14) 0%, rgba(255, 121, 56, 0.06) 20%, transparent 38%),
+        radial-gradient(circle at 50% 50%, rgba(255, 167, 86, 0.1) 0%, rgba(255, 167, 86, 0.1) 43%, rgba(255, 167, 86, 0.04) 58%, transparent 78%);
+    border-radius: 50%;
+    filter: blur(16px);
+    animation: coronaBreath 16s ease-in-out infinite;
     z-index: 0;
-    opacity: 0.7;
+    opacity: 0.92;
+    pointer-events: none;
 }
 
 /* Animation Keyframes */
-@keyframes solarPulse {
+@keyframes solarSurfaceDrift {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        filter: blur(2px) brightness(1);
+        filter: saturate(115%) brightness(1.02);
     }
-    25% {
-        transform: translate(-50%, -50%) scale(1.05);
-        filter: blur(1px) brightness(1.1);
+    30% {
+        transform: translate(-49.2%, -50.6%) scale(1.018);
+        filter: saturate(120%) brightness(1.05);
     }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-        filter: blur(3px) brightness(1.2);
+    55% {
+        transform: translate(-50.8%, -49.4%) scale(1.03);
+        filter: saturate(111%) brightness(0.99);
     }
-    75% {
-        transform: translate(-50%, -50%) scale(1.05);
-        filter: blur(2px) brightness(1.1);
-    }
-}
-
-@keyframes solarRotate {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
+    80% {
+        transform: translate(-49.6%, -50.3%) scale(1.012);
+        filter: saturate(118%) brightness(1.03);
     }
 }
 
-@keyframes flareRotate {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+@keyframes coronaBreath {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(0.985);
+        opacity: 0.78;
+        filter: blur(14px);
     }
     50% {
-        transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 0.96;
+        filter: blur(19px);
     }
 }
 
@@ -494,6 +495,138 @@ th, td {
     text-shadow: 0 0 8px rgba(255, 107, 53, 0.2);
 }
 
+.meetings-desktop-view {
+    display: block;
+}
+
+.meetings-mobile-list {
+    display: none;
+}
+
+.meeting-card {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 107, 53, 0.12);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.08);
+}
+
+.meeting-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.12);
+}
+
+.meeting-card-date {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.meeting-card-time {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.meeting-card-row {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.meeting-card-row + .meeting-card-row {
+    margin-top: 0.95rem;
+}
+
+.meeting-card-label {
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: #6c757d;
+}
+
+.meeting-card-value {
+    color: #212529;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.meeting-card-article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meeting-card-article-item + .meeting-card-article-item {
+    margin-top: 0.5rem;
+}
+
+.meeting-card-article-single,
+.meeting-card-article-item {
+    color: inherit;
+}
+
+.meeting-card-article-single a,
+.meeting-card-article-item a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #FF6B35;
+    text-decoration: none;
+}
+
+.meeting-card-article-single a:hover,
+.meeting-card-article-item a:hover {
+    color: #FF6633;
+    text-decoration: underline;
+}
+
+.meeting-material-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.meeting-material-link,
+.meeting-material-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 107, 53, 0.14);
+    background: rgba(255, 107, 53, 0.06);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.meeting-material-link {
+    color: #FF6B35;
+    font-weight: 600;
+}
+
+.meeting-material-link:hover {
+    color: #FF6633;
+    text-decoration: none;
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.meeting-material-text {
+    color: #6c757d;
+    font-weight: 600;
+}
+
 
 a {
 
@@ -661,37 +794,6 @@ a:focus {
 }
 
 
-.upcoming-meeting-container {
-    display: flex;
-    align-items: flex-start; /* Keep alignment */
-    gap: 2rem;
-    /* Added align-items: stretch to make children fill height */
-    align-items: stretch; 
-    max-width: 93rem;
-    margin: auto;
-    padding: 1.25rem;
-    
-}
-
-.meeting-image-placeholder {
-    /* Removed fixed basis/width */
-    /* flex: 0 0 300px; */ /* Let's remove fixed width for now, can add back if needed */
-    display: flex; /* Make it a flex container for the image */
-    /* align-self: stretch; /* Ensure this container stretches */
-    /* Use flex-grow/shrink/basis for better control if needed */
-    flex: 0 0 30%; /* Example: Give it 30% width, allow shrinking */
-    max-width: 400px; /* Optional: prevent it from becoming too wide */
-}
-
-.upcoming-meeting-image {
-    /* max-width: 100%; Remove max-width if we want it to fill container width */
-    width: 100%; /* Fill placeholder width */
-    height: 100%; /* Fill placeholder height */
-    /* height: auto; Removed auto height */
-    border-radius: 8px; 
-    object-fit: contain; /* Or 'cover', ensures aspect ratio is maintained */
-}
-
 .past-meeting-container {
     display: flex;
     flex-direction: column;
@@ -702,37 +804,12 @@ a:focus {
 
 #upcoming-meeting.container {
     text-align: left; /* Explicitly aligns text to the left */
+    padding: 0;
 }
 
 #upcoming-meeting {
-
-    padding: 1.25rem;
-    margin-bottom: 1.25rem;
-    border-left: none; /* Removes the left border */
-    font-weight: bold; /* Make the font bold */
-}
-
-#upcoming-meeting h2 {
-    color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
-    font-size: 3.8rem; /* Adjusts the font size back to match other headings if desired */
-}
-
-#upcoming-meeting p {
-    color: #333; /* Standard text color, adjust if you want to keep it blue for emphasis */
-    font-size: 2rem; /* Adjusts the font size back to match other headings if desired */
-}
-
-.presenter-name {
-    /* font-family: "Josefin Slab", serif; */
-    font-family: Arial, sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: italic;
-    color: #333;
-}
-
-#upcoming-meeting a {
-    font-size: 2rem; /* Adjusts the font size back to match other headings if desired */
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -743,8 +820,12 @@ img {
     margin: auto;
 }
 
+#intermediate {
+    padding: 0 1.25rem 1.75rem;
+}
+
 #intermediate img {
-    width: 30%;
+    width: min(30%, 22rem);
     height: auto;
     display: block;
     margin: auto;
@@ -787,203 +868,171 @@ img {
     .container {
         width: auto;
         margin: 0;
-        text-align: center;
     }
 
+    body,
+    p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
 
     .header-container {
         background-attachment: scroll;
         background-size: cover;
-        padding: 3.5rem 1.5rem; /* Adjusted padding */
         margin: 0;
-        height: auto;
+        min-height: 0;
         text-align: center;
     }
 
+    .header-container::before {
+        top: 30%;
+        width: clamp(240px, 74vw, 320px);
+        height: clamp(240px, 74vw, 320px);
+    }
+
+    .header-container::after {
+        top: 31%;
+        width: clamp(320px, 92vw, 460px);
+        height: clamp(320px, 92vw, 460px);
+    }
+
+    .header-content {
+        max-width: 32rem;
+        margin: 0 auto;
+        padding: clamp(7.25rem, 22vw, 8.75rem) 0.75rem 4.25rem;
+    }
 
     .school-mark-container {
         height: 2.5rem; /* Smaller on mobile */
     }
 
-    /* Removed overly small generic header styles */
-    /* .header-container h1 {
-        font-size: 0.5rem;
-    } */
-    /* .header-container p {
-        font-size: 0.5rem;
-    } */
-
-    #meetings-table-container {
-        /* padding: 4.5rem 2rem; */ /* Removed excessive padding */
-        padding: 1rem; /* Reduced padding */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin: 0;
-        position: relative;
-    }
-
-    #meetings-table-container h3 {
-        position: sticky;
-        top: 0;
-        left: 0;
-        background-color: #f0f0f0;
-        margin: 0 0 1rem 0;
-        padding: 0.8rem; /* Adjusted padding */
-        z-index: 1;
-        font-size: 1.1rem; /* Slightly larger */
-    }
-
-
-    #meetings-table-container table {
-        margin-top: 0;
-    }
-
-    #meetings-table-container thead {
-        position: sticky;
-        top: 0;
-        background-color: white;
-        z-index: 10;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-
     .upcoming-meeting-container {
-        flex-direction: column; /* Stack vertically on small screens */
-        align-items: center; /* Center items when stacked */
-    }
-
-    /* .past-meeting-container - already flex-column, no extra style needed here */
-    /* .past-meeting-container {
         flex-direction: column;
-        margin: 0;
-    } */
-
-    .meeting-image-placeholder {
-        width: 80%; /* Adjust width for stacked layout */
-        /* height: 200px; Remove fixed height */
-        margin-top: 1rem; /* Add space when stacked */
-        /* Remove flex properties not relevant for column layout */
-        flex: none; 
-        max-width: none; /* Remove max-width for stacked layout */
+        align-items: stretch;
+        gap: 1.25rem;
+        margin-top: 1rem;
+        padding: 1.25rem 1rem 0;
     }
-
-
-    body, p { /* Keep link separate */
-        font-size: 1rem; /* Increased base font size */
-    }
-
-    a { /* Keep link specific styles */
-        font-size: 1rem; /* Match base font size */
-        font-family: Arial, sans-serif;
-        font-weight: 800;
-        font-optical-sizing: auto;
-        color: #007bff;
-        text-decoration: none;
-        position: relative;
-        transition: all 0.3s ease;
-    }
-
-    a:hover {
-        text-decoration: underline;
-        color: #0056b3;
-    }
-
-    a:focus {
-        outline: 2px solid #007bff;
-    }
-
-    /* Removed overly small generic h1, h2 */
-    /* h1 {
-        font-size: 0.5rem;
-    } */
-    /* h2 {
-        font-size: 0.5rem;
-    } */
 
     .header-container h1 {
-        font-size: 2.5rem; /* Increased */
+        font-size: clamp(2.25rem, 10vw, 3.6rem);
+        line-height: 1.05;
     }
 
     .header-container h2 {
-        font-size: 1.4rem; /* Increased */
+        font-size: clamp(1.1rem, 4.8vw, 1.65rem);
+        line-height: 1.35;
+        margin-top: 0.85rem;
     }
 
     .header-container p {
-        font-size: 2rem; /* Increased */
+        font-size: clamp(1.65rem, 8vw, 2.7rem);
+        margin-bottom: 0.5rem;
     }
 
-    /* Upcoming meeting card mobile adjustments */
     .upcoming-card {
-        padding: 1.5rem 1.2rem;
-        border-radius: 12px;
+        padding: 1.4rem 1.15rem;
+        border-radius: 14px;
     }
 
     .card-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
+        font-size: clamp(1.75rem, 7vw, 2.1rem);
+        margin-bottom: 1.25rem;
     }
 
     .card-item {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     .item-label {
-        font-size: 0.75rem;
+        font-size: 0.74rem;
         letter-spacing: 0.8px;
     }
 
     .item-value {
-        font-size: 0.95rem;
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .article-item {
+        margin-bottom: 0.75rem;
     }
 
     .article-item a {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .zoom-button {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
-    }
-
-    .upcoming-meeting-container {
-        padding: 1rem 0.5rem;
-    }
-     /* No need to redefine #upcoming-meeting p, a generally, handled by body/a */
-
-    #meetings-table-container th {
-        background: linear-gradient(135deg, #FF6B35, #FF9933);
-        color: white;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.5px;
+        width: 100%;
+        box-sizing: border-box;
         text-align: center;
-        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
     }
 
-    #meetings-table-container th,
-    #meetings-table-container td {
-        padding: 0.6rem 0.4rem;
-        white-space: normal;
-        font-size: 0.85rem;
+    #intermediate {
+        padding: 0 1rem 1.5rem;
+    }
+
+    #intermediate img {
+        width: min(68vw, 20rem);
+    }
+
+    #past-meetings {
+        padding: 1.5rem 1rem 2rem;
     }
 
     #quarters-container {
-        padding: 0.8rem;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+        margin: 0 -0.25rem 1.25rem;
+        padding: 0.35rem 0.25rem 0.85rem;
+        background: transparent;
+        border-radius: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+    }
+
+    #quarters-container::-webkit-scrollbar {
+        display: none;
     }
 
     .quarter-button {
-        padding: 8px 16px;
-        font-size: 0.8rem;
-        margin: 4px;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 0.65rem 1rem;
+        font-size: 0.82rem;
+        margin: 0;
+        scroll-snap-align: start;
+    }
+
+    #meetings-table-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .meeting-range {
+        margin: 0 0 1rem;
+        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
+    }
+
+    .meetings-desktop-view {
+        display: none;
+    }
+
+    .meetings-mobile-list {
+        display: grid;
+        gap: 1rem;
     }
 
     #past-meetings h2 {
         font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    .presenter-name {
-        font-size: 1.1rem; /* Adjusted */
+        margin-bottom: 1.25rem;
     }
 
     /* Footer mobile styles */
@@ -1027,13 +1076,6 @@ img {
         font-size: 0.75rem;
         line-height: 1.4;
     }
-
-    .upcoming-meeting-image {
-        /* Keep height 100% and object-fit for consistency */
-        /* Or adjust if a different behavior is needed on mobile */
-         height: auto; /* Let height be natural on mobile stack */
-         max-height: 300px; /* Optional: constrain max height */
-    }
 }
 
 /* --- Navbar Styles (No Background) --- */
@@ -1076,7 +1118,7 @@ img {
 }
 .nav-link {
   color: rgba(255, 255, 255, 0.95);
-  font-family: \'Times New Roman\', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   text-decoration: none;
   font-weight: 400; /* Normal weight, not bold */
   font-size: 1.2rem; /* Harmonious size with header fonts */
@@ -1119,6 +1161,9 @@ img {
   transform: translateY(-50%);
   cursor: pointer;
   padding: 5px;
+  border: 0;
+  background: transparent;
+  appearance: none;
   z-index: 10;
 }
 .mobile-menu span {
@@ -1129,6 +1174,11 @@ img {
   margin: 5px 0;
   border-radius: 1px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+  border-radius: 999px;
 }
 /* Mobile Menu Active State (transform into 'X') */
 .mobile-menu.active span:nth-child(1) {
@@ -1143,43 +1193,47 @@ img {
 @media (max-width: 768px) {
   /* Corner logo mobile adjustments */
   .header-container .corner-logo-link {
-    top: 10px !important;
-    left: 10px !important;
+    top: 14px !important;
+    left: 14px !important;
     right: auto !important;
   }
 
   .corner-logo {
-    height: 40px;
+    height: clamp(34px, 9vw, 42px);
   }
 
   .navbar-container {
     height: auto; /* Allow height to adjust */
-    min-height: 3.5rem; /* Modern compact height */
-    padding: 0.75rem 1.5rem;
+    min-height: 4.25rem;
+    padding: 0.65rem 1rem 0.25rem;
     justify-content: space-between; /* Space for mobile menu */
   }
   .navbar-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Position below the static navbar */
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    top: calc(100% + 0.25rem);
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    background: rgba(0, 0, 0, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
+    align-items: stretch;
+    padding: 0.5rem 0 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
     z-index: 999; /* Ensure it's above content, below potential fixed elements if any */
   }
   .navbar-menu.active {
     display: flex; /* Show when active */
   }
   .nav-link {
-    padding: 1rem;
+    padding: 0.95rem 1rem;
     width: 100%;
     text-align: center;
-    font-size: 1.1rem; /* Maintain readability on mobile */
+    font-size: 1.05rem;
     letter-spacing: 0; /* No letter spacing for consistency */
     font-weight: 400; /* Ensure normal weight on mobile too */
   }
@@ -1187,10 +1241,43 @@ img {
     display: none; /* No underline for mobile links */
   }
   .mobile-menu {
-    display: block; /* Show hamburger icon */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    right: 0.65rem;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
   }
 }
 /* --- End Navbar Styles --- */
+
+@media (prefers-reduced-motion: reduce) {
+    .header-container,
+    .header-container::before,
+    .header-container::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .header-container {
+        background-size: 100% 100%;
+        background-position: center center;
+    }
+
+    .header-container::before {
+        transform: translate(-50%, -50%) scale(1);
+        filter: saturate(112%) brightness(1.01);
+    }
+
+    .header-container::after {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.84;
+        filter: blur(15px);
+    }
+}
 
 /* --- Upcoming Meeting Card Styles --- */
 .upcoming-card {
@@ -1200,7 +1287,7 @@ img {
   -webkit-backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 2rem 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   border: 1px solid rgba(255, 107, 53, 0.15);
   box-shadow:
     0 8px 32px rgba(255, 107, 53, 0.08),
@@ -1359,36 +1446,20 @@ img {
 /* Adjust container for card layout */
 .upcoming-meeting-container {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem 1.25rem;
+  max-width: 93rem;
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
   position: relative;
 }
 
 #upcoming-meeting.container {
-  flex: 1 1 auto;
+  flex: 0 1 800px;
   max-width: 800px;
+  margin: 0 auto;
   padding: 0;
 }
-
-/* Hide or style the image differently */
-.meeting-image-placeholder {
-  display: none; /* Hide the image for cleaner design */
-}
-
-/* Alternative: Use image as subtle background */
-/* .meeting-image-placeholder {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.05;
-  width: 300px;
-  height: auto;
-  pointer-events: none;
-  z-index: -1;
-} */
 
 /* --- End Upcoming Meeting Card Styles --- */

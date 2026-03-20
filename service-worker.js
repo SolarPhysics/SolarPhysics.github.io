@@ -1,6 +1,6 @@
 // Service Worker for Solar Physics Journal Club
-const CACHE_NAME = 'spjc-cache-v4';
-const DYNAMIC_CACHE = 'spjc-dynamic-v4';
+const CACHE_NAME = 'spjc-cache-v6';
+const DYNAMIC_CACHE = 'spjc-dynamic-v6';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -22,7 +22,7 @@ const STATIC_ASSETS = [
     '/figs/SP_image.png',
     '/figs/KHAO.jpeg',
     // Fonts
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&family=Roboto:wght@700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap'
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&display=swap'
 ];
 
 // Install event - cache static assets
