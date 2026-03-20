@@ -1,6 +1,6 @@
 // Service Worker for Solar Physics Journal Club
-const CACHE_NAME = 'spjc-cache-v6';
-const DYNAMIC_CACHE = 'spjc-dynamic-v6';
+const CACHE_NAME = 'spjc-cache-v7';
+const DYNAMIC_CACHE = 'spjc-dynamic-v7';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -24,6 +24,11 @@ const STATIC_ASSETS = [
     // Fonts
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bad+Script&display=swap'
 ];
+
+const FONT_ORIGINS = new Set([
+    'https://fonts.googleapis.com',
+    'https://fonts.gstatic.com'
+]);
 
 // Install event - cache static assets
 self.addEventListener('install', event => {
@@ -57,50 +62,97 @@ self.addEventListener('activate', event => {
     );
 });
 
-// Fetch event - serve from cache with network fallback
-self.addEventListener('fetch', event => {
-    const { request } = event;
-    const url = new URL(request.url);
+function isCacheableResponse(response) {
+    return response && response.ok && (response.type === 'basic' || response.type === 'cors');
+}
 
-    // Skip cross-origin requests
-    if (url.origin !== location.origin && !url.href.includes('fonts.googleapis.com')) {
+function isDocumentRequest(request) {
+    return request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html');
+}
+
+function isCodeAsset(url) {
+    return url.origin === location.origin && (
+        url.pathname === '/style.css' ||
+        url.pathname === '/meetings.js' ||
+        url.pathname === '/manifest.json' ||
+        (url.pathname.startsWith('/meetings-data/') && url.pathname.endsWith('.js'))
+    );
+}
+
+function isImageRequest(request, url) {
+    return request.destination === 'image' && url.origin === location.origin;
+}
+
+function isFontRequest(request, url) {
+    return request.destination === 'font' || FONT_ORIGINS.has(url.origin);
+}
+
+async function updateDynamicCache(request, response) {
+    if (!isCacheableResponse(response)) {
         return;
     }
 
-    event.respondWith(
-        caches.match(request).then(cachedResponse => {
-            // Return cached response if found
-            if (cachedResponse) {
-                return cachedResponse;
-            }
+    const cache = await caches.open(DYNAMIC_CACHE);
+    await cache.put(request, response.clone());
+}
 
-            // Otherwise, fetch from network
-            return fetch(request).then(networkResponse => {
-                // Check if valid response
-                if (!networkResponse || networkResponse.status !== 200 || networkResponse.type === 'opaque') {
-                    return networkResponse;
-                }
+async function networkFirst(request, fallbackUrl) {
+    try {
+        const networkResponse = await fetch(request);
+        await updateDynamicCache(request, networkResponse);
+        return networkResponse;
+    } catch (error) {
+        const cachedResponse = await caches.match(request);
+        if (cachedResponse) {
+            return cachedResponse;
+        }
 
-                // Clone the response for caching
-                const responseToCache = networkResponse.clone();
+        if (fallbackUrl) {
+            return caches.match(fallbackUrl);
+        }
 
-                // Add to dynamic cache
-                caches.open(DYNAMIC_CACHE).then(cache => {
-                    // Don't cache POST requests or chrome-extension
-                    if (request.method === 'GET' && !request.url.includes('chrome-extension')) {
-                        cache.put(request, responseToCache);
-                    }
-                });
+        throw error;
+    }
+}
 
-                return networkResponse;
-            }).catch(() => {
-                // Offline fallback for HTML pages
-                if (request.headers.get('accept').includes('text/html')) {
-                    return caches.match('/index.html');
-                }
-            });
-        })
-    );
+async function cacheFirst(request) {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+        return cachedResponse;
+    }
+
+    const networkResponse = await fetch(request);
+    await updateDynamicCache(request, networkResponse);
+    return networkResponse;
+}
+
+// Fetch event - use network-first for HTML/code and cache-first for images/fonts
+self.addEventListener('fetch', event => {
+    const { request } = event;
+
+    if (request.method !== 'GET' || request.url.includes('chrome-extension')) {
+        return;
+    }
+
+    const url = new URL(request.url);
+
+    if (url.origin !== location.origin && !FONT_ORIGINS.has(url.origin)) {
+        return;
+    }
+
+    if (isDocumentRequest(request)) {
+        event.respondWith(networkFirst(request, '/index.html'));
+        return;
+    }
+
+    if (isCodeAsset(url)) {
+        event.respondWith(networkFirst(request));
+        return;
+    }
+
+    if (isImageRequest(request, url) || isFontRequest(request, url)) {
+        event.respondWith(cacheFirst(request));
+    }
 });
 
 // Background sync for future enhancement
