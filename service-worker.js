@@ -1,6 +1,6 @@
 // Service Worker for Solar Physics Journal Club
-const CACHE_NAME = 'spjc-cache-v9';
-const DYNAMIC_CACHE = 'spjc-dynamic-v9';
+const CACHE_NAME = 'spjc-cache-v10';
+const DYNAMIC_CACHE = 'spjc-dynamic-v10';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
